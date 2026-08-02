@@ -2,7 +2,7 @@
 
 **Préparer, adapter et relire son enseignement, de la maternelle au CFA : à l’école, au collège, au lycée et en apprentissage.**
 
-Classe FR est un plugin Codex pensé pour les enseignants exerçant en France. Il aide à préparer le travail de l’année, à organiser ses ressources, à créer des supports plus accessibles et à formuler des communications professionnelles. C’est un copilote de préparation : l’enseignant garde toujours la décision pédagogique et relit chaque production avant de l’utiliser.
+Classe FR est un plugin pour Codex/ChatGPT Work pensé pour les enseignants exerçant en France. Il aide à préparer le travail de l’année, à organiser ses ressources, à créer des supports plus accessibles et à formuler des communications professionnelles. C’est un copilote de préparation : l’enseignant garde toujours la décision pédagogique et relit chaque production avant de l’utiliser.
 
 ## Ce que Classe FR peut vous aider à faire
 
@@ -15,31 +15,37 @@ Classe FR est un plugin Codex pensé pour les enseignants exerçant en France. I
 
 Les compétences s’adressent aux enseignants de maternelle, d’élémentaire, de collège, de lycée général, technologique ou professionnel, ainsi que de CFA. Elles proposent des repères adaptés au niveau, mais ne remplacent ni les programmes, ni le travail d’équipe, ni votre connaissance de la classe.
 
-## Installer dans Codex ou ChatGPT
+## Installer dans Codex/ChatGPT Work
 
 L’installation par l’interface est recommandée : elle ne demande ni terminal ni compte GitHub particulier.
 
-1. Dans Codex ou ChatGPT Work, ouvrez **Plugins**, puis choisissez **Ajouter une marketplace**.
+1. Dans Codex/ChatGPT Work, ouvrez **Plugins**, puis choisissez **Ajouter une marketplace**.
 2. Renseignez `StephaneBayle/classe-fr` dans **Source** et `main` dans **Réf. Git**. Laissez **Chemins partiels** vide.
 3. Cliquez sur **Ajouter une marketplace**, recherchez **Classe FR**, puis choisissez **Installer**.
 4. Ouvrez une **nouvelle conversation** : les compétences du plugin sont alors disponibles.
 
 Le dépôt étant public, tous les enseignants peuvent suivre ce parcours. Ils n’ont pas besoin d’être invités comme collaborateurs GitHub.
 
-## Préparer sa première séance
+## Choisir et déclencher une compétence
 
-Dans la nouvelle conversation, décrivez simplement votre contexte. Par exemple :
+Vous pouvez décrire votre besoin avec vos mots : l’assistant sélectionnera la compétence pertinente. Pour la choisir vous-même, écrivez son nom précédé de `$` dans Codex, par exemple `$preparation-differenciation`. Dans ChatGPT Work, tapez `@`, puis choisissez **Classe FR** ou la compétence proposée.
 
-> J’enseigne les mathématiques en 5e. Aide-moi à préparer une séance sur les fractions, avec un objectif précis et des options accessibles à tous les élèves.
+Commencez toujours par indiquer le niveau, la discipline ou le domaine, et ce que vous souhaitez obtenir. Voici les dix compétences et des demandes prêtes à copier.
 
-Codex choisira les compétences utiles. Vous pouvez aussi les appeler directement :
+| Compétence | À utiliser quand… | Demande prête à copier |
+| --- | --- | --- |
+| `$cadrage-annee-scolaire` | vous démarrez une année, une nouvelle classe ou une prise de poste | « Je prends une classe de CE2. Aide-moi à cadrer mon année, avec mes priorités et les grandes étapes. » |
+| `$bibliotheque-pedagogique` | vous voulez classer et retrouver vos propres ressources | « Aide-moi à organiser mes ressources de français 6e par objectif, niveau, source et droit d’usage. » |
+| `$style-et-design-prof` | vous voulez harmoniser vos supports, évaluations et messages | « À partir de ces textes professionnels anonymisés, aide-moi à définir mon style d’écriture et mes règles de mise en page accessibles. » |
+| `$programmation-annuelle` | vous répartissez les apprentissages sur l’année ou les périodes | « Construis une programmation annuelle de mathématiques pour une 5e, à partir des repères que je fournis et des sources à vérifier. » |
+| `$preparation-differenciation` | vous préparez une séquence, une séance ou un support | « Prépare une séance de SVT en seconde sur la biodiversité : objectif clair, déroulé, supports et plusieurs accès au contenu. » |
+| `$cua-accessibilite-pedagogique` | vous voulez rendre une séance, un support ou une évaluation plus accessible | « Audite cette évaluation de lecture en CM2 selon la CUA, sans changer ce qui est réellement évalué. » |
+| `$evaluation-retours` | vous créez une évaluation, une grille ou un retour aux élèves | « Conçois une grille d’évaluation pour un oral de CAP, avec critères explicites et modalités d’expression adaptées. » |
+| `$communication-familles` | vous rédigez un message collectif ou une information pratique | « Rédige un message clair aux familles de 4e sur la sortie scolaire, sans mentionner d’élève en particulier. » |
+| `$bilan-de-periode` | vous faites le point après une période, une séquence ou avant une réunion | « Aide-moi à faire le bilan de ma période en maternelle : acquis observés, ajustements à envisager et prochaines priorités. » |
+| `$feedback-au-createur` | vous souhaitez signaler un bug, une idée ou un besoin pour faire évoluer Classe FR | « Aide-moi à formuler un retour sur Classe FR concernant l’accessibilité, sans aucune donnée personnelle ni document identifiable. » |
 
-- `$cadrage-annee-scolaire` pour démarrer une année ou une nouvelle classe ;
-- `$programmation-annuelle` pour répartir les apprentissages ;
-- `$preparation-differenciation` pour concevoir une séance ;
-- `$evaluation-retours` pour expliciter les critères et les retours.
-
-Pour organiser vos ressources et vos productions, demandez à Codex de créer un espace professeur local dans votre dossier de travail. Les personnes qui préfèrent le faire elles-mêmes peuvent exécuter :
+Pour organiser vos ressources et vos productions, demandez à l’assistant de créer un espace professeur local dans votre dossier de travail. Les personnes qui préfèrent le faire elles-mêmes peuvent exécuter :
 
 ```bash
 python3 plugins/classe-fr/scripts/init_teacher_space.py teacher-space
