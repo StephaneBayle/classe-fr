@@ -1,6 +1,6 @@
 # Classe FR
 
-**Préparer, adapter et relire son enseignement, de la petite section au CFA.**
+**Préparer, adapter et relire son enseignement, de la maternelle au CFA : à l’école, au collège, au lycée et en apprentissage.**
 
 Classe FR est un plugin Codex pensé pour les enseignants exerçant en France. Il aide à préparer le travail de l’année, à organiser ses ressources, à créer des supports plus accessibles et à formuler des communications professionnelles. C’est un copilote de préparation : l’enseignant garde toujours la décision pédagogique et relit chaque production avant de l’utiliser.
 
@@ -13,7 +13,7 @@ Classe FR est un plugin Codex pensé pour les enseignants exerçant en France. I
 - harmoniser vos documents et vos messages aux familles à partir de textes professionnels anonymisés ;
 - faire un bilan de période et préparer un retour d’expérience pour le créateur.
 
-Les compétences sont utilisables de la PS à la terminale, en lycée professionnel et en CFA. Elles proposent des repères adaptés au niveau, mais ne remplacent ni les programmes, ni le travail d’équipe, ni votre connaissance de la classe.
+Les compétences s’adressent aux enseignants de maternelle, d’élémentaire, de collège, de lycée général, technologique ou professionnel, ainsi que de CFA. Elles proposent des repères adaptés au niveau, mais ne remplacent ni les programmes, ni le travail d’équipe, ni votre connaissance de la classe.
 
 ## Commencer simplement
 
