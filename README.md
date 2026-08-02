@@ -30,15 +30,21 @@ Le dépôt étant public, tous les enseignants peuvent suivre ce parcours. Ils n
 
 ## Utiliser avec Claude Code ou Cowork
 
-Classe FR reste structuré comme plugin OpenAI, mais le dépôt fournit aussi trois entrées compatibles avec Claude Code/Cowork.
+Classe FR reste structuré comme plugin OpenAI, mais il peut aussi être ajouté dans Claude depuis le menu de personnalisation des plugins.
+
+1. Dans Claude, ouvrez **Personnaliser**, puis **Plugins**.
+2. Cliquez sur **Ajouter**, puis choisissez **Ajouter une place de marché**.
+3. Sélectionnez **Ajouter depuis un dépôt**.
+4. Renseignez le dépôt `StephaneBayle/classe-fr`, ou l’URL Git `https://github.com/StephaneBayle/classe-fr.git`, puis synchronisez la marketplace.
+5. Recherchez **Classe FR**, activez le plugin, puis ouvrez une nouvelle conversation.
+
+Le dépôt fournit aussi trois entrées compatibles avec Claude Code/Cowork pour les personnes qui travaillent directement depuis les fichiers source.
 
 - `CLAUDE.md` donne les règles du projet quand vous ouvrez ce dépôt dans Claude Code ou Cowork.
 - `.claude/agents/classe-fr-pedagogie.md` permet à Claude Code de découvrir automatiquement l’agent quand le dépôt est ouvert comme projet.
 - `plugins/classe-fr/agents/classe-fr-pedagogie.md` fournit un agent Claude portable qui reprend les garde-fous du plugin : confidentialité, objectif invariant, CUA, sources datées et responsabilité de validation par l’enseignant.
 
-Dans Claude Code, ouvrez le dépôt puis demandez par exemple : « Utilise l’agent `classe-fr-pedagogie` pour préparer une séance inclusive de CM1 sur les fractions. » L’agent lit les compétences dans `plugins/classe-fr/skills/` et les références utiles avant de produire un livrable.
-
-Dans Cowork, utilisez les mêmes consignes projet et pointez le travail vers `CLAUDE.md` ou vers `plugins/classe-fr/agents/classe-fr-pedagogie.md` si l’espace ne charge pas automatiquement les agents Claude. Le plugin ne transmet aucune donnée : vous devez continuer à travailler uniquement avec des exemples fictifs ou anonymisés.
+Dans Claude Code ou Cowork, demandez par exemple : « Utilise l’agent `classe-fr-pedagogie` pour préparer une séance inclusive de CM1 sur les fractions. » L’agent lit les compétences dans `plugins/classe-fr/skills/` et les références utiles avant de produire un livrable. Le plugin ne transmet aucune donnée : vous devez continuer à travailler uniquement avec des exemples fictifs ou anonymisés.
 
 ## Choisir et déclencher une compétence
 
