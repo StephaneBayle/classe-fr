@@ -1,0 +1,4 @@
+interface:
+  display_name: "CUA et accessibilité"
+  short_description: "Accessibiliser les apprentissages"
+  default_prompt: "Utilise $cua-accessibilite-pedagogique pour améliorer ma séance."

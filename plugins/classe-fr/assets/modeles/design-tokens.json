@@ -1,0 +1,26 @@
+{
+  "couleurs": {
+    "primaire": "#176B5B",
+    "secondaire": "#0F4C81",
+    "accent": "#B54708",
+    "texte": "#1A1A1A",
+    "fond": "#FFFFFF"
+  },
+  "typographie": {
+    "corps": "Arial, Helvetica, sans-serif",
+    "titres": "Arial, Helvetica, sans-serif",
+    "taille_corps_min": "12pt"
+  },
+  "mise_en_page": {
+    "interligne_min": 1.35,
+    "marges_min": "16mm",
+    "information_par_couleur_seule": false,
+    "version_imprimable": true
+  },
+  "accessibilite": {
+    "contraste_renforce": true,
+    "titres_hierarchises": true,
+    "consignes_courtes": true,
+    "alternatives_textuelles": true
+  }
+}

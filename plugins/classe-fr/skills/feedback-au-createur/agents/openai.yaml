@@ -1,0 +1,4 @@
+interface:
+  display_name: "Feedback au créateur"
+  short_description: "Formaliser un retour sur le plugin"
+  default_prompt: "Utilise $feedback-au-createur pour signaler un besoin."

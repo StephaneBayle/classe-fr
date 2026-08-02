@@ -1,0 +1,60 @@
+name: Retour enseignant
+description: Signaler un bug, une idée ou un besoin sans donnée d'élève identifiable.
+title: "[Feedback] "
+labels:
+  - feedback-enseignant
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ne joignez aucun document d'élève, message aux familles, capture d'écran d'ENT ni donnée personnelle.
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type de feedback
+      options:
+        - bug
+        - idée
+        - ressource
+        - besoin pédagogique
+        - cua-accessibilite
+        - confidentialité
+    validations:
+      required: true
+  - type: input
+    id: titre
+    attributes:
+      label: Titre
+      placeholder: Décrire le besoin en une phrase
+    validations:
+      required: true
+  - type: textarea
+    id: contexte
+    attributes:
+      label: Contexte pédagogique non identifiable
+      description: Indiquer le niveau, la discipline et l'action tentée, sans détail personnel.
+    validations:
+      required: true
+  - type: textarea
+    id: attendu
+    attributes:
+      label: Résultat attendu ou proposition
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      options:
+        - faible
+        - moyen
+        - élevé
+    validations:
+      required: true
+  - type: checkboxes
+    id: confidentialite
+    attributes:
+      label: Vérification de confidentialité
+      options:
+        - label: Je confirme que ce retour ne contient aucune donnée personnelle ou document identifiable.
+          required: true

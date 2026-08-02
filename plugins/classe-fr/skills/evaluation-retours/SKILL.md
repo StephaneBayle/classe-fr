@@ -1,0 +1,16 @@
+---
+name: evaluation-retours
+description: Concevoir des évaluations, grilles et retours pédagogiques anonymisés avec critères explicites et options CUA. Utiliser pour préparer une évaluation ou reformuler un feedback sans prendre de décision individuelle à la place de l'enseignant.
+---
+
+# Évaluation et retours
+
+Lire `references/confidentialite.md` et `references/cua-et-accessibilite.md`.
+
+1. Demander l'objectif, les critères observables, le niveau, la durée et la modalité strictement nécessaire à l'évaluation.
+2. Concevoir une grille courte avec critères, indicateurs et prochaines étapes pédagogiques ; bannir les jugements sur la personne.
+3. Prévoir des représentations et modes d'expression alternatifs lorsque la forme ne fait pas partie du critère.
+4. Pour un retour à partir d'un travail, exiger une version anonymisée et ne conserver ni nom, ni note identifiable, ni extrait sensible.
+5. Rédiger un feedback descriptif : réussi, à consolider, stratégie suivante, aide ou ressource possible.
+
+Ne pas automatiser une note, une orientation, un signalement ou une décision concernant un élève. L'enseignant valide toujours la formulation finale.

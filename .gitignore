@@ -1,0 +1,10 @@
+# Espaces de travail contenant des données personnelles ou professionnelles
+teacher-space/
+teachers/
+feedback-drafts/
+
+# Environnements et artefacts locaux
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

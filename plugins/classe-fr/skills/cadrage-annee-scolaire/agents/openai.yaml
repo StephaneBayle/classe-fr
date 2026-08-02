@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cadrage annuel inclusif"
+  short_description: "Cadrer une année scolaire inclusive"
+  default_prompt: "Utilise $cadrage-annee-scolaire pour organiser mon année."

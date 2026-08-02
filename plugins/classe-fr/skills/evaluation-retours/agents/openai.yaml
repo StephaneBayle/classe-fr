@@ -1,0 +1,4 @@
+interface:
+  display_name: "Évaluation et retours"
+  short_description: "Évaluer sans données identifiantes"
+  default_prompt: "Utilise $evaluation-retours pour créer une évaluation."

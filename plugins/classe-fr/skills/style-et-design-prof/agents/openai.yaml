@@ -1,0 +1,4 @@
+interface:
+  display_name: "Style et design professeur"
+  short_description: "Créer un système éditorial accessible"
+  default_prompt: "Utilise $style-et-design-prof pour définir mon style."

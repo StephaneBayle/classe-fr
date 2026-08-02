@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bibliothèque pédagogique"
+  short_description: "Indexer des ressources locales"
+  default_prompt: "Utilise $bibliotheque-pedagogique pour indexer mes ressources."

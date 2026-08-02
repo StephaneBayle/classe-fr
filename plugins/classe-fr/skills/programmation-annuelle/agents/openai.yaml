@@ -1,0 +1,4 @@
+interface:
+  display_name: "Programmation annuelle"
+  short_description: "Planifier selon les programmes"
+  default_prompt: "Utilise $programmation-annuelle pour bâtir ma programmation."

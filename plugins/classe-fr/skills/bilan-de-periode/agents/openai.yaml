@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bilan de période"
+  short_description: "Ajuster l'enseignement en équipe"
+  default_prompt: "Utilise $bilan-de-periode pour faire mon bilan."

@@ -1,0 +1,14 @@
+profil:
+  nom_affiche: "À compléter — ne pas indiquer de données d'élèves"
+  niveaux: []
+  disciplines: []
+  academie_ou_zone: "À compléter"
+  calendrier_local: "À compléter"
+  priorites_annuelles: []
+  contraintes: []
+confidentialite:
+  contenus_anonymises_confirmes: false
+  stockage_hors_depot_confirme: false
+cua:
+  options_a_privilegier: []
+  contraintes_de_support: []

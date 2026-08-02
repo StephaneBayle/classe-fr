@@ -1,0 +1,4 @@
+interface:
+  display_name: "Préparer et différencier"
+  short_description: "Concevoir une séance inclusive"
+  default_prompt: "Utilise $preparation-differenciation pour préparer ma séance."

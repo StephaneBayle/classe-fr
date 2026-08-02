@@ -1,0 +1,4 @@
+interface:
+  display_name: "Communication aux familles"
+  short_description: "Rédiger des messages professionnels"
+  default_prompt: "Utilise $communication-familles pour rédiger un message."

@@ -1,0 +1,26 @@
+{
+  "name": "classe-fr",
+  "version": "0.1.0",
+  "description": "Assistant pédagogique inclusif pour les enseignants en France.",
+  "author": {
+    "name": "Équipe Classe FR"
+  },
+  "repository": "https://github.com/StephaneBayle/classe-fr",
+  "license": "UNLICENSED",
+  "keywords": ["education", "france", "enseignants", "cua", "inclusion"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Classe FR",
+    "shortDescription": "Préparer, adapter et relire son année de classe.",
+    "longDescription": "Assistant local et inclusif pour préparer, adapter et documenter l'enseignement de la PS au CFA.",
+    "developerName": "Équipe Classe FR",
+    "category": "Education",
+    "capabilities": ["Interactive", "Write"],
+    "defaultPrompt": [
+      "Prépare une séance inclusive pour ma classe.",
+      "Crée mon profil de style à partir de textes anonymisés.",
+      "Aide-moi à formuler un feedback sur Classe FR."
+    ],
+    "brandColor": "#176B5B"
+  }
+}

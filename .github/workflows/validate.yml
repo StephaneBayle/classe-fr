@@ -1,0 +1,30 @@
+name: Validation Classe FR
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Installer les dépendances de validation
+        run: python -m pip install --upgrade pip PyYAML
+      - name: Vérifier le dépôt Classe FR
+        run: python plugins/classe-fr/scripts/validate_classe_fr.py .
+      - name: Tester l'espace professeur
+        run: python -m unittest discover -s tests -v
+      - name: Refuser les espaces personnels suivis
+        run: |
+          if git ls-files | grep -E '^(teacher-space|teachers|feedback-drafts)/'; then
+            echo "Des données personnelles sont suivies par Git."
+            exit 1
+          fi
