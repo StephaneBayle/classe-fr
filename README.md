@@ -4,7 +4,7 @@
 
 **Préparer, adapter et améliorer son travail pédagogique, de la maternelle au CFA : à l’école, au collège, au lycée et en apprentissage.**
 
-Classe FR est un plugin pour Codex/ChatGPT Work pensé pour les enseignants exerçant en France. Il aide à préparer le travail de l’année, à organiser ses ressources, à créer des supports plus accessibles et à formuler des communications professionnelles. C’est un copilote de préparation : l’enseignant garde toujours la décision pédagogique et relit chaque production avant de l’utiliser.
+Classe FR est un plugin pour Codex/ChatGPT Work et Claude Code/Cowork pensé pour les enseignants exerçant en France. Il aide à préparer le travail de l’année, à organiser ses ressources, à créer des supports plus accessibles et à formuler des communications professionnelles. C’est un copilote de préparation : l’enseignant garde toujours la décision pédagogique et relit chaque production avant de l’utiliser.
 
 ## Ce que Classe FR peut vous aider à faire
 
