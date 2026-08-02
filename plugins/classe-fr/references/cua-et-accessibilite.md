@@ -20,6 +20,24 @@ Pour toute programmation, séance, support ou évaluation, expliciter :
 - Prévoir une version imprimable lisible : contraste élevé, titres hiérarchisés, marges et espaces suffisants.
 - Pour la maternelle, privilégier langage oral, manipulation, jeu, observation et production par l'action ; pour les autres niveaux, adapter les options à la discipline et à l'autonomie attendue.
 
+## Audit avant diffusion ou génération
+
+Pour toute programmation, séance, support ou évaluation, compléter d'abord `assets/modeles/audit-support-accessible.md`. L'audit fournit trois résultats distincts : **exigences respectées**, **points à renforcer** avec une correction concrète, et **choix pédagogique à valider**. Il ne prescrit ni adaptation individualisée ni baisse d'exigence.
+
+Les cinq contrôles de support — hiérarchie, contraste, information non portée par la seule couleur, police lisible et espaces suffisants — sont non désactivables. Toute production doit aussi prévoir une version imprimable lisible ou rendre explicite la décision pédagogique qui l'empêche.
+
+### Repères fictifs par niveau
+
+| Contexte | Objectif invariant | Accès sans baisse d'exigence |
+| --- | --- | --- |
+| Maternelle | Remettre les étapes d'un récit entendu dans l'ordre | Écoute, images séquentielles et manipulation ; restitution orale ou par remise en ordre. |
+| Élémentaire | Repérer une information explicite dans un texte court | Consigne lue et écrite, vocabulaire préparé ; réponse pointée, orale ou écrite selon le critère. |
+| Collège | Interpréter une représentation de données en sciences | Tableau, graphique explicité et exemple guidé ; explication orale ou schéma légendé si l'écrit long n'est pas évalué. |
+| Lycée général ou technologique | Justifier une démarche de résolution | Énoncé structuré, démonstration pas à pas et temps d'anticipation ; justification écrite ou orale selon le critère annoncé. |
+| Voie professionnelle ou CFA | Identifier les étapes d'une procédure professionnelle | Démonstration, fiche illustrée et vocabulaire métier ; explication, mise en ordre ou démonstration si la modalité le permet. |
+
+Ces exemples sont entièrement fictifs. Ils servent à vérifier l'audit, non à promettre une réponse identique à toutes les classes.
+
 ## Sources à consulter
 
 - Ministère de l'Éducation nationale, PNF 2026-2027, action 18 : https://www.education.gouv.fr/pnf-2026-2027-axe-v-cooperer-pour-une-ecole-et-des-ministeres-inclusifs-accessibles-et-ouverts-tous-505088

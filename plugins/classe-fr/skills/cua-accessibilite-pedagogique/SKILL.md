@@ -16,8 +16,8 @@ Lire intégralement `references/cua-et-accessibilite.md` et `references/confiden
 5. Concevoir des options d'**action et expression** équivalentes : répondre oralement, schématiser, manipuler, écrire, enregistrer ou démontrer, seulement si la forme n'est pas elle-même l'objet de l'évaluation.
 6. Indiquer les critères inchangés, les limites de la proposition et les adaptations individualisées à discuter avec les professionnels concernés.
 
-## Sortie obligatoire
+## Audit puis sortie obligatoire
 
-Produire la grille `grille-cua.md`, puis une version du support qui respecte contraste, titres hiérarchisés, consignes brèves, alternatives textuelles et impression lisible.
+Avant toute génération ou diffusion, produire l'audit `audit-support-accessible.md` : distinguer les exigences respectées, les points à renforcer avec leurs corrections et les choix pédagogiques à valider. Puis produire la grille `grille-cua.md` et une version du support qui respecte contraste, titres hiérarchisés, consignes brèves, alternatives textuelles et impression lisible.
 
 La CUA n'est ni un diagnostic, ni une promesse de répondre seule à tous les besoins. Elle complète le travail collectif et la responsabilité pédagogique de l'enseignant.

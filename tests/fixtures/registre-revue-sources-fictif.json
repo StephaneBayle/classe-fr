@@ -1,0 +1,44 @@
+[
+  {
+    "id": "source-changement",
+    "source": "Source publique fictive A",
+    "url": "https://exemple.test/a",
+    "niveaux_cycles": ["Cycle 2"],
+    "disciplines": ["Français"],
+    "date_consultation": "2026-08-02",
+    "date_derniere_revue": "2026-08-02",
+    "statut": "changement constaté",
+    "valide_par": "Mainteneur du plugin",
+    "prochaine_revue": "2026-11-02",
+    "decision_liee": "Issue fictive #101",
+    "note_revue": "Le titre de la page a évolué ; aucune recommandation n'est modifiée."
+  },
+  {
+    "id": "source-analyse",
+    "source": "Source publique fictive B",
+    "url": "https://exemple.test/b",
+    "niveaux_cycles": ["Cycle 3"],
+    "disciplines": ["Mathématiques"],
+    "date_consultation": "2026-08-02",
+    "date_derniere_revue": "2026-08-02",
+    "statut": "à analyser",
+    "valide_par": "Mainteneur du plugin",
+    "prochaine_revue": "2026-11-02",
+    "decision_liee": "Issue fictive #102",
+    "note_revue": "Une mise à jour est signalée et doit être interprétée par une personne compétente."
+  },
+  {
+    "id": "source-stable",
+    "source": "Source publique fictive C",
+    "url": "https://exemple.test/c",
+    "niveaux_cycles": ["Lycée"],
+    "disciplines": ["Transversal"],
+    "date_consultation": "2026-08-02",
+    "date_derniere_revue": "2026-08-02",
+    "statut": "aucun changement pertinent",
+    "valide_par": "Mainteneur du plugin",
+    "prochaine_revue": "2026-11-02",
+    "decision_liee": "Note de version fictive",
+    "note_revue": "Aucun effet identifié sur les recommandations du plugin."
+  }
+]

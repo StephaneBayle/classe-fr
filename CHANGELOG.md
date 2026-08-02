@@ -1,5 +1,11 @@
 # Journal des versions
 
+## À paraître
+
+- Ajout du pré-contrôle local d'anonymisation, avec relecture humaine obligatoire.
+- Ajout de l'audit de support CUA et de parcours pédagogiques fictifs contrôlés.
+- Ajout du registre de revue des sources et du cycle de triage des feedbacks enseignants.
+
 ## 0.1.0 — pilote privé
 
 - Ajout des dix parcours enseignants, de la PS au CFA.

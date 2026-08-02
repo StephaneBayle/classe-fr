@@ -11,6 +11,7 @@ Lire `references/confidentialite.md` et `references/cua-et-accessibilite.md`.
 2. Concevoir une grille courte avec critères, indicateurs et prochaines étapes pédagogiques ; bannir les jugements sur la personne.
 3. Prévoir des représentations et modes d'expression alternatifs lorsque la forme ne fait pas partie du critère.
 4. Pour un retour à partir d'un travail, exiger une version anonymisée et ne conserver ni nom, ni note identifiable, ni extrait sensible.
-5. Rédiger un feedback descriptif : réussi, à consolider, stratégie suivante, aide ou ressource possible.
+5. Avant diffusion, compléter `assets/modeles/audit-support-accessible.md` : l'objectif et les critères demeurent inchangés ; toute modalité alternative est vérifiée au regard du critère évalué.
+6. Rédiger un feedback descriptif : réussi, à consolider, stratégie suivante, aide ou ressource possible.
 
 Ne pas automatiser une note, une orientation, un signalement ou une décision concernant un élève. L'enseignant valide toujours la formulation finale.
