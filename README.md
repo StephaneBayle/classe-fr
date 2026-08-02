@@ -15,23 +15,35 @@ Classe FR est un plugin Codex pensé pour les enseignants exerçant en France. I
 
 Les compétences s’adressent aux enseignants de maternelle, d’élémentaire, de collège, de lycée général, technologique ou professionnel, ainsi que de CFA. Elles proposent des repères adaptés au niveau, mais ne remplacent ni les programmes, ni le travail d’équipe, ni votre connaissance de la classe.
 
-## Commencer simplement
+## Installer dans Codex ou ChatGPT
 
-1. Installez le plugin dans Codex depuis cette marketplace, puis créez votre espace professeur local :
+L’installation par l’interface est recommandée : elle ne demande ni terminal ni compte GitHub particulier.
 
-   ```bash
-   python3 plugins/classe-fr/scripts/init_teacher_space.py teacher-space
-   ```
+1. Dans Codex ou ChatGPT Work, ouvrez **Plugins**, puis choisissez **Ajouter une marketplace**.
+2. Renseignez `StephaneBayle/classe-fr` dans **Source** et `main` dans **Réf. Git**. Laissez **Chemins partiels** vide.
+3. Cliquez sur **Ajouter une marketplace**, recherchez **Classe FR**, puis choisissez **Installer**.
+4. Ouvrez une **nouvelle conversation** : les compétences du plugin sont alors disponibles.
 
-2. Commencez par demander à Codex : « Je prépare une année de CP. Aide-moi à la cadrer avec `$cadrage-annee-scolaire`. »
+Le dépôt étant public, tous les enseignants peuvent suivre ce parcours. Ils n’ont pas besoin d’être invités comme collaborateurs GitHub.
 
-3. Ajoutez progressivement vos ressources dans votre bibliothèque, puis utilisez par exemple :
+## Préparer sa première séance
 
-   - `$programmation-annuelle` pour répartir les apprentissages ;
-   - `$preparation-differenciation` pour concevoir une séance ;
-   - `$evaluation-retours` pour expliciter les critères et les retours.
+Dans la nouvelle conversation, décrivez simplement votre contexte. Par exemple :
 
-Vous pouvez aussi demander une réponse en langage courant : les noms des compétences ne sont là que pour raccourcir le chemin.
+> J’enseigne les mathématiques en 5e. Aide-moi à préparer une séance sur les fractions, avec un objectif précis et des options accessibles à tous les élèves.
+
+Codex choisira les compétences utiles. Vous pouvez aussi les appeler directement :
+
+- `$cadrage-annee-scolaire` pour démarrer une année ou une nouvelle classe ;
+- `$programmation-annuelle` pour répartir les apprentissages ;
+- `$preparation-differenciation` pour concevoir une séance ;
+- `$evaluation-retours` pour expliciter les critères et les retours.
+
+Pour organiser vos ressources et vos productions, demandez à Codex de créer un espace professeur local dans votre dossier de travail. Les personnes qui préfèrent le faire elles-mêmes peuvent exécuter :
+
+```bash
+python3 plugins/classe-fr/scripts/init_teacher_space.py teacher-space
+```
 
 ## Une accessibilité pensée dès le départ
 
