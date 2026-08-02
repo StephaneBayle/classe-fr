@@ -28,6 +28,18 @@ L’installation par l’interface est recommandée : elle ne demande ni termi
 
 Le dépôt étant public, tous les enseignants peuvent suivre ce parcours. Ils n’ont pas besoin d’être invités comme collaborateurs GitHub.
 
+## Utiliser avec Claude Code ou Cowork
+
+Classe FR reste structuré comme plugin OpenAI, mais le dépôt fournit aussi trois entrées compatibles avec Claude Code/Cowork.
+
+- `CLAUDE.md` donne les règles du projet quand vous ouvrez ce dépôt dans Claude Code ou Cowork.
+- `.claude/agents/classe-fr-pedagogie.md` permet à Claude Code de découvrir automatiquement l’agent quand le dépôt est ouvert comme projet.
+- `plugins/classe-fr/agents/classe-fr-pedagogie.md` fournit un agent Claude portable qui reprend les garde-fous du plugin : confidentialité, objectif invariant, CUA, sources datées et responsabilité de validation par l’enseignant.
+
+Dans Claude Code, ouvrez le dépôt puis demandez par exemple : « Utilise l’agent `classe-fr-pedagogie` pour préparer une séance inclusive de CM1 sur les fractions. » L’agent lit les compétences dans `plugins/classe-fr/skills/` et les références utiles avant de produire un livrable.
+
+Dans Cowork, utilisez les mêmes consignes projet et pointez le travail vers `CLAUDE.md` ou vers `plugins/classe-fr/agents/classe-fr-pedagogie.md` si l’espace ne charge pas automatiquement les agents Claude. Le plugin ne transmet aucune donnée : vous devez continuer à travailler uniquement avec des exemples fictifs ou anonymisés.
+
 ## Choisir et déclencher une compétence
 
 Vous pouvez décrire votre besoin avec vos mots : l’assistant sélectionnera la compétence pertinente. Pour la choisir vous-même, écrivez son nom précédé de `$` dans Codex, par exemple `$preparation-differenciation`. Dans ChatGPT Work, tapez `@`, puis choisissez **Classe FR** ou la compétence proposée.

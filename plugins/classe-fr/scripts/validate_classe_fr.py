@@ -91,6 +91,14 @@ REQUIRED_CONTENT = {
         "Aucune cellule n'atteint encore ce niveau",
     ),
 }
+CLAUDE_REQUIRED_TERMS = (
+    "classe-fr-pedagogie",
+    "confidentialité",
+    "objectif invariant",
+    "engagement",
+    "représentation",
+    "action et expression",
+)
 
 
 def fail(errors: list[str], message: str) -> None:
@@ -135,6 +143,41 @@ def validate(root: Path) -> list[str]:
             fail(errors, f"Instructions non finalisées : {name}")
         if f"${name}" not in interface:
             fail(errors, f"Prompt d'interface invalide : {name}")
+
+    claude_memory = root / "CLAUDE.md"
+    claude_agent = plugin / "agents" / "classe-fr-pedagogie.md"
+    claude_project_agent = root / ".claude" / "agents" / "classe-fr-pedagogie.md"
+    if not claude_memory.is_file():
+        fail(errors, "Le fichier CLAUDE.md est requis pour Claude Code/Cowork.")
+    else:
+        memory_content = claude_memory.read_text(encoding="utf-8")
+        for term in CLAUDE_REQUIRED_TERMS:
+            if term not in memory_content:
+                fail(errors, f"CLAUDE.md doit rappeler : {term}")
+        for name in EXPECTED_SKILLS:
+            if name not in memory_content:
+                fail(errors, f"CLAUDE.md doit référencer la compétence : {name}")
+    if not claude_agent.is_file():
+        fail(errors, "L'agent Claude classe-fr-pedagogie est requis.")
+    else:
+        agent_content = claude_agent.read_text(encoding="utf-8")
+        for term in ("name: classe-fr-pedagogie", "tools: Read, Glob, Grep", "donnée d'élève identifiable"):
+            if term not in agent_content:
+                fail(errors, f"Agent Claude incomplet : {term}")
+        for name in EXPECTED_SKILLS:
+            if name not in agent_content:
+                fail(errors, f"L'agent Claude doit router vers : {name}")
+    if not claude_project_agent.is_file():
+        fail(errors, "Le wrapper .claude/agents/classe-fr-pedagogie.md est requis.")
+    else:
+        project_agent_content = claude_project_agent.read_text(encoding="utf-8")
+        for term in (
+            "name: classe-fr-pedagogie",
+            "plugins/classe-fr/agents/classe-fr-pedagogie.md",
+            "aucune donnée d'élève identifiable",
+        ):
+            if term not in project_agent_content:
+                fail(errors, f"Wrapper Claude incomplet : {term}")
 
     references = {item.name for item in (plugin / "references").glob("*.md")}
     missing = REQUIRED_REFERENCES - references
