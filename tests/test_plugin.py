@@ -58,6 +58,7 @@ class ClasseFrTests(unittest.TestCase):
         self.assertNotIn("confidentiel", licence.lower())
         self.assertIn("Description courte", readme)
         self.assertIn("Topics recommandés", readme)
+        self.assertIn("Utiliser avec Claude Code ou Cowork", readme)
         self.assertIn("maintenance", labels_script)
         for relative_path in (
             "CONTRIBUTING.md",
@@ -67,6 +68,41 @@ class ClasseFrTests(unittest.TestCase):
             ".github/dependabot.yml",
         ):
             self.assertTrue((ROOT / relative_path).is_file(), relative_path)
+
+    def test_entrees_claude_cowork_routent_vers_les_competences_et_les_garde_fous(self):
+        claude_memory = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
+        claude_agent = (
+            ROOT / "plugins" / "classe-fr" / "agents" / "classe-fr-pedagogie.md"
+        ).read_text(encoding="utf-8")
+        claude_project_agent = (
+            ROOT / ".claude" / "agents" / "classe-fr-pedagogie.md"
+        ).read_text(encoding="utf-8")
+
+        for content in (claude_memory, claude_agent):
+            for element in (
+                "cadrage-annee-scolaire",
+                "bibliotheque-pedagogique",
+                "style-et-design-prof",
+                "programmation-annuelle",
+                "preparation-differenciation",
+                "cua-accessibilite-pedagogique",
+                "evaluation-retours",
+                "communication-familles",
+                "bilan-de-periode",
+                "feedback-au-createur",
+                "objectif invariant",
+                "engagement",
+                "représentation",
+                "action et expression",
+            ):
+                self.assertIn(element, content)
+        self.assertIn("classe-fr-pedagogie", claude_memory)
+        self.assertIn("name: classe-fr-pedagogie", claude_agent)
+        self.assertIn("tools: Read, Glob, Grep", claude_agent)
+        self.assertIn("donnée d'élève identifiable", claude_agent)
+        self.assertIn("name: classe-fr-pedagogie", claude_project_agent)
+        self.assertIn("plugins/classe-fr/agents/classe-fr-pedagogie.md", claude_project_agent)
+        self.assertIn("aucune donnée d'élève identifiable", claude_project_agent)
 
     def test_tokens_imposent_l_accessibilite(self):
         tokens = ROOT / "plugins" / "classe-fr" / "assets" / "modeles" / "design-tokens.json"
