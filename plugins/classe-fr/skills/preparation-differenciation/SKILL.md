@@ -11,7 +11,8 @@ Lire `references/cua-et-accessibilite.md`, puis récupérer le profil, le style 
 2. Définir le critère de réussite avant de choisir les activités.
 3. Cartographier les obstacles plausibles liés à la tâche, au langage, au support, au temps ou à l'organisation ; ne pas attribuer d'étiquette aux élèves.
 4. Produire une séance structurée : lancement, explicitation, entraînement, régulation, trace et bilan.
-5. Joindre la grille CUA avec options d'engagement, de représentation et d'action/expression réellement utiles.
-6. Distinguer les options ouvertes à tous des adaptations à discuter avec l'équipe compétente.
+5. Avant de générer le support, compléter `assets/modeles/audit-support-accessible.md` et corriger les points à renforcer sans modifier l'objectif invariant.
+6. Joindre la grille CUA avec options d'engagement, de représentation et d'action/expression réellement utiles.
+7. Distinguer les options ouvertes à tous des adaptations à discuter avec l'équipe compétente.
 
 Toujours fournir une version de support lisible, imprimable et cohérente avec le guide de style du professeur.

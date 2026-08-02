@@ -10,8 +10,10 @@ Enregistrer pour chaque ressource : titre, auteur ou organisme, URL ou emplaceme
 
 ## Sources initiales
 
-- Éduscol, cycle 3 : https://eduscol.education.fr/pid34150/cycle-3-ecole-elementaire-college.htm
-- Éduscol, cycle 1 : https://eduscol.education.fr/4341/enseigner-au-cycle-1
+- Éduscol, cycle 3 : https://eduscol.education.gouv.fr/4356/enseigner-au-cycle-3
+- Éduscol, cycle 1 : https://eduscol.education.gouv.fr/4341/enseigner-au-cycle-1
 - Primàbord : https://primabord.eduscol.education.fr/
+
+Consulter `references/revue-sources-institutionnelles.md` avant toute mise à jour d'une recommandation fondée sur une source institutionnelle.
 
 Ne pas aspirer ni republier une ressource externe. Produire une fiche, un lien et une note pédagogique à la place.

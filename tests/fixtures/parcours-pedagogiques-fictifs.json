@@ -1,0 +1,134 @@
+[
+  {
+    "id": "ps",
+    "niveau": "Petite section",
+    "discipline": "Langage oral",
+    "objectif_invariant": "Remettre trois étapes d'un récit entendu dans l'ordre.",
+    "obstacles": ["Consigne longue", "Repérage temporel abstrait"],
+    "options_cua": {
+      "engagement": ["Choisir une carte de départ", "Raconter en petit groupe"],
+      "representations": ["Écoute du récit", "Images séquentielles manipulables"],
+      "action_expression": ["Montrer les images dans l'ordre", "Raconter oralement avec les images"]
+    },
+    "modalite_evaluee": null,
+    "modalites_expression": ["Montrer les images dans l'ordre", "Raconter oralement avec les images"],
+    "source": {
+      "organisme": "Éduscol",
+      "url": "https://eduscol.education.gouv.fr/4341/enseigner-au-cycle-1",
+      "consultee_le": "2026-08-02"
+    },
+    "donnees_personnelles": false,
+    "support_imprimable": "Trois cartes contrastées à imprimer en A4.",
+    "sortie_attendue": "Objectif conservé ; l'ordre peut être montré ou raconté ; consigne orale et visuelle."
+  },
+  {
+    "id": "cp",
+    "niveau": "CP",
+    "discipline": "Français",
+    "objectif_invariant": "Repérer une information explicitement écrite dans une phrase courte.",
+    "obstacles": ["Vocabulaire de la consigne", "Repérage visuel dans la phrase"],
+    "options_cua": {
+      "engagement": ["Exemple proche d'une situation connue", "Temps de recherche en binôme"],
+      "representations": ["Consigne lue et écrite", "Mot-clé mis en évidence par un encadré"],
+      "action_expression": ["Pointer la réponse", "Entourer la réponse"]
+    },
+    "modalite_evaluee": null,
+    "modalites_expression": ["Pointer la réponse", "Entourer la réponse"],
+    "source": {
+      "organisme": "Éduscol",
+      "url": "https://eduscol.education.fr/",
+      "consultee_le": "2026-08-02"
+    },
+    "donnees_personnelles": false,
+    "support_imprimable": "Fiche à forte lisibilité avec une consigne par bloc.",
+    "sortie_attendue": "Objectif de lecture inchangé ; l'élève repère la même information par deux gestes équivalents."
+  },
+  {
+    "id": "cm1-6e",
+    "niveau": "CM1 / 6e",
+    "discipline": "Mathématiques",
+    "objectif_invariant": "Comparer deux fractions simples représentées.",
+    "obstacles": ["Passage entre dessin et écriture fractionnaire", "Lexique de comparaison"],
+    "options_cua": {
+      "engagement": ["Défi de comparaison à deux", "Justification choisie parmi deux amorces"],
+      "representations": ["Bandes fractionnées", "Écriture fractionnaire structurée"],
+      "action_expression": ["Classer les cartes", "Expliquer la comparaison oralement"]
+    },
+    "modalite_evaluee": null,
+    "modalites_expression": ["Classer les cartes", "Expliquer la comparaison oralement"],
+    "source": {
+      "organisme": "Éduscol",
+      "url": "https://eduscol.education.gouv.fr/4356/enseigner-au-cycle-3",
+      "consultee_le": "2026-08-02"
+    },
+    "donnees_personnelles": false,
+    "support_imprimable": "Jeu de cartes noir et blanc avec libellés explicites.",
+    "sortie_attendue": "Même comparaison attendue ; dessin et écriture se complètent sans changer le raisonnement."
+  },
+  {
+    "id": "college",
+    "niveau": "5e",
+    "discipline": "Sciences de la vie et de la Terre",
+    "objectif_invariant": "Interpréter une variation simple dans un graphique de données.",
+    "obstacles": ["Lecture des axes", "Vocabulaire d'interprétation"],
+    "options_cua": {
+      "engagement": ["Question scientifique contextualisée", "Prédiction avant lecture"],
+      "representations": ["Graphique contrasté et légendé", "Tableau de données associé"],
+      "action_expression": ["Annoter une tendance", "Expliquer la tendance oralement"]
+    },
+    "modalite_evaluee": null,
+    "modalites_expression": ["Annoter une tendance", "Expliquer la tendance oralement"],
+    "source": {
+      "organisme": "Éduscol",
+      "url": "https://eduscol.education.fr/",
+      "consultee_le": "2026-08-02"
+    },
+    "donnees_personnelles": false,
+    "support_imprimable": "Graphique en niveaux de gris avec symboles et légende textuelle.",
+    "sortie_attendue": "La tendance est interprétée, sans dépendre d'une couleur ni d'un écrit long non évalué."
+  },
+  {
+    "id": "lycee-general-technologique",
+    "niveau": "Première générale",
+    "discipline": "Physique-chimie",
+    "objectif_invariant": "Justifier une démarche de résolution à partir de données fournies.",
+    "obstacles": ["Sélection des données utiles", "Planification de la démarche"],
+    "options_cua": {
+      "engagement": ["Temps d'anticipation individuel", "Mise en commun des stratégies"],
+      "representations": ["Énoncé découpé en étapes", "Exemple de raisonnement non résolu"],
+      "action_expression": ["Rédiger une justification structurée"]
+    },
+    "modalite_evaluee": "Rédiger une justification structurée",
+    "modalites_expression": ["Rédiger une justification structurée"],
+    "source": {
+      "organisme": "Éduscol",
+      "url": "https://eduscol.education.fr/",
+      "consultee_le": "2026-08-02"
+    },
+    "donnees_personnelles": false,
+    "support_imprimable": "Énoncé aéré, données numérotées et barème lisible.",
+    "sortie_attendue": "La rédaction reste évaluée ; les accès au problème sont diversifiés sans remplacer la modalité attendue."
+  },
+  {
+    "id": "lycee-professionnel-cfa",
+    "niveau": "CAP / CFA",
+    "discipline": "Enseignement professionnel",
+    "objectif_invariant": "Identifier et ordonner les étapes d'une procédure professionnelle fictive.",
+    "obstacles": ["Vocabulaire métier", "Mémorisation des étapes"],
+    "options_cua": {
+      "engagement": ["Situation professionnelle fictive", "Vérification entre pairs"],
+      "representations": ["Démonstration commentée", "Fiche illustrée avec libellés"],
+      "action_expression": ["Mettre les étapes dans l'ordre", "Expliquer l'enchaînement à l'oral"]
+    },
+    "modalite_evaluee": null,
+    "modalites_expression": ["Mettre les étapes dans l'ordre", "Expliquer l'enchaînement à l'oral"],
+    "source": {
+      "organisme": "Éduscol",
+      "url": "https://eduscol.education.fr/",
+      "consultee_le": "2026-08-02"
+    },
+    "donnees_personnelles": false,
+    "support_imprimable": "Fiche procédure A4 avec pictogrammes et consignes textuelles.",
+    "sortie_attendue": "La procédure reste le même savoir visé ; démonstration et fiche soutiennent l'accès sans réduire l'exigence."
+  }
+]

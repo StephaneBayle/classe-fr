@@ -1,0 +1,53 @@
+[
+  {
+    "id": "FB-FICTIF-001",
+    "type": "cua-accessibilite",
+    "impact": 3,
+    "frequence": 2,
+    "faisabilite": 3,
+    "confidentialite_confirmee": true,
+    "decision": "livré",
+    "issue_liee": "Issue fictive #201 — audit de support accessible",
+    "journal_version": "Version fictive 0.1.1 — audit CUA",
+    "historique": [
+      {"statut": "reçu", "date": "2026-08-02"},
+      {"statut": "à instruire", "date": "2026-08-03"},
+      {"statut": "planifié", "date": "2026-08-04"},
+      {"statut": "livré", "date": "2026-08-05"}
+    ]
+  },
+  {
+    "id": "FB-FICTIF-002",
+    "type": "confidentialite",
+    "impact": 3,
+    "frequence": 1,
+    "faisabilite": 2,
+    "confidentialite_confirmee": true,
+    "decision": "livré",
+    "issue_liee": "Issue fictive #202 — pré-contrôle local",
+    "journal_version": "Version fictive 0.1.1 — confidentialité",
+    "historique": [
+      {"statut": "reçu", "date": "2026-08-02"},
+      {"statut": "à instruire", "date": "2026-08-02"},
+      {"statut": "planifié", "date": "2026-08-03"},
+      {"statut": "livré", "date": "2026-08-05"}
+    ]
+  },
+  {
+    "id": "FB-FICTIF-003",
+    "type": "ressource",
+    "impact": 2,
+    "frequence": 2,
+    "faisabilite": 2,
+    "confidentialite_confirmee": true,
+    "decision": "livré",
+    "issue_liee": "Issue fictive #203 — revue de sources",
+    "journal_version": "Version fictive 0.1.1 — registre de sources",
+    "historique": [
+      {"statut": "reçu", "date": "2026-08-02"},
+      {"statut": "à instruire", "date": "2026-08-03"},
+      {"statut": "planifié", "date": "2026-08-04"},
+      {"statut": "livré", "date": "2026-08-06"}
+    ]
+  }
+]

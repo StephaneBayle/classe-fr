@@ -26,6 +26,10 @@ REQUIRED_REFERENCES = {
     "cua-et-accessibilite.md",
     "sources-et-droits.md",
     "confidentialite.md",
+    "parcours-pedagogiques-fictifs.md",
+    "revue-sources-institutionnelles.md",
+    "triage-feedbacks-enseignants.md",
+    "matrice-couverture-discipline-niveau.md",
 }
 REQUIRED_CONTENT = {
     "references/cua-et-accessibilite.md": (
@@ -42,7 +46,50 @@ REQUIRED_CONTENT = {
         "Représentations variées",
         "Action et expression",
     ),
+    "assets/modeles/audit-support-accessible.md": (
+        "Exigences respectées",
+        "Points à renforcer",
+        "Choix pédagogique à valider",
+        "Engagement",
+        "Représentations variées",
+        "Action et expression",
+        "version imprimable",
+    ),
     "assets/modeles/feedback.md": ("cua-accessibilite", "aucun nom"),
+    "references/parcours-pedagogiques-fictifs.md": (
+        "PS",
+        "CP",
+        "CM1 / 6e",
+        "Collège",
+        "Lycée général ou technologique",
+        "Lycée professionnel ou CFA",
+    ),
+    "references/revue-sources-institutionnelles.md": (
+        "tous les trois mois",
+        "changement constaté",
+        "à analyser",
+        "aucun changement pertinent",
+    ),
+    "references/triage-feedbacks-enseignants.md": (
+        "tous les quinze jours",
+        "reçu",
+        "à instruire",
+        "planifié",
+        "livré",
+        "non retenu",
+    ),
+    "references/matrice-couverture-discipline-niveau.md": (
+        "Appui transversal",
+        "Exemple contextualisé",
+        "Couverture validée",
+        "PS",
+        "CP",
+        "CM1 / 6e",
+        "Collège",
+        "Lycée général ou technologique",
+        "Lycée professionnel ou CFA",
+        "Aucune cellule n'atteint encore ce niveau",
+    ),
 }
 
 
@@ -102,6 +149,22 @@ def validate(root: Path) -> list[str]:
         for term in expected_terms:
             if term not in content:
                 fail(errors, f"Contenu requis absent de {relative_path} : {term}")
+    precontrol = plugin / "scripts" / "precontrole_anonymisation.py"
+    if not precontrol.is_file() or "--confirme-relecture" not in precontrol.read_text(encoding="utf-8"):
+        fail(errors, "Le pré-contrôle local d'anonymisation est incomplet.")
+    parcours_validator = plugin / "scripts" / "validate_parcours_fictifs.py"
+    fixture = root / "tests" / "fixtures" / "parcours-pedagogiques-fictifs.json"
+    if not parcours_validator.is_file() or not fixture.is_file():
+        fail(errors, "Les parcours pédagogiques fictifs et leur validateur sont requis.")
+    registry_validator = plugin / "scripts" / "validate_registre_sources.py"
+    registry = plugin / "references" / "registre-sources-institutionnelles.json"
+    report = plugin / "assets" / "modeles" / "rapport-revue-sources.md"
+    if not registry_validator.is_file() or not registry.is_file() or not report.is_file():
+        fail(errors, "Le registre versionné des sources et son rapport sont requis.")
+    feedback_validator = plugin / "scripts" / "validate_triage_feedback.py"
+    feedback_fixture = root / "tests" / "fixtures" / "triage-feedbacks-fictifs.json"
+    if not feedback_validator.is_file() or not feedback_fixture.is_file():
+        fail(errors, "Le cycle de triage fictif des feedbacks est requis.")
     tokens_path = plugin / "assets" / "modeles" / "design-tokens.json"
     try:
         tokens = json.loads(tokens_path.read_text(encoding="utf-8"))
