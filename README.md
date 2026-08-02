@@ -71,4 +71,14 @@ Les ressources institutionnelles et de pairs sont référencées avec leur sourc
 
 Ce projet est un pilote public en version `0.1.0`. Les améliorations attendues sont suivies dans les [issues](https://github.com/StephaneBayle/classe-fr/issues). Pour contribuer au dépôt, consultez [le guide de contribution](AGENTS.md), lancez les validations indiquées et liez votre proposition à une issue.
 
-La licence est actuellement `UNLICENSED` : la consultation publique du dépôt n’accorde pas de droit de réutilisation ou de redistribution.
+## Licence
+
+Classe FR est publié comme **source disponible propriétaire**. Le dépôt peut être consulté publiquement pour comprendre, installer et auditer le plugin depuis sa source officielle, mais il n'accorde pas de droit de copie, modification, redistribution ou réutilisation en dehors d'un accord écrit préalable.
+
+Consultez [LICENSE](LICENSE) pour les conditions complètes. Le manifeste du plugin conserve la valeur `UNLICENSED` afin de rendre explicite qu'il ne s'agit pas d'un projet open source.
+
+## Métadonnées GitHub recommandées
+
+Description courte : `Assistant pédagogique inclusif pour enseignants en France.`
+
+Topics recommandés : `education`, `enseignement`, `france`, `enseignants`, `accessibility`, `cua`, `pedagogy`, `chatgpt`, `codex`, `plugin`.

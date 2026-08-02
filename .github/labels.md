@@ -9,6 +9,7 @@
 | `besoin-pedagogique` | `5319E7` | Besoin de parcours ou modèle |
 | `cua-accessibilite` | `FBCA04` | Accessibilité ou CUA |
 | `confidentialite` | `B60205` | Sujet sensible sans pièce jointe |
+| `maintenance` | `6A737D` | Maintenance du dépôt et automatisations |
 
 Les labels décrivent la nature du retour ; les états de triage (`reçu`, `à instruire`, `planifié`, `livré`, `non retenu`) sont consignés dans un commentaire de décision non identifiable, selon `plugins/classe-fr/references/triage-feedbacks-enseignants.md`.
 
