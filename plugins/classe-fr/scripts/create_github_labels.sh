@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -eu
 
-# À exécuter après `gh auth login` et création du dépôt privé.
+# À exécuter après `gh auth login` et création du dépôt GitHub public.
 REPOSITORY="StephaneBayle/classe-fr"
 
 gh label create "feedback-enseignant" --repo "$REPOSITORY" --color "176B5B" --description "Retours enseignants" --force
