@@ -11,3 +11,4 @@ gh label create "ressource" --repo "$REPOSITORY" --color "1D76DB" --description 
 gh label create "besoin-pedagogique" --repo "$REPOSITORY" --color "5319E7" --description "Besoin pédagogique" --force
 gh label create "cua-accessibilite" --repo "$REPOSITORY" --color "FBCA04" --description "Accessibilité ou CUA" --force
 gh label create "confidentialite" --repo "$REPOSITORY" --color "B60205" --description "Sujet sensible sans pièce jointe" --force
+gh label create "maintenance" --repo "$REPOSITORY" --color "6A737D" --description "Maintenance du dépôt et automatisations" --force

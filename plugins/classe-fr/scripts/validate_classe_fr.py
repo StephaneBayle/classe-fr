@@ -180,6 +180,31 @@ def validate(root: Path) -> list[str]:
         fail(errors, "Le formulaire GitHub doit couvrir les feedbacks CUA.")
     if not labels_script.is_file() or "feedback-enseignant" not in labels_script.read_text(encoding="utf-8"):
         fail(errors, "La procédure de labels GitHub est incomplète.")
+    license_path = root / "LICENSE"
+    try:
+        license_text = license_path.read_text(encoding="utf-8")
+    except OSError:
+        fail(errors, "Le fichier LICENSE est requis.")
+        license_text = ""
+    if "source disponible propriétaire" not in license_text:
+        fail(errors, "La licence doit clarifier le statut propriétaire source disponible.")
+    if "confidentiel" in license_text.lower() or "pilote privé" in license_text.lower():
+        fail(errors, "La licence ne doit pas qualifier le dépôt public de confidentiel ou privé.")
+    readme = (root / "README.md").read_text(encoding="utf-8")
+    for term in ("Description courte", "Topics recommandés", "source disponible propriétaire"):
+        if term not in readme:
+            fail(errors, f"README incomplet pour les bonnes pratiques GitHub : {term}")
+    for relative_path in (
+        "CONTRIBUTING.md",
+        "SECURITY.md",
+        ".github/CODEOWNERS",
+        ".github/PULL_REQUEST_TEMPLATE.md",
+        ".github/dependabot.yml",
+    ):
+        if not (root / relative_path).is_file():
+            fail(errors, f"Document GitHub manquant : {relative_path}")
+    if "maintenance" not in labels_script.read_text(encoding="utf-8"):
+        fail(errors, "Le label maintenance doit être prévu pour Dependabot.")
     ignored = (root / ".gitignore").read_text(encoding="utf-8")
     if "teacher-space/" not in ignored or "teachers/" not in ignored:
         fail(errors, "Les espaces personnels doivent être ignorés par Git.")

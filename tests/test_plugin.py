@@ -47,6 +47,27 @@ class ClasseFrTests(unittest.TestCase):
         module = load_module(VALIDATOR, "validate_classe_fr")
         self.assertEqual(module.validate(ROOT), [])
 
+    def test_licence_et_documents_github_sont_coherents_avec_un_depot_public(self):
+        licence = (ROOT / "LICENSE").read_text(encoding="utf-8")
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        labels_script = (
+            ROOT / "plugins" / "classe-fr" / "scripts" / "create_github_labels.sh"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("source disponible propriétaire", licence)
+        self.assertNotIn("confidentiel", licence.lower())
+        self.assertIn("Description courte", readme)
+        self.assertIn("Topics recommandés", readme)
+        self.assertIn("maintenance", labels_script)
+        for relative_path in (
+            "CONTRIBUTING.md",
+            "SECURITY.md",
+            ".github/CODEOWNERS",
+            ".github/PULL_REQUEST_TEMPLATE.md",
+            ".github/dependabot.yml",
+        ):
+            self.assertTrue((ROOT / relative_path).is_file(), relative_path)
+
     def test_tokens_imposent_l_accessibilite(self):
         tokens = ROOT / "plugins" / "classe-fr" / "assets" / "modeles" / "design-tokens.json"
         payload = json.loads(tokens.read_text(encoding="utf-8"))

@@ -1,0 +1,13 @@
+# Relecture par défaut du dépôt Classe FR.
+* @StephaneBayle
+
+# Zones sensibles : confidentialité, contribution et automatisations GitHub.
+.github/ @StephaneBayle
+plugins/classe-fr/references/confidentialite.md @StephaneBayle
+plugins/classe-fr/scripts/precontrole_anonymisation.py @StephaneBayle
+
+# Zones coeur du plugin : compétences, manifeste, modèles et validations.
+plugins/classe-fr/.codex-plugin/plugin.json @StephaneBayle
+plugins/classe-fr/skills/ @StephaneBayle
+plugins/classe-fr/assets/modeles/ @StephaneBayle
+plugins/classe-fr/scripts/validate_classe_fr.py @StephaneBayle
