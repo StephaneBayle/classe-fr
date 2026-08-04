@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Classe FR — assistant pédagogique inclusif</title>
+    <meta
+      name="description"
+        content="Classe FR aide les enseignants en France à préparer, adapter et relire leur travail pédagogique avec conception universelle de l'apprentissage, sources datées et confidentialité."
+    />
+    <style>
+      :root {
+        --ink: #151718;
+        --muted: #5d6762;
+        --green: #176b5b;
+        --green-dark: #0d3d35;
+        --blue: #416f86;
+        --coral: #c96f5c;
+        --mustard: #d49b35;
+        --paper: #fbfaf6;
+        --soft: #edf3ef;
+        --line: #d7dfd8;
+        --white: #ffffff;
+        --shadow: 0 24px 70px rgba(21, 23, 24, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: var(--green);
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.18em;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(215, 223, 216, 0.85);
+        background: rgba(251, 250, 246, 0.93);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 14px 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--ink);
+        font-weight: 800;
+        letter-spacing: 0;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: var(--green);
+        box-shadow: inset 8px -8px 0 rgba(255, 255, 255, 0.18);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-size: 0.93rem;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .nav-links a:last-child {
+        color: var(--green-dark);
+        font-weight: 700;
+      }
+
+      main {
+        overflow: hidden;
+      }
+
+      .section {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 76px 0;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.88fr) minmax(380px, 1.12fr);
+        align-items: center;
+        gap: 52px;
+        min-height: calc(100svh - 60px);
+        padding-top: 34px;
+        padding-bottom: 54px;
+      }
+
+      .hero h1 {
+        margin: 0;
+        max-width: 760px;
+        font-size: clamp(2.9rem, 7vw, 5.9rem);
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      .hero p {
+        margin: 28px 0 0;
+        max-width: 650px;
+        color: var(--muted);
+        font-size: clamp(1.06rem, 1.7vw, 1.28rem);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        border-radius: 8px;
+        padding: 11px 16px;
+        font-weight: 750;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        background: var(--green);
+        color: var(--white);
+      }
+
+      .button.secondary {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.72);
+        color: var(--green-dark);
+      }
+
+      .hero-media {
+        margin: 0;
+      }
+
+      .hero-media img {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        border-radius: 8px;
+        object-fit: cover;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-media figcaption {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .intro-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--line);
+      }
+
+      .try-now {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 28px;
+        align-items: stretch;
+        padding-top: 28px;
+      }
+
+      .prompt-card,
+      .sample-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--white);
+        box-shadow: 0 18px 50px rgba(21, 23, 24, 0.07);
+      }
+
+      .prompt-card {
+        padding: 28px;
+      }
+
+      .prompt-card h2,
+      .sample-card h2 {
+        margin: 0 0 14px;
+        font-size: clamp(1.9rem, 3vw, 2.8rem);
+        line-height: 1.05;
+      }
+
+      .prompt-card p {
+        margin: 0 0 18px;
+        color: var(--muted);
+      }
+
+      .prompt-box {
+        margin: 0;
+        padding: 18px;
+        border-radius: 8px;
+        background: #f2f6f3;
+        color: var(--green-dark);
+        font: 700 1rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        white-space: pre-wrap;
+      }
+
+      .sample-card {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        overflow: hidden;
+      }
+
+      .sample-card header {
+        padding: 24px 28px 0;
+      }
+
+      .sample-output {
+        display: grid;
+        gap: 1px;
+        margin: 22px 0 0;
+        background: var(--line);
+        border-top: 1px solid var(--line);
+      }
+
+      .sample-row {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 18px;
+        padding: 16px 28px;
+        background: var(--white);
+      }
+
+      .sample-row strong {
+        color: var(--green-dark);
+      }
+
+      .sample-row span {
+        color: var(--muted);
+      }
+
+      .intro-card {
+        min-height: 220px;
+        padding: 26px;
+        background: var(--white);
+      }
+
+      .intro-card h2,
+      .text-block h2,
+      .trust h2,
+      .install h2 {
+        margin: 0 0 12px;
+        font-size: clamp(1.8rem, 3vw, 2.8rem);
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      .intro-card h3 {
+        margin: 0 0 12px;
+        color: var(--green-dark);
+        font-size: 1.25rem;
+      }
+
+      .intro-card p,
+      .text-block p,
+      .trust p,
+      .install p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .feature {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 58px;
+      }
+
+      .feature + .feature {
+        padding-top: 38px;
+      }
+
+      .feature:nth-child(even) .feature-image {
+        order: -1;
+      }
+
+      .feature-image img {
+        aspect-ratio: 4 / 3;
+        border-radius: 8px;
+        object-fit: cover;
+        box-shadow: var(--shadow);
+      }
+
+      .text-block ul {
+        margin: 22px 0 0;
+        padding-left: 1.2rem;
+        color: var(--muted);
+      }
+
+      .text-block li + li {
+        margin-top: 8px;
+      }
+
+      .trust {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 46px;
+        align-items: start;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .levels {
+        display: grid;
+        gap: 14px;
+      }
+
+      .level {
+        padding: 18px 20px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .level strong {
+        display: block;
+        color: var(--green-dark);
+      }
+
+      .privacy {
+        background: var(--green-dark);
+        color: var(--white);
+      }
+
+      .privacy .section {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 42px;
+      }
+
+      .privacy h2 {
+        margin: 0;
+        font-size: clamp(2.2rem, 4vw, 4rem);
+        line-height: 1;
+      }
+
+      .privacy p,
+      .privacy li {
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .privacy ul {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+
+      .privacy li + li {
+        margin-top: 10px;
+      }
+
+      .install {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .start-guide {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        gap: 42px;
+        align-items: start;
+        border-top: 1px solid var(--line);
+      }
+
+      .steps {
+        display: grid;
+        gap: 12px;
+        counter-reset: start-step;
+      }
+
+      .step {
+        position: relative;
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        gap: 14px;
+        align-items: start;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--white);
+      }
+
+      .step::before {
+        counter-increment: start-step;
+        content: counter(start-step);
+        display: inline-grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        background: var(--green);
+        color: var(--white);
+        font-weight: 800;
+      }
+
+      .step strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--green-dark);
+      }
+
+      .step span {
+        color: var(--muted);
+      }
+
+      .faq {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 42px;
+        border-top: 1px solid var(--line);
+      }
+
+      .faq-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      details {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--white);
+        padding: 16px 18px;
+      }
+
+      summary {
+        cursor: pointer;
+        color: var(--green-dark);
+        font-weight: 800;
+      }
+
+      details p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+
+      .install-panel {
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--white);
+      }
+
+      .install-panel h3 {
+        margin: 0 0 14px;
+        font-size: 1.3rem;
+      }
+
+      .install-panel ol {
+        margin: 0;
+        padding-left: 1.2rem;
+        color: var(--muted);
+      }
+
+      .install-panel li + li {
+        margin-top: 8px;
+      }
+
+      .footer {
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      .footer .section {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding-top: 34px;
+        padding-bottom: 34px;
+        font-size: 0.94rem;
+      }
+
+      @media (max-width: 860px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+        }
+
+        .hero,
+        .try-now,
+        .feature,
+        .trust,
+        .start-guide,
+        .faq,
+        .privacy .section,
+        .install {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .feature:nth-child(even) .feature-image {
+          order: 0;
+        }
+
+        .intro-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .sample-row {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+
+        .footer .section {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="https://github.com/StephaneBayle/classe-fr">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Classe FR</span>
+        </a>
+        <div class="nav-links">
+          <a href="#usages">Usages</a>
+          <a href="#confiance">Confiance</a>
+          <a href="#installer">Installer</a>
+          <a href="https://github.com/StephaneBayle/classe-fr">Dépôt GitHub</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section hero">
+        <div>
+          <h1>Préparer la classe avec plus de clarté.</h1>
+          <p>
+            Classe FR aide les enseignants à construire des séances, adapter des supports et relire
+            leurs productions avec la conception universelle de l'apprentissage (CUA), des sources
+            datées et une confidentialité stricte.
+          </p>
+          <div class="actions" aria-label="Actions principales">
+            <a class="button primary" href="#essayer">Essayer une demande</a>
+            <a class="button secondary" href="#confiance">Lire le niveau de confiance</a>
+          </div>
+        </div>
+        <figure class="hero-media">
+          <img
+            src="assets/classe-fr-hero.png"
+            alt="Bureau de préparation avec ordinateur, supports imprimés et parcours d'apprentissage illustrés."
+          />
+          <figcaption>Un copilote de préparation : l'enseignant décide, relit et adapte.</figcaption>
+        </figure>
+      </section>
+
+      <section class="section try-now" id="essayer" aria-label="Essayer Classe FR">
+        <article class="prompt-card">
+          <h2>Essayez avec cette demande.</h2>
+          <p>Copiez-la dans Classe FR, puis remplacez le niveau, la discipline ou l'objectif.</p>
+          <pre class="prompt-box">Prépare une séance de 45 minutes en CM1 sur la comparaison de fractions simples. Je veux un objectif clair, un déroulé, une trace écrite courte, une version imprimable et des options CUA. Les exemples doivent rester fictifs.</pre>
+        </article>
+        <article class="sample-card">
+          <header>
+            <h2>Ce que vous obtenez.</h2>
+            <p>Une réponse structurée, relisible et prête à adapter avant usage en classe.</p>
+          </header>
+          <div class="sample-output" aria-label="Exemple de sortie Classe FR">
+            <div class="sample-row">
+              <strong>Objectif</strong>
+              <span>Comparer deux fractions simples avec une représentation.</span>
+            </div>
+            <div class="sample-row">
+              <strong>Déroulé</strong>
+              <span>Lancement, explicitation, entraînement guidé, autonomie, trace et bilan.</span>
+            </div>
+            <div class="sample-row">
+              <strong>CUA</strong>
+              <span>Manipuler, représenter, expliquer oralement ou par écrit sans changer l'exigence.</span>
+            </div>
+            <div class="sample-row">
+              <strong>À vérifier</strong>
+              <span>Progression locale, exemples numériques, support imprimable et absence de donnée personnelle.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section intro-grid" id="usages" aria-label="Trois usages de Classe FR">
+        <article class="intro-card">
+          <h3>Préparer</h3>
+          <p>Cadrer une année, répartir les apprentissages, préparer une séance ou une évaluation.</p>
+        </article>
+        <article class="intro-card">
+          <h3>Adapter</h3>
+          <p>Repérer les obstacles d'une tâche et proposer plusieurs accès sans changer l'objectif.</p>
+        </article>
+        <article class="intro-card">
+          <h3>Relire en confiance</h3>
+          <p>Vérifier les sources, les droits d'usage, les limites et la confidentialité avant diffusion.</p>
+        </article>
+      </section>
+
+      <section class="section feature">
+        <figure class="feature-image">
+          <img
+            src="assets/preparer-seance.png"
+            alt="Carnet de préparation, cartes pédagogiques et ordinateur organisés sur un bureau."
+          />
+        </figure>
+        <div class="text-block">
+          <h2>Une séance plus lisible dès le départ.</h2>
+          <p>
+            Le plugin commence par l'objectif invariant, puis structure le déroulé, la trace et les
+            points à vérifier. Les exemples restent fictifs ou anonymisés.
+          </p>
+          <ul>
+            <li>Objectif, durée, prérequis et critères de réussite.</li>
+            <li>Options CUA : engagement, représentations, action et expression.</li>
+            <li>Version imprimable et cohérente avec le style de l'enseignant.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section feature">
+        <figure class="feature-image">
+          <img
+            src="assets/accessibilite-confidentialite.png"
+            alt="Support pédagogique abstrait avec repères d'accessibilité et symbole de confidentialité."
+          />
+        </figure>
+        <div class="text-block">
+          <h2>Des supports accessibles, sans données sensibles.</h2>
+          <p>
+            Classe FR aide à relire une consigne, un support ou une évaluation. Il signale les
+            choix pédagogiques à valider et refuse les informations identifiables.
+          </p>
+          <ul>
+            <li>Contraste, titres, consignes courtes et informations non portées par la seule couleur.</li>
+            <li>Distinction entre options ouvertes à tous et adaptations individuelles.</li>
+            <li>Sources, licences et dates visibles quand une ressource externe est utilisée.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section trust" id="confiance">
+        <div>
+          <h2>Savoir quand faire confiance.</h2>
+          <p>
+            Classe FR est utile pour structurer et questionner une préparation. Les contenus
+            disciplinaires restent à relire avec vos sources, votre progression et votre équipe.
+          </p>
+        </div>
+        <div class="levels">
+          <div class="level">
+            <strong>Appui transversal fiable</strong>
+            CUA, confidentialité, lisibilité des supports et validation humaine.
+          </div>
+          <div class="level">
+            <strong>Exemples fictifs disponibles</strong>
+            Des parcours de contrôle existent pour tester les comportements du plugin.
+          </div>
+          <div class="level">
+            <strong>Couverture validée à construire</strong>
+            Aucune matière n'est présentée comme validée sans revue humaine disciplinaire.
+          </div>
+        </div>
+      </section>
+
+      <section class="privacy" aria-label="Confidentialité">
+        <div class="section">
+          <h2>Les données restent hors du dépôt.</h2>
+          <div>
+            <p>
+              Le dépôt et le formulaire de feedback sont publics. Classe FR travaille avec des
+              situations fictives ou anonymisées et rappelle les limites avant chaque usage sensible.
+            </p>
+            <ul>
+              <li>Pas de copie d'élève, évaluation nominative ou message aux familles identifiable.</li>
+              <li>Pas de capture d'ENT, d'adresse, de donnée médicale ou de donnée de handicap.</li>
+              <li>Pas d'accès à une messagerie, un ENT, un Nuage personnel ou un projet privé.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section start-guide" id="demarrer">
+        <div class="text-block">
+          <h2>Démarrer seul en 4 étapes.</h2>
+          <p>
+            Cette page présente le plugin ; elle ne l'exécute pas directement. Pour l'utiliser,
+            installez Classe FR dans Codex / ChatGPT Work ou dans Claude, puis copiez une demande.
+          </p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div>
+              <strong>Choisir l'environnement</strong>
+              <span>Commencez par Codex / ChatGPT Work si vous ne savez pas quelle option prendre.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <strong>Installer Classe FR</strong>
+              <span>Dans le menu Plugins, choisissez Ajouter une marketplace, puis copiez <code>StephaneBayle/classe-fr</code>. Si un champ Réf. Git apparaît, indiquez <code>main</code>.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <strong>Ouvrir une nouvelle conversation</strong>
+              <span>Demandez une séance, un audit de support, une grille ou un message collectif.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <strong>Relire avant usage</strong>
+              <span>Vérifiez niveau, sources, confidentialité, consignes et adaptation au contexte réel.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section install" id="installer">
+        <article class="install-panel">
+          <h2>Installer dans Codex / ChatGPT Work</h2>
+          <p>Si vous ne savez pas quoi choisir, commencez par cette option.</p>
+          <ol>
+            <li>Ouvrez le menu Plugins.</li>
+            <li>Choisissez Ajouter une marketplace.</li>
+            <li>Copiez <code>StephaneBayle/classe-fr</code>. Si un champ Réf. Git est demandé, mettez <code>main</code>.</li>
+            <li>Installez Classe FR, puis ouvrez une nouvelle conversation.</li>
+          </ol>
+        </article>
+        <article class="install-panel">
+          <h2>Utiliser avec Claude Code / Cowork</h2>
+          <p>Option utile si vous travaillez déjà avec Claude et des fichiers source.</p>
+          <ol>
+            <li>Ouvrez Personnaliser, puis Plugins.</li>
+            <li>Choisissez Ajouter depuis un dépôt.</li>
+            <li>Copiez <code>StephaneBayle/classe-fr</code>, puis activez Classe FR.</li>
+            <li>Dans une nouvelle conversation, demandez simplement d'utiliser Classe FR.</li>
+          </ol>
+        </article>
+      </section>
+
+      <section class="section faq" id="questions">
+        <div class="text-block">
+          <h2>Questions fréquentes.</h2>
+          <p>Quelques réponses pour éviter les blocages au premier essai.</p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Je ne vois pas le menu Plugins.</summary>
+            <p>Votre environnement ne donne peut-être pas accès aux plugins ou aux marketplaces. Dans ce cas, utilisez le dépôt comme documentation ou essayez depuis un espace qui autorise les plugins.</p>
+          </details>
+          <details>
+            <summary>Faut-il un terminal ou un compte GitHub ?</summary>
+            <p>Pour l'installation par marketplace, l'objectif est d'éviter le terminal. Le dépôt est public ; les enseignants n'ont pas besoin d'être collaborateurs du repo.</p>
+          </details>
+          <details>
+            <summary>Puis-je coller une copie d'élève ?</summary>
+            <p>Non. Utilisez seulement des exemples fictifs ou anonymisés. Ne collez pas de nom, note, capture d'ENT, message aux familles ou document identifiable.</p>
+          </details>
+          <details>
+            <summary>Puis-je utiliser la réponse directement ?</summary>
+            <p>Non. Classe FR prépare et structure. L'enseignant relit, vérifie les sources, adapte au contexte de classe et garde la décision finale.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="section">
+        <span>Classe FR 0.2.0 — pilote public</span>
+        <span><a href="https://github.com/StephaneBayle/classe-fr/blob/main/LICENSE">Source disponible propriétaire</a></span>
+      </div>
+    </footer>
+  </body>
+</html>

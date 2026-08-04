@@ -186,6 +186,38 @@ class ClasseFrTests(unittest.TestCase):
             self.assertIn(element, page)
         self.assertIn("../../../CONFIANCE.md", matrice)
 
+    def test_page_publique_est_presente_et_reference_des_images_locales(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        page = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
+
+        for relative_path in (
+            "plugins/classe-fr/assets/images/public/classe-fr-hero.png",
+            "plugins/classe-fr/assets/images/public/preparer-seance.png",
+            "plugins/classe-fr/assets/images/public/accessibilite-confidentialite.png",
+            "docs/assets/classe-fr-hero.png",
+            "docs/assets/preparer-seance.png",
+            "docs/assets/accessibilite-confidentialite.png",
+        ):
+            self.assertTrue((ROOT / relative_path).is_file(), relative_path)
+        self.assertIn("Voir la page publique", readme)
+        self.assertIn("https://stephanebayle.github.io/classe-fr/", readme)
+        self.assertIn("Préparer la classe avec plus de clarté.", page)
+        self.assertIn("Essayez avec cette demande.", page)
+        self.assertIn("Ce que vous obtenez.", page)
+        self.assertIn("conception universelle de l'apprentissage (CUA)", page)
+        self.assertIn("commencez par cette option", page)
+        self.assertIn("Aucune matière n'est présentée comme validée", page)
+        self.assertIn("Démarrer seul en 4 étapes.", page)
+        self.assertIn("Cette page présente le plugin", page)
+        self.assertIn("Dans le menu Plugins, choisissez Ajouter une marketplace", page)
+        self.assertIn("Si un champ Réf. Git apparaît", page)
+        self.assertIn("Questions fréquentes.", page)
+        self.assertIn("Je ne vois pas le menu Plugins.", page)
+        self.assertIn("Puis-je coller une copie d'élève ?", page)
+        self.assertIn("alt=\"Bureau de préparation", page)
+        self.assertIn("alt=\"Carnet de préparation", page)
+        self.assertIn("alt=\"Support pédagogique abstrait", page)
+
     def test_cas_usage_complets_sont_fictifs_relisibles_et_couvrants(self):
         cas = (ROOT / "CAS-USAGE.md").read_text(encoding="utf-8")
 
