@@ -28,6 +28,7 @@ REQUIRED_REFERENCES = {
     "confidentialite.md",
     "parcours-pedagogiques-fictifs.md",
     "revue-sources-institutionnelles.md",
+    "connecteurs-publics-institutionnels.md",
     "triage-feedbacks-enseignants.md",
     "matrice-couverture-discipline-niveau.md",
 }
@@ -38,8 +39,17 @@ REQUIRED_CONTENT = {
         "Représentation",
         "Action et expression",
     ),
-    "references/sources-et-droits.md": ("Éduscol", "Primàbord", "Ne pas aspirer"),
-    "references/confidentialite.md": ("aucun nom", "donnée de handicap", "CNIL"),
+    "references/sources-et-droits.md": ("Éduscol", "Primàbord", "Ne pas aspirer", "data.education.gouv.fr", "Forge des communs numériques éducatifs"),
+    "references/confidentialite.md": ("aucun nom", "donnée de handicap", "CNIL", "projet Forge privé"),
+    "references/connecteurs-publics-institutionnels.md": (
+        "data.education.gouv.fr",
+        "Forge des communs numériques éducatifs",
+        "lecture seule",
+        "date de consultation",
+        "licence absente ou à vérifier",
+        "diagnostic individuel",
+        "espace authentifié",
+    ),
     "assets/modeles/grille-cua.md": (
         "Objectif invariant",
         "Engagement",
