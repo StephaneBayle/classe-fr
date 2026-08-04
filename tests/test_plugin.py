@@ -59,6 +59,7 @@ class ClasseFrTests(unittest.TestCase):
         self.assertIn("Description courte", readme)
         self.assertIn("Topics recommandés", readme)
         self.assertIn("Utiliser avec Claude Code ou Cowork", readme)
+        self.assertIn("guide de démarrage", readme)
         self.assertIn("maintenance", labels_script)
         for relative_path in (
             "CONTRIBUTING.md",
@@ -103,6 +104,25 @@ class ClasseFrTests(unittest.TestCase):
         self.assertIn("name: classe-fr-pedagogie", claude_project_agent)
         self.assertIn("plugins/classe-fr/agents/classe-fr-pedagogie.md", claude_project_agent)
         self.assertIn("aucune donnée d'élève identifiable", claude_project_agent)
+
+    def test_guide_de_demarrage_couvre_les_premiers_usages_enseignants(self):
+        guide = (ROOT / "DEMARRER.md").read_text(encoding="utf-8")
+
+        for element in (
+            "préparer une séance",
+            "rendre un support plus accessible",
+            "rédiger une communication collective aux familles",
+            "Demande prête à copier",
+            "Informations minimales à fournir",
+            "Exemple fictif de réponse attendue",
+            "Points à vérifier avant usage",
+            "Engagement",
+            "Représentations variées",
+            "Action et expression",
+            "aucun nom d'élève",
+            "validation humaine",
+        ):
+            self.assertIn(element, guide)
 
     def test_tokens_imposent_l_accessibilite(self):
         tokens = ROOT / "plugins" / "classe-fr" / "assets" / "modeles" / "design-tokens.json"

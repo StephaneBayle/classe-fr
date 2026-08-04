@@ -17,6 +17,10 @@ Classe FR est un plugin pour Codex/ChatGPT Work et Claude Code/Cowork pensé pou
 
 Les compétences s’adressent aux enseignants de maternelle, d’élémentaire, de collège, de lycée général, technologique ou professionnel, ainsi que de CFA. Elles proposent des repères adaptés au niveau, mais ne remplacent ni les programmes, ni le travail d’équipe, ni votre connaissance de la classe.
 
+## Démarrer en cinq minutes
+
+Pour un premier essai, commencez par le [guide de démarrage](DEMARRER.md). Il propose trois parcours prêts à copier : préparer une séance, rendre un support plus accessible et rédiger une communication collective aux familles.
+
 ## Installer dans Codex/ChatGPT Work
 
 L’installation par l’interface est recommandée : elle ne demande ni terminal ni compte GitHub particulier.
