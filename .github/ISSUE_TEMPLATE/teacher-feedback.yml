@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Ne joignez aucun document d'élève, message aux familles, capture d'écran d'ENT ni donnée personnelle.
+        Ce formulaire est public : ne joignez aucun document d'élève, message aux familles, capture d'écran d'ENT ni donnée personnelle.
   - type: dropdown
     id: type
     attributes:

@@ -89,7 +89,7 @@ Concrètement, cela peut associer une consigne orale et visuelle, une manipulati
 
 L’espace professeur est local et ignoré par Git. **N’ajoutez jamais** de copie d’élève, évaluation nominative, message aux familles, capture d’ENT, nom, adresse, donnée médicale ou donnée de handicap. Anonymisez vos exemples professionnels avant de les utiliser. Relisez toujours un support avant diffusion.
 
-Le dépôt est public : toute issue, commentaire ou pièce jointe est potentiellement visible. Pour proposer une amélioration, utilisez [$feedback-au-createur](https://github.com/StephaneBayle/classe-fr/issues/new?template=teacher-feedback.yml) uniquement avec un contexte pédagogique non identifiable.
+Le formulaire de retour est public : tout message ou document joint peut être visible. Pour proposer une amélioration, utilisez [$feedback-au-createur](https://github.com/StephaneBayle/classe-fr/issues/new?template=teacher-feedback.yml) uniquement avec un contexte pédagogique non identifiable, sans pièce jointe.
 
 ## Ressources et contributions
 

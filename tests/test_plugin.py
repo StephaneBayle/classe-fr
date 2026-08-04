@@ -216,6 +216,40 @@ class ClasseFrTests(unittest.TestCase):
             self.assertIn(element, cas)
         self.assertGreaterEqual(cas.count("## Cas "), 5)
 
+    def test_feedback_createur_est_court_public_et_confirme(self):
+        modele = (
+            ROOT / "plugins" / "classe-fr" / "assets" / "modeles" / "feedback.md"
+        ).read_text(encoding="utf-8")
+        skill = (
+            ROOT / "plugins" / "classe-fr" / "skills" / "feedback-au-createur" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+        formulaire = (
+            ROOT / ".github" / "ISSUE_TEMPLATE" / "teacher-feedback.yml"
+        ).read_text(encoding="utf-8")
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+
+        for element in (
+            "Ce formulaire est public",
+            "ne joignez aucun document",
+            "Contexte pédagogique non identifiable",
+            "Impact : faible | moyen | élevé",
+            "Résultat attendu ou proposition",
+            "Confirmation de confidentialité obligatoire",
+            "Version courte prête à coller",
+            "aucun nom",
+        ):
+            self.assertIn(element, modele)
+        for element in (
+            "tenir en une page",
+            "version courte prête à coller",
+            "Ne jamais créer, envoyer ou publier le retour sans demande explicite séparée",
+            "Éviter le vocabulaire technique GitHub",
+            "formulaire public",
+        ):
+            self.assertIn(element, skill)
+        self.assertIn("Ce formulaire est public", formulaire)
+        self.assertIn("Le formulaire de retour est public", readme)
+
     def test_tokens_imposent_l_accessibilite(self):
         tokens = ROOT / "plugins" / "classe-fr" / "assets" / "modeles" / "design-tokens.json"
         payload = json.loads(tokens.read_text(encoding="utf-8"))
