@@ -95,7 +95,7 @@ Le formulaire de retour est public : tout message ou document joint peut être
 
 Les ressources institutionnelles et de pairs sont référencées avec leur source, leur date de consultation et leur licence. Classe FR ne recopie pas les contenus protégés sans autorisation.
 
-Ce projet est un pilote public en version `0.1.0`. Les améliorations attendues sont suivies dans les [issues](https://github.com/StephaneBayle/classe-fr/issues). Pour contribuer au dépôt, consultez [le guide de contribution](AGENTS.md), lancez les validations indiquées et liez votre proposition à une issue.
+Ce projet est un pilote public en version `0.2.0`. Les améliorations attendues sont suivies dans les [issues](https://github.com/StephaneBayle/classe-fr/issues). Pour contribuer au dépôt, consultez [le guide de contribution](AGENTS.md), lancez les validations indiquées et liez votre proposition à une issue.
 
 ## Licence
 
