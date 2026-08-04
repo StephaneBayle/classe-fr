@@ -1,107 +1,96 @@
 # Classe FR
 
-![Bannière illustrative de Classe FR : des chemins d’apprentissage reliant école, collège, lycée et apprentissage.](plugins/classe-fr/assets/images/banner-classe-fr.png)
+![Bureau de préparation Classe FR avec supports, ordinateur et parcours d'apprentissage illustrés.](plugins/classe-fr/assets/images/public/classe-fr-hero.png)
 
-**Préparer, adapter et améliorer son travail pédagogique, de la maternelle au CFA : à l’école, au collège, au lycée et en apprentissage.**
+**Un assistant de préparation pédagogique pour les enseignants en France.**
 
-Classe FR est un plugin pour Codex/ChatGPT Work et Claude Code/Cowork pensé pour les enseignants exerçant en France. Il aide à préparer le travail de l’année, à organiser ses ressources, à créer des supports plus accessibles et à formuler des communications professionnelles. C’est un copilote de préparation : l’enseignant garde toujours la décision pédagogique et relit chaque production avant de l’utiliser.
+Classe FR aide à préparer, adapter et relire le travail de classe, de la maternelle au CFA. Il sert à gagner en clarté avant la séance, à rendre les supports plus accessibles et à garder les bons réflexes de confidentialité. L'enseignant reste responsable de la décision pédagogique et relit chaque production avant usage.
 
-## Ce que Classe FR peut vous aider à faire
+[Voir la page publique](https://stephanebayle.github.io/classe-fr/) · [guide de démarrage](DEMARRER.md) · [cas d’usage complets](CAS-USAGE.md) · [niveau de confiance](CONFIANCE.md) · [Dernière release](https://github.com/StephaneBayle/classe-fr/releases/latest)
 
-- cadrer une année, une prise de poste ou une nouvelle classe ;
-- construire une programmation par périodes à partir de sources datées ;
-- préparer une séance, une séquence, un support ou une évaluation ;
-- organiser votre propre bibliothèque de ressources et préciser leurs droits d’usage ;
-- harmoniser vos documents et vos messages aux familles à partir de textes professionnels anonymisés ;
-- faire un bilan de période et préparer un retour d’expérience pour le créateur.
+## Trois usages simples
 
-Les compétences s’adressent aux enseignants de maternelle, d’élémentaire, de collège, de lycée général, technologique ou professionnel, ainsi que de CFA. Elles proposent des repères adaptés au niveau, mais ne remplacent ni les programmes, ni le travail d’équipe, ni votre connaissance de la classe.
+| Préparer | Adapter | Relire en confiance |
+| --- | --- | --- |
+| Cadrer une année, construire une programmation, préparer une séance ou une évaluation. | Transformer une consigne, un support ou une activité avec les principes CUA. | Vérifier les sources, les droits, la confidentialité et les points à valider humainement. |
 
-## Démarrer en cinq minutes
+Classe FR travaille avec des exemples fictifs ou anonymisés. Il ne remplace ni les programmes, ni le travail d'équipe, ni votre connaissance de la classe.
 
-Pour un premier essai, commencez par le [guide de démarrage](DEMARRER.md). Il propose trois parcours prêts à copier : préparer une séance, rendre un support plus accessible et rédiger une communication collective aux familles.
+## Démarrer vite
 
-Pour voir des exemples plus complets de demandes et de livrables fictifs, consultez les [cas d’usage complets](CAS-USAGE.md).
+1. Ouvrez [DEMARRER.md](DEMARRER.md).
+2. Copiez une demande prête à l'emploi.
+3. Indiquez le niveau, la discipline, l'objectif et le format attendu.
+4. Relisez la proposition avant usage.
 
-Pour comprendre ce qui est robuste aujourd’hui, ce qui repose sur des exemples fictifs et ce qui doit être validé avec une source ou l’équipe, consultez [le niveau de confiance et la couverture du pilote](CONFIANCE.md).
+Exemple :
 
-## Installer dans Codex/ChatGPT Work
+```text
+Prépare une séance de 45 minutes en CM1 sur la comparaison de fractions simples.
+Je veux un objectif clair, un déroulé, une trace écrite courte, une version imprimable
+et des options CUA. Les exemples doivent rester fictifs.
+```
 
-L’installation par l’interface est recommandée : elle ne demande ni terminal ni compte GitHub particulier.
+## Installer
 
-1. Dans Codex/ChatGPT Work, ouvrez **Plugins**, puis choisissez **Ajouter une marketplace**.
-2. Renseignez `StephaneBayle/classe-fr` dans **Source** et `main` dans **Réf. Git**. Laissez **Chemins partiels** vide.
-3. Cliquez sur **Ajouter une marketplace**, recherchez **Classe FR**, puis choisissez **Installer**.
-4. Ouvrez une **nouvelle conversation** : les compétences du plugin sont alors disponibles.
+### Codex / ChatGPT Work
 
-Le dépôt étant public, tous les enseignants peuvent suivre ce parcours. Ils n’ont pas besoin d’être invités comme collaborateurs GitHub.
+1. Ouvrez **Plugins**, puis **Ajouter une marketplace**.
+2. Renseignez `StephaneBayle/classe-fr` dans **Source** et `main` dans **Réf. Git**.
+3. Recherchez **Classe FR**, installez-le, puis ouvrez une nouvelle conversation.
 
-## Utiliser avec Claude Code ou Cowork
-
-Classe FR reste structuré comme plugin OpenAI, mais il peut aussi être ajouté dans Claude depuis le menu de personnalisation des plugins.
+### Utiliser avec Claude Code ou Cowork
 
 1. Dans Claude, ouvrez **Personnaliser**, puis **Plugins**.
-2. Cliquez sur **Ajouter**, puis choisissez **Ajouter une place de marché**.
-3. Sélectionnez **Ajouter depuis un dépôt**.
-4. Renseignez le dépôt `StephaneBayle/classe-fr`, ou l’URL Git `https://github.com/StephaneBayle/classe-fr.git`, puis synchronisez la marketplace.
-5. Recherchez **Classe FR**, activez le plugin, puis ouvrez une nouvelle conversation.
+2. Choisissez **Ajouter depuis un dépôt**.
+3. Renseignez `StephaneBayle/classe-fr` ou `https://github.com/StephaneBayle/classe-fr.git`.
+4. Activez **Classe FR**, puis ouvrez une nouvelle conversation.
 
-Le dépôt fournit aussi trois entrées compatibles avec Claude Code/Cowork pour les personnes qui travaillent directement depuis les fichiers source.
+Le dépôt fournit aussi `CLAUDE.md`, `.claude/agents/classe-fr-pedagogie.md` et `plugins/classe-fr/agents/classe-fr-pedagogie.md` pour les usages Claude Code / Cowork depuis les fichiers source.
 
-- `CLAUDE.md` donne les règles du projet quand vous ouvrez ce dépôt dans Claude Code ou Cowork.
-- `.claude/agents/classe-fr-pedagogie.md` permet à Claude Code de découvrir automatiquement l’agent quand le dépôt est ouvert comme projet.
-- `plugins/classe-fr/agents/classe-fr-pedagogie.md` fournit un agent Claude portable qui reprend les garde-fous du plugin : confidentialité, objectif invariant, CUA, sources datées et responsabilité de validation par l’enseignant.
+## Choisir une compétence
 
-Dans Claude Code ou Cowork, demandez par exemple : « Utilise l’agent `classe-fr-pedagogie` pour préparer une séance inclusive de CM1 sur les fractions. » L’agent lit les compétences dans `plugins/classe-fr/skills/` et les références utiles avant de produire un livrable. Le plugin ne transmet aucune donnée : vous devez continuer à travailler uniquement avec des exemples fictifs ou anonymisés.
+Vous pouvez décrire votre besoin en langage courant ou appeler directement une compétence avec `$nom-de-competence`.
 
-## Choisir et déclencher une compétence
+| Compétence | Usage principal |
+| --- | --- |
+| `$cadrage-annee-scolaire` | démarrer une année, une prise de poste ou une nouvelle classe |
+| `$bibliotheque-pedagogique` | organiser des ressources avec provenance, droits et objectifs |
+| `$style-et-design-prof` | harmoniser supports, consignes et messages à partir d'exemples anonymisés |
+| `$programmation-annuelle` | répartir les apprentissages par périodes avec sources datées |
+| `$preparation-differenciation` | préparer une séance, une séquence ou un support accessible |
+| `$cua-accessibilite-pedagogique` | auditer ou transformer un support selon la CUA |
+| `$evaluation-retours` | créer une grille ou un retour pédagogique anonymisé |
+| `$communication-familles` | rédiger un message collectif clair et non nominatif |
+| `$bilan-de-periode` | faire le point après une période ou une séquence |
+| `$feedback-au-createur` | formuler un retour public sans donnée personnelle |
 
-Vous pouvez décrire votre besoin avec vos mots : l’assistant sélectionnera la compétence pertinente. Pour la choisir vous-même, écrivez son nom précédé de `$` dans Codex, par exemple `$preparation-differenciation`. Dans ChatGPT Work, tapez `@`, puis choisissez **Classe FR** ou la compétence proposée.
+## Confidentialité
 
-Commencez toujours par indiquer le niveau, la discipline ou le domaine, et ce que vous souhaitez obtenir. Voici les dix compétences et des demandes prêtes à copier.
+Le dépôt est public. Le formulaire de retour est public : tout message ou document joint peut être visible. **Ne publiez jamais** de copie d'élève, évaluation nominative, message aux familles, capture d'ENT, nom, adresse, donnée médicale ou donnée de handicap.
 
-| Compétence | À utiliser quand… | Demande prête à copier |
-| --- | --- | --- |
-| `$cadrage-annee-scolaire` | vous démarrez une année, une nouvelle classe ou une prise de poste | « Je prends une classe de CE2. Aide-moi à cadrer mon année, avec mes priorités et les grandes étapes. » |
-| `$bibliotheque-pedagogique` | vous voulez classer et retrouver vos propres ressources | « Aide-moi à organiser mes ressources de français 6e par objectif, niveau, source et droit d’usage. » |
-| `$style-et-design-prof` | vous voulez harmoniser vos supports, évaluations et messages | « À partir de ces textes professionnels anonymisés, aide-moi à définir mon style d’écriture et mes règles de mise en page accessibles. » |
-| `$programmation-annuelle` | vous répartissez les apprentissages sur l’année ou les périodes | « Construis une programmation annuelle de mathématiques pour une 5e, à partir des repères que je fournis et des sources à vérifier. » |
-| `$preparation-differenciation` | vous préparez une séquence, une séance ou un support | « Prépare une séance de SVT en seconde sur la biodiversité : objectif clair, déroulé, supports et plusieurs accès au contenu. » |
-| `$cua-accessibilite-pedagogique` | vous voulez rendre une séance, un support ou une évaluation plus accessible | « Audite cette évaluation de lecture en CM2 selon la CUA, sans changer ce qui est réellement évalué. » |
-| `$evaluation-retours` | vous créez une évaluation, une grille ou un retour aux élèves | « Conçois une grille d’évaluation pour un oral de CAP, avec critères explicites et modalités d’expression adaptées. » |
-| `$communication-familles` | vous rédigez un message collectif ou une information pratique | « Rédige un message clair aux familles de 4e sur la sortie scolaire, sans mentionner d’élève en particulier. » |
-| `$bilan-de-periode` | vous faites le point après une période, une séquence ou avant une réunion | « Aide-moi à faire le bilan de ma période en maternelle : acquis observés, ajustements à envisager et prochaines priorités. » |
-| `$feedback-au-createur` | vous souhaitez signaler un bug, une idée ou un besoin pour faire évoluer Classe FR | « Aide-moi à formuler un retour sur Classe FR concernant l’accessibilité, sans aucune donnée personnelle ni document identifiable. » |
-
-Pour organiser vos ressources et vos productions, demandez à l’assistant de créer un espace professeur local dans votre dossier de travail. Les personnes qui préfèrent le faire elles-mêmes peuvent exécuter :
+L'espace professeur local est ignoré par Git. Pour le créer :
 
 ```bash
 python3 plugins/classe-fr/scripts/init_teacher_space.py teacher-space
 ```
 
-## Une accessibilité pensée dès le départ
+## Contribuer
 
-Classe FR applique la **conception universelle de l’apprentissage (CUA)**. Chaque proposition commence par ce qui doit être appris, puis anticipe les obstacles possibles. Elle propose, quand c’est pertinent, plusieurs façons équivalentes de s’engager, d’accéder au contenu et de montrer ce qui a été compris.
+Classe FR est un pilote public en version `0.2.0`. Les ressources institutionnelles et de pairs sont référencées avec source, date de consultation et licence. Le plugin ne recopie pas de contenus protégés sans autorisation.
 
-Concrètement, cela peut associer une consigne orale et visuelle, une manipulation, un exemple guidé, du vocabulaire explicité, un temps d’anticipation ou plusieurs formes de restitution. L’objectif ne change pas. La CUA ne remplace pas les adaptations individualisées ni les décisions de l’équipe éducative.
+Pour contribuer, consultez [AGENTS.md](AGENTS.md), ouvrez ou liez une [issue](https://github.com/StephaneBayle/classe-fr/issues), puis lancez :
 
-## Vos données restent sous votre contrôle
-
-L’espace professeur est local et ignoré par Git. **N’ajoutez jamais** de copie d’élève, évaluation nominative, message aux familles, capture d’ENT, nom, adresse, donnée médicale ou donnée de handicap. Anonymisez vos exemples professionnels avant de les utiliser. Relisez toujours un support avant diffusion.
-
-Le formulaire de retour est public : tout message ou document joint peut être visible. Pour proposer une amélioration, utilisez [$feedback-au-createur](https://github.com/StephaneBayle/classe-fr/issues/new?template=teacher-feedback.yml) uniquement avec un contexte pédagogique non identifiable, sans pièce jointe.
-
-## Ressources et contributions
-
-Les ressources institutionnelles et de pairs sont référencées avec leur source, leur date de consultation et leur licence. Classe FR ne recopie pas les contenus protégés sans autorisation.
-
-Ce projet est un pilote public en version `0.2.0`. Les améliorations attendues sont suivies dans les [issues](https://github.com/StephaneBayle/classe-fr/issues). Pour contribuer au dépôt, consultez [le guide de contribution](AGENTS.md), lancez les validations indiquées et liez votre proposition à une issue.
+```bash
+python3 plugins/classe-fr/scripts/validate_classe_fr.py .
+python3 -m unittest discover -s tests -v
+```
 
 ## Licence
 
 Classe FR est publié comme **source disponible propriétaire**. Le dépôt peut être consulté publiquement pour comprendre, installer et auditer le plugin depuis sa source officielle, mais il n'accorde pas de droit de copie, modification, redistribution ou réutilisation en dehors d'un accord écrit préalable.
 
-Consultez [LICENSE](LICENSE) pour les conditions complètes. Le manifeste du plugin conserve la valeur `UNLICENSED` afin de rendre explicite qu'il ne s'agit pas d'un projet open source.
+Consultez [LICENSE](LICENSE) pour les conditions complètes. Le manifeste conserve la valeur `UNLICENSED` afin de rendre explicite qu'il ne s'agit pas d'un projet open source.
 
 ## Métadonnées GitHub recommandées
 
