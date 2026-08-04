@@ -1,11 +1,23 @@
-# Feedback Classe FR
+# Retour Classe FR — brouillon court
+
+Ce formulaire est public : ne joignez aucun document, capture d'écran, message aux familles, copie d'élève ou donnée personnelle. Le brouillon doit tenir en une page courte.
+
+## Champs à remplir
 
 - Type : bug | idée | ressource | besoin pédagogique | cua-accessibilite | confidentialité
 - Titre :
-- Niveau et contexte pédagogique non identifiable :
-- Ce qui a été tenté :
-- Résultat observé :
-- Résultat attendu ou proposition :
+- Contexte pédagogique non identifiable : niveau, discipline, action tentée.
 - Impact : faible | moyen | élevé
-- Ressource ou lien public facultatif :
-- Confirmation : aucun nom, document d'élève, message familial ou donnée sensible n'est inclus.
+- Résultat attendu ou proposition :
+- Ressource publique facultative : lien et licence si connus.
+- Confirmation de confidentialité obligatoire : aucun nom, document d'élève, message familial, capture d'écran, donnée de santé ou donnée sensible n'est inclus.
+
+## Version courte prête à coller
+
+Type :
+Titre :
+Contexte non identifiable :
+Impact :
+Résultat attendu ou proposition :
+Ressource publique facultative :
+Confirmation : aucun nom, document identifiable ou donnée sensible n'est inclus.
