@@ -60,6 +60,7 @@ class ClasseFrTests(unittest.TestCase):
         self.assertIn("Topics recommandés", readme)
         self.assertIn("Utiliser avec Claude Code ou Cowork", readme)
         self.assertIn("guide de démarrage", readme)
+        self.assertIn("cas d’usage complets", readme)
         self.assertIn("niveau de confiance", readme)
         self.assertIn("maintenance", labels_script)
         for relative_path in (
@@ -184,6 +185,36 @@ class ClasseFrTests(unittest.TestCase):
         ):
             self.assertIn(element, page)
         self.assertIn("../../../CONFIANCE.md", matrice)
+
+    def test_cas_usage_complets_sont_fictifs_relisibles_et_couvrants(self):
+        cas = (ROOT / "CAS-USAGE.md").read_text(encoding="utf-8")
+
+        for element in (
+            "Cas d’usage complets",
+            "Tous les exemples sont fictifs",
+            "Demande initiale",
+            "Informations fournies",
+            "Réponse produite",
+            "Vérifications humaines restantes",
+            "transformer un support peu accessible",
+            "préparer une séance courte",
+            "créer une grille d’évaluation",
+            "rédiger un message collectif aux familles",
+            "préparer un bilan de période anonymisé",
+            "6e",
+            "CM1",
+            "CAP",
+            "4e",
+            "maternelle",
+            "Objectif invariant",
+            "Engagement",
+            "Représentations variées",
+            "Action et expression",
+            "aucune classe réelle",
+            "validation humaine",
+        ):
+            self.assertIn(element, cas)
+        self.assertGreaterEqual(cas.count("## Cas "), 5)
 
     def test_tokens_imposent_l_accessibilite(self):
         tokens = ROOT / "plugins" / "classe-fr" / "assets" / "modeles" / "design-tokens.json"
