@@ -455,6 +455,19 @@
         gap: 12px;
       }
 
+      .feedback-panel {
+        margin-top: 14px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #f2f6f3;
+      }
+
+      .feedback-panel p {
+        margin: 0 0 12px;
+        color: var(--muted);
+      }
+
       details {
         border: 1px solid var(--line);
         border-radius: 8px;
@@ -707,11 +720,11 @@
 
       <section class="privacy" aria-label="Confidentialité">
         <div class="section">
-          <h2>Les données restent hors du dépôt.</h2>
+          <h2>Vos données restent dans votre espace de travail.</h2>
           <div>
             <p>
-              Le dépôt et le formulaire de feedback sont publics. Classe FR travaille avec des
-              situations fictives ou anonymisées et rappelle les limites avant chaque usage sensible.
+              Le formulaire de retour est public. Classe FR travaille avec des situations fictives
+              ou anonymisées et rappelle les limites avant chaque usage sensible.
             </p>
             <ul>
               <li>Pas de copie d'élève, évaluation nominative ou message aux familles identifiable.</li>
@@ -774,7 +787,7 @@
           <p>Option utile si vous travaillez déjà avec Claude et des fichiers source.</p>
           <ol>
             <li>Ouvrez Personnaliser, puis Plugins.</li>
-            <li>Choisissez Ajouter depuis un dépôt.</li>
+            <li>Choisissez l'option d'ajout depuis une adresse de projet.</li>
             <li>Copiez <code>StephaneBayle/classe-fr</code>, puis activez Classe FR.</li>
             <li>Dans une nouvelle conversation, demandez simplement d'utiliser Classe FR.</li>
           </ol>
@@ -789,11 +802,11 @@
         <div class="faq-list">
           <details>
             <summary>Je ne vois pas le menu Plugins.</summary>
-            <p>Votre environnement ne donne peut-être pas accès aux plugins ou aux marketplaces. Dans ce cas, utilisez le dépôt comme documentation ou essayez depuis un espace qui autorise les plugins.</p>
+            <p>Votre environnement ne donne peut-être pas accès aux plugins ou aux marketplaces. Dans ce cas, essayez depuis un espace qui autorise les plugins ou demandez à une personne référente de vous aider à l'installer.</p>
           </details>
           <details>
-            <summary>Faut-il un terminal ou un compte GitHub ?</summary>
-            <p>Pour l'installation par marketplace, l'objectif est d'éviter le terminal. Le dépôt est public ; les enseignants n'ont pas besoin d'être collaborateurs du repo.</p>
+            <summary>Faut-il un terminal ou un compte technique ?</summary>
+            <p>Pour l'installation par marketplace, l'objectif est d'éviter le terminal. Dans la plupart des cas, il suffit de copier l'adresse indiquée dans l'interface.</p>
           </details>
           <details>
             <summary>Puis-je coller une copie d'élève ?</summary>
@@ -803,6 +816,10 @@
             <summary>Puis-je utiliser la réponse directement ?</summary>
             <p>Non. Classe FR prépare et structure. L'enseignant relit, vérifie les sources, adapte au contexte de classe et garde la décision finale.</p>
           </details>
+          <div class="feedback-panel">
+            <p>Vous avez repéré un blocage, une idée ou un besoin pédagogique ? Envoyez un retour sans donnée personnelle ni document identifiable.</p>
+            <a class="button primary" href="https://github.com/StephaneBayle/classe-fr/issues/new?template=teacher-feedback.yml">Faire un retour</a>
+          </div>
         </div>
       </section>
     </main>
@@ -810,7 +827,7 @@
     <footer class="footer">
       <div class="section">
         <span>Classe FR 0.2.0 — pilote public</span>
-        <span><a href="https://github.com/StephaneBayle/classe-fr/blob/main/LICENSE">Source disponible propriétaire</a></span>
+        <span>Licence : source disponible propriétaire</span>
       </div>
     </footer>
   </body>
