@@ -126,8 +126,8 @@ def validate(root: Path) -> list[str]:
 
     if manifest.get("name") != "classe-fr":
         fail(errors, "Le manifest doit porter le nom classe-fr.")
-    if manifest.get("version") != "0.1.0":
-        fail(errors, "La version attendue est 0.1.0.")
+    if manifest.get("version") != "0.2.0":
+        fail(errors, "La version attendue est 0.2.0.")
     if manifest.get("license") != "UNLICENSED":
         fail(errors, "La licence du pilote doit être UNLICENSED.")
     if not manifest.get("author", {}).get("name"):
