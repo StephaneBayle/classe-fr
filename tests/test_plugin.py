@@ -60,6 +60,7 @@ class ClasseFrTests(unittest.TestCase):
         self.assertIn("Topics recommandés", readme)
         self.assertIn("Utiliser avec Claude Code ou Cowork", readme)
         self.assertIn("guide de démarrage", readme)
+        self.assertIn("niveau de confiance", readme)
         self.assertIn("maintenance", labels_script)
         for relative_path in (
             "CONTRIBUTING.md",
@@ -157,6 +158,32 @@ class ClasseFrTests(unittest.TestCase):
             self.assertNotIn("ma classe", prompt)
             self.assertNotIn("profil de style", prompt)
             self.assertNotIn("feedback", prompt)
+
+    def test_page_confiance_clarifie_le_perimetre_du_pilote(self):
+        page = (ROOT / "CONFIANCE.md").read_text(encoding="utf-8")
+        matrice = (
+            ROOT
+            / "plugins"
+            / "classe-fr"
+            / "references"
+            / "matrice-couverture-discipline-niveau.md"
+        ).read_text(encoding="utf-8")
+
+        for element in (
+            "Ce que Classe FR sait faire aujourd’hui",
+            "La source de vérité",
+            "matrice de couverture discipline × niveau",
+            "appui transversal fiable",
+            "exemple fictif disponible",
+            "couverture validée par revue humaine",
+            "Aucune discipline n’est aujourd’hui couverte comme validée",
+            "source institutionnelle",
+            "programme",
+            "référentiel",
+            "validation humaine",
+        ):
+            self.assertIn(element, page)
+        self.assertIn("../../../CONFIANCE.md", matrice)
 
     def test_tokens_imposent_l_accessibilite(self):
         tokens = ROOT / "plugins" / "classe-fr" / "assets" / "modeles" / "design-tokens.json"

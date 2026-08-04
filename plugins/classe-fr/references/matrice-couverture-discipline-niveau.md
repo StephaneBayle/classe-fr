@@ -1,6 +1,6 @@
 # Matrice de couverture discipline × niveau
 
-Cette matrice décrit le périmètre réellement documenté du pilote ; elle ne promet pas une couverture uniforme des disciplines ni des classes. Une cellule ne devient pas « validée » parce qu'elle existe dans une démonstration.
+Cette matrice décrit le périmètre réellement documenté du pilote ; elle ne promet pas une couverture uniforme des disciplines ni des classes. Une cellule ne devient pas « validée » parce qu'elle existe dans une démonstration. Pour une lecture plus directe côté enseignant, consulter aussi `../../../CONFIANCE.md`.
 
 | Niveau ou voie | Discipline ou contexte | Appui transversal | Exemple contextualisé | Couverture validée | Preuve actuelle |
 | --- | --- | --- | --- | --- | --- |

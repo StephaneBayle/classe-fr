@@ -21,6 +21,8 @@ Les compétences s’adressent aux enseignants de maternelle, d’élémentaire,
 
 Pour un premier essai, commencez par le [guide de démarrage](DEMARRER.md). Il propose trois parcours prêts à copier : préparer une séance, rendre un support plus accessible et rédiger une communication collective aux familles.
 
+Pour comprendre ce qui est robuste aujourd’hui, ce qui repose sur des exemples fictifs et ce qui doit être validé avec une source ou l’équipe, consultez [le niveau de confiance et la couverture du pilote](CONFIANCE.md).
+
 ## Installer dans Codex/ChatGPT Work
 
 L’installation par l’interface est recommandée : elle ne demande ni terminal ni compte GitHub particulier.
