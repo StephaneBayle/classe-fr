@@ -353,6 +353,63 @@ class ClasseFrTests(unittest.TestCase):
         self.assertEqual(module.validate_registry(SOURCES_REGISTRY), [])
         self.assertEqual(module.validate_registry(SOURCES_FIXTURE), [])
 
+    def test_connecteurs_publics_sont_documentes_en_lecture_seule(self):
+        reference = (
+            ROOT
+            / "plugins"
+            / "classe-fr"
+            / "references"
+            / "connecteurs-publics-institutionnels.md"
+        ).read_text(encoding="utf-8")
+        sources = (
+            ROOT / "plugins" / "classe-fr" / "references" / "sources-et-droits.md"
+        ).read_text(encoding="utf-8")
+        confidentialite = (
+            ROOT / "plugins" / "classe-fr" / "references" / "confidentialite.md"
+        ).read_text(encoding="utf-8")
+
+        for element in (
+            "data.education.gouv.fr",
+            "Forge des communs numériques éducatifs",
+            "lecture seule",
+            "date de consultation",
+            "licence absente ou à vérifier",
+            "limite d'interprétation",
+            "espace authentifié",
+            "diagnostic individuel",
+        ):
+            self.assertIn(element, reference)
+        self.assertIn("connecteurs-publics-institutionnels.md", sources)
+        self.assertIn("projet Forge privé", confidentialite)
+
+    def test_competences_citent_les_sources_publiques_avec_prudence(self):
+        fichiers = [
+            ROOT
+            / "plugins"
+            / "classe-fr"
+            / "skills"
+            / "bibliotheque-pedagogique"
+            / "SKILL.md",
+            ROOT
+            / "plugins"
+            / "classe-fr"
+            / "skills"
+            / "programmation-annuelle"
+            / "SKILL.md",
+            ROOT
+            / "plugins"
+            / "classe-fr"
+            / "skills"
+            / "preparation-differenciation"
+            / "SKILL.md",
+        ]
+
+        for fichier in fichiers:
+            contenu = fichier.read_text(encoding="utf-8")
+            self.assertIn("connecteurs-publics-institutionnels.md", contenu)
+            self.assertIn("date de consultation", contenu)
+            self.assertIn("licence", contenu)
+
     def test_rapport_de_revue_rend_les_decisions_visibles(self):
         module = load_module(SOURCES_VALIDATOR, "validate_registre_sources_rapport")
         sources = json.loads(SOURCES_FIXTURE.read_text(encoding="utf-8"))

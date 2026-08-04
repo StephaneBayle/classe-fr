@@ -14,6 +14,8 @@ Enregistrer pour chaque ressource : titre, auteur ou organisme, URL ou emplaceme
 - Éduscol, cycle 1 : https://eduscol.education.gouv.fr/4341/enseigner-au-cycle-1
 - Primàbord : https://primabord.eduscol.education.fr/
 
+Pour les ressources issues de `data.education.gouv.fr` ou de la Forge des communs numériques éducatifs, appliquer aussi `references/connecteurs-publics-institutionnels.md` : lecture seule, source, URL, date de consultation, date de mise à jour ou d'activité, licence et limite d'interprétation.
+
 Consulter `references/revue-sources-institutionnelles.md` avant toute mise à jour d'une recommandation fondée sur une source institutionnelle.
 
 Ne pas aspirer ni republier une ressource externe. Produire une fiche, un lien et une note pédagogique à la place.
