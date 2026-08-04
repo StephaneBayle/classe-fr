@@ -17,9 +17,9 @@
     "category": "Education",
     "capabilities": ["Interactive", "Write"],
     "defaultPrompt": [
-      "Prépare une séance inclusive pour ma classe.",
-      "Crée mon profil de style à partir de textes anonymisés.",
-      "Aide-moi à formuler un feedback sur Classe FR."
+      "Prépare une séance de 45 minutes en CM1 sur les fractions, avec objectif, déroulé, trace écrite et options CUA.",
+      "Audite ce support fictif selon la CUA : objectif invariant, obstacles possibles, corrections concrètes et version imprimable.",
+      "Rédige un message collectif aux familles pour une sortie scolaire de 4e, sans donnée d'élève, avec ton clair et professionnel."
     ],
     "brandColor": "#176B5B"
   }
