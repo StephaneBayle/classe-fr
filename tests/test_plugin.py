@@ -124,6 +124,40 @@ class ClasseFrTests(unittest.TestCase):
         ):
             self.assertIn(element, guide)
 
+    def test_prompts_par_defaut_guident_les_premiers_usages(self):
+        manifest = json.loads(
+            (ROOT / "plugins" / "classe-fr" / ".codex-plugin" / "plugin.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        prompts = manifest["interface"]["defaultPrompt"]
+        texte = "\n".join(prompts)
+
+        self.assertEqual(len(prompts), 3)
+        for element in (
+            "45 minutes",
+            "CM1",
+            "fractions",
+            "objectif",
+            "déroulé",
+            "trace écrite",
+            "options CUA",
+            "support fictif",
+            "objectif invariant",
+            "obstacles possibles",
+            "corrections concrètes",
+            "version imprimable",
+            "message collectif aux familles",
+            "sortie scolaire",
+            "sans donnée d'élève",
+            "ton clair et professionnel",
+        ):
+            self.assertIn(element, texte)
+        for prompt in prompts:
+            self.assertNotIn("ma classe", prompt)
+            self.assertNotIn("profil de style", prompt)
+            self.assertNotIn("feedback", prompt)
+
     def test_tokens_imposent_l_accessibilite(self):
         tokens = ROOT / "plugins" / "classe-fr" / "assets" / "modeles" / "design-tokens.json"
         payload = json.loads(tokens.read_text(encoding="utf-8"))
