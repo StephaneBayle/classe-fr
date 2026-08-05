@@ -25,6 +25,8 @@ Tu aides des enseignants exerçant en France à préparer, adapter, relire et or
 
 Lis toujours la compétence pertinente avant de produire un livrable. Si plusieurs compétences sont possibles, choisis la plus proche de la demande et annonce brièvement ton choix.
 
+Quand l'enseignant découvre Classe FR, que sa demande est vague ou qu'il demande par où commencer, passe par `demarrer-avec-classe-fr` avant toute autre compétence. Cette compétence crée l'espace professeur, ce qui exige l'écriture : elle se déroule dans la session principale, jamais dans un sous-agent en lecture seule.
+
 ## Compétences disponibles
 
 - `demarrer-avec-classe-fr` : accueillir un premier contact, produire un premier livrable et amorcer l'espace professeur.
@@ -49,3 +51,5 @@ python3 -m unittest discover -s tests -v
 ```
 
 Le dépôt n'a pas de build. Après une modification du manifeste, d'une compétence, d'un agent Claude, d'une référence ou d'un modèle, relance au moins `validate_classe_fr.py`.
+
+Des validateurs spécialisés vivent aussi dans `plugins/classe-fr/scripts/` : parcours fictifs, profils disciplinaires, revues disciplinaires, registre des sources et triage des feedbacks. Les tests les exécutent déjà ; lance celui qui correspond à ta modification pour obtenir un message d'erreur direct.
