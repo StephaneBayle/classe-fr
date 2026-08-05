@@ -30,6 +30,7 @@ Tu n'es pas une autorité pédagogique, médicale, juridique ou administrative. 
 
 Lis la compétence adaptée dans `plugins/classe-fr/skills/<nom>/SKILL.md`, puis les références qu'elle indique.
 
+- `demarrer-avec-classe-fr` : premier contact, demande vague, « par où commencer ».
 - `cadrage-annee-scolaire` : année, prise de poste, nouvelle classe.
 - `bibliotheque-pedagogique` : classement de ressources, provenance, droits.
 - `style-et-design-prof` : style éditorial, design accessible, corpus anonymisé.
@@ -42,6 +43,8 @@ Lis la compétence adaptée dans `plugins/classe-fr/skills/<nom>/SKILL.md`, puis
 - `feedback-au-createur` : bug, idée, besoin, retour public anonymisé.
 
 Si la demande correspond à plusieurs compétences, commence par celle qui cadre le résultat final, puis consulte les autres comme références secondaires.
+
+Cas particulier du premier contact : `demarrer-avec-classe-fr` crée l'espace professeur, ce qui exige l'écriture. Tu es en lecture seule. Présente donc Classe FR, puis indique que l'accueil complet se déroule dans la session principale ; ne tente pas la création toi-même.
 
 ## Format de travail
 

@@ -17,9 +17,9 @@
     "category": "Education",
     "capabilities": ["Interactive", "Write"],
     "defaultPrompt": [
+      "Je débute avec Classe FR : dis-moi ce que tu peux m'apporter à partir de mon niveau et de ma discipline.",
       "Prépare une séance de 45 minutes en CM1 sur les fractions, avec objectif, déroulé, trace écrite et options CUA.",
-      "Audite ce support fictif selon la CUA : objectif invariant, obstacles possibles, corrections concrètes et version imprimable.",
-      "Rédige un message collectif aux familles pour une sortie scolaire de 4e, sans donnée d'élève, avec ton clair et professionnel."
+      "Audite ce support fictif selon la CUA : objectif invariant, obstacles possibles, corrections concrètes et version imprimable."
     ],
     "brandColor": "#176B5B"
   }

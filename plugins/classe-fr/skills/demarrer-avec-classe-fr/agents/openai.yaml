@@ -1,0 +1,4 @@
+interface:
+  display_name: "Démarrer avec Classe FR"
+  short_description: "Premier contact et espace professeur"
+  default_prompt: "Utilise $demarrer-avec-classe-fr pour savoir par où commencer."

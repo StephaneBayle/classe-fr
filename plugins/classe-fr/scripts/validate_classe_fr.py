@@ -10,6 +10,7 @@ from pathlib import Path
 
 
 EXPECTED_SKILLS = {
+    "demarrer-avec-classe-fr",
     "cadrage-annee-scolaire",
     "bibliotheque-pedagogique",
     "style-et-design-prof",

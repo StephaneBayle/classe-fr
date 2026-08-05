@@ -18,10 +18,16 @@ Classe FR travaille avec des exemples fictifs ou anonymisés. Il ne remplace ni 
 
 ## Démarrer vite
 
-1. Ouvrez [DEMARRER.md](DEMARRER.md).
-2. Copiez une demande prête à l'emploi.
-3. Indiquez le niveau, la discipline, l'objectif et le format attendu.
-4. Relisez la proposition avant usage.
+Ouvrez une conversation et écrivez :
+
+```text
+Je débute avec Classe FR : dis-moi ce que tu peux m'apporter à partir de mon niveau
+et de ma discipline.
+```
+
+Classe FR pose trois questions, produit un premier livrable dans votre niveau et votre discipline, puis vous propose de garder un espace à vous sur votre machine. Vous pouvez refuser : tout fonctionne sans.
+
+Si vous préférez aller droit au but, ouvrez [DEMARRER.md](DEMARRER.md), copiez une demande prête à l'emploi, indiquez le niveau, la discipline, l'objectif et le format attendu, puis relisez la proposition avant usage.
 
 Exemple :
 
@@ -54,6 +60,7 @@ Vous pouvez décrire votre besoin en langage courant ou appeler directement une 
 
 | Compétence | Usage principal |
 | --- | --- |
+| `$demarrer-avec-classe-fr` | premier contact : trois questions, un premier livrable, un espace à soi |
 | `$cadrage-annee-scolaire` | démarrer une année, une prise de poste ou une nouvelle classe |
 | `$bibliotheque-pedagogique` | organiser des ressources avec provenance, droits et objectifs |
 | `$style-et-design-prof` | harmoniser supports, consignes et messages à partir d'exemples anonymisés |
@@ -69,11 +76,17 @@ Vous pouvez décrire votre besoin en langage courant ou appeler directement une 
 
 Le dépôt est public. Le formulaire de retour est public : tout message ou document joint peut être visible. **Ne publiez jamais** de copie d'élève, évaluation nominative, message aux familles, capture d'ENT, nom, adresse, donnée médicale ou donnée de handicap.
 
-L'espace professeur local est ignoré par Git. Pour le créer :
+## Aller plus loin
+
+L'espace professeur garde votre profil, votre guide de style et votre bibliothèque de ressources d'une session à l'autre. Il reste sur votre machine et il est ignoré par Git.
+
+Classe FR vous le propose au premier contact et le crée pour vous. Pour le créer ou le compléter à la main :
 
 ```bash
 python3 plugins/classe-fr/scripts/init_teacher_space.py teacher-space
 ```
+
+La commande est répétable : un espace déjà présent est complété, jamais écrasé.
 
 ## Contribuer
 
