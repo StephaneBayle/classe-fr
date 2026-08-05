@@ -2,7 +2,7 @@
 
 ## Structure du projet
 
-Le plugin est contenu dans `plugins/classe-fr/`. Ses dix compétences se trouvent dans `skills/<nom>/`, chacune avec un `SKILL.md` et `agents/openai.yaml`. Le point d'entrée Claude Code/Cowork canonique est `plugins/classe-fr/agents/classe-fr-pedagogie.md`, complété par `CLAUDE.md` à la racine du dépôt et par le wrapper découvrable `.claude/agents/classe-fr-pedagogie.md`. Les modèles réutilisables sont dans `assets/modeles/`, les références pédagogiques et de confidentialité dans `references/`, et les scripts de maintenance dans `scripts/`.
+Le plugin est contenu dans `plugins/classe-fr/`. Ses compétences se trouvent dans `skills/<nom>/`, chacune avec un `SKILL.md` et `agents/openai.yaml` ; la liste faisant foi est `EXPECTED_SKILLS` dans `scripts/validate_classe_fr.py`. Le point d'entrée Claude Code/Cowork canonique est `plugins/classe-fr/agents/classe-fr-pedagogie.md`, complété par `CLAUDE.md` à la racine du dépôt et par le wrapper découvrable `.claude/agents/classe-fr-pedagogie.md`. Les modèles réutilisables sont dans `assets/modeles/`, les références pédagogiques et de confidentialité dans `references/`, et les scripts de maintenance dans `scripts/`.
 
 Les tests sont dans `tests/`. La configuration de la marketplace est dans `.agents/plugins/`, tandis que le formulaire de feedback public et l’automatisation de validation sont dans `.github/`. Toute issue, tout commentaire ou toute pièce jointe peut être visible : n’y déposez jamais de donnée d’élève, capture d’ENT, message aux familles ou document identifiable.
 
@@ -16,6 +16,8 @@ python3 -m unittest discover -s tests -v
 ```
 
 Le premier vérifie le manifeste, les compétences, les entrées Claude/Cowork, les références, les modèles et les protections de confidentialité. Le second exécute les tests Python. Lancez aussi le premier contrôle après toute modification de `plugin.json`, d’une compétence, d’un agent Claude, d’une référence ou d’un modèle.
+
+Des validateurs spécialisés existent par ailleurs dans `scripts/` : parcours fictifs, profils disciplinaires, revues disciplinaires, registre des sources et triage des feedbacks. Les tests les exécutent déjà ; lancez celui qui correspond à votre modification pour obtenir un message d’erreur direct, et listez-le dans la pull request.
 
 ## Style et conventions de nommage
 

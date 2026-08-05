@@ -141,6 +141,23 @@ class ClasseFrTests(unittest.TestCase):
         self.assertGreater(commande, aller_plus_loin, "La commande doit rester hors du démarrage.")
         self.assertIn("jamais écrasé", readme)
 
+    def test_consignes_du_depot_restent_a_jour(self):
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        claude = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
+
+        for nombre in ("neuf", "dix", "onze", "douze", "treize"):
+            self.assertNotIn(
+                f"{nombre} compétences",
+                agents,
+                "AGENTS.md ne doit pas figer le nombre de compétences.",
+            )
+        self.assertIn("EXPECTED_SKILLS", agents)
+
+        self.assertIn("demarrer-avec-classe-fr", claude)
+        self.assertIn("session principale", claude)
+        for consigne in (agents, claude):
+            self.assertIn("validateurs spécialisés", consigne)
+
     def test_validation_du_depot(self):
         module = load_module(VALIDATOR, "validate_classe_fr")
         self.assertEqual(module.validate(ROOT), [])
