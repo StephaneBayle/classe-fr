@@ -28,6 +28,7 @@ PROFILES_REFERENCE = ROOT / "plugins" / "classe-fr" / "references" / "profils-di
 REVIEW_VALIDATOR = ROOT / "plugins" / "classe-fr" / "scripts" / "validate_revue_disciplinaire.py"
 REVIEW_FIXTURE = ROOT / "tests" / "fixtures" / "revues-disciplinaires-fictives.json"
 REVIEW_REFERENCE = ROOT / "plugins" / "classe-fr" / "references" / "revue-disciplinaire.md"
+INDEXER = ROOT / "plugins" / "classe-fr" / "scripts" / "indexer_dossier_ressources.py"
 
 
 def load_module(path: Path, name: str):
@@ -140,6 +141,157 @@ class ClasseFrTests(unittest.TestCase):
         self.assertIn("Je débute avec Classe FR", readme[depart:aller_plus_loin])
         self.assertGreater(commande, aller_plus_loin, "La commande doit rester hors du démarrage.")
         self.assertIn("jamais écrasé", readme)
+
+    @staticmethod
+    def _dossier_fictif(racine: Path) -> Path:
+        """Reproduire un dossier d'enseignant : des ressources et des pièges."""
+        racine.mkdir(parents=True, exist_ok=True)
+        (racine / "sequence-fractions").mkdir()
+        for nom in (
+            "seance-comparer-fractions.odt",
+            "trace-ecrite-fractions.md",
+            "sequence-fractions/support-bandes.pdf",
+            "evaluation-diagnostique.odt",
+        ):
+            (racine / nom).write_text("contenu fictif", encoding="utf-8")
+        for nom in (
+            "PAP_Lucas_CM1.pdf",
+            "notes_3eB_martin.xlsx",
+            "PPRE Sarah.docx",
+            "bulletins-periode-2.pdf",
+            "sequence-fractions/copies-corrigees.pdf",
+        ):
+            (racine / nom).write_text("contenu fictif", encoding="utf-8")
+        return racine
+
+    def test_indexation_ecarte_les_noms_de_fichiers_identifiants(self):
+        module = load_module(INDEXER, "indexer_dossier_ressources")
+        with tempfile.TemporaryDirectory() as temporary:
+            dossier = self._dossier_fictif(Path(temporary) / "ressources")
+            resultat = module.indexer(dossier, consulte_le="2026-08-05")
+
+        self.assertEqual(resultat["total"], 9)
+        self.assertEqual(len(resultat["fiches"]), 4)
+        self.assertEqual(len(resultat["ecartes"]), 5)
+
+        titres = {fiche["titre"] for fiche in resultat["fiches"]}
+        self.assertEqual(
+            titres,
+            {
+                "evaluation-diagnostique",
+                "seance-comparer-fractions",
+                "trace-ecrite-fractions",
+                "support-bandes",
+            },
+        )
+
+    def test_indexation_detecte_un_nom_propre_malgre_les_separateurs(self):
+        module = load_module(INDEXER, "indexer_dossier_ressources_separateurs")
+
+        self.assertIn(
+            "nom complet possible", module.signaux_du_nom("reunion_Camille_Martin.pdf")
+        )
+        self.assertIn("dossier de suivi individuel", module.signaux_du_nom("PAP_Lucas_CM1.pdf"))
+        self.assertIn("dossier de suivi individuel", module.signaux_du_nom("PPRE Sarah.docx"))
+        self.assertIn("document individuel possible", module.signaux_du_nom("notes-3eB.xlsx"))
+        self.assertEqual(module.signaux_du_nom("seance-comparer-fractions.odt"), [])
+
+    def test_indexation_documente_sa_limite_sur_le_prenom_seul(self):
+        module = load_module(INDEXER, "indexer_dossier_ressources_limite")
+        reference = (
+            ROOT / "plugins" / "classe-fr" / "references" / "indexation-dossiers-locaux.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertEqual(module.signaux_du_nom("Lucas-progres.odt"), [])
+        self.assertIn("prénom seul", reference)
+        self.assertIn("relire la liste", reference)
+
+    def test_rapport_d_indexation_ne_nomme_jamais_un_fichier_ecarte(self):
+        module = load_module(INDEXER, "indexer_dossier_ressources_rapport")
+        with tempfile.TemporaryDirectory() as temporary:
+            dossier = self._dossier_fictif(Path(temporary) / "ressources")
+            rapport = module.formater_rapport(module.indexer(dossier, consulte_le="2026-08-05"))
+
+        for interdit in ("Lucas", "Sarah", "martin", "PAP", "PPRE", "bulletins"):
+            self.assertNotIn(interdit, rapport, interdit)
+        self.assertIn("Fichiers écartés : 5.", rapport)
+        self.assertIn("ne sont pas nommés ici", rapport)
+        self.assertIn("Aucun fichier n'a été ouvert, lu ni copié.", rapport)
+
+    def test_indexation_ne_devine_ni_niveau_ni_discipline_ni_licence(self):
+        module = load_module(INDEXER, "indexer_dossier_ressources_prudence")
+        modele = (
+            ROOT / "plugins" / "classe-fr" / "assets" / "modeles" / "bibliotheque.yml"
+        ).read_text(encoding="utf-8")
+        with tempfile.TemporaryDirectory() as temporary:
+            dossier = self._dossier_fictif(Path(temporary) / "ressources")
+            resultat = module.indexer(dossier, consulte_le="2026-08-05")
+            fiches = module.formater_fiches_yaml(resultat["fiches"])
+
+        for fiche in resultat["fiches"]:
+            self.assertEqual(fiche["niveau"], "À compléter")
+            self.assertEqual(fiche["discipline"], "À compléter")
+            self.assertEqual(fiche["objectif"], "À compléter")
+            self.assertEqual(fiche["licence"], "À vérifier")
+            self.assertEqual(fiche["apports_cua"], [])
+            self.assertFalse(Path(str(fiche["emplacement_ou_url"])).is_absolute())
+
+        for cle in ("ressources:", "titre:", "licence:", "consulte_le:", "apports_cua:"):
+            self.assertIn(cle, fiches, cle)
+            self.assertIn(cle, modele, cle)
+
+    def test_fiches_resistent_a_un_nom_de_fichier_hostile(self):
+        module = load_module(INDEXER, "indexer_dossier_ressources_echappement")
+        with tempfile.TemporaryDirectory() as temporary:
+            dossier = Path(temporary) / "ressources"
+            dossier.mkdir()
+            (dossier / 'seance "guillemets" et \\ antislash.odt').write_text(
+                "contenu fictif", encoding="utf-8"
+            )
+            fiches = module.formater_fiches_yaml(
+                module.indexer(dossier, consulte_le="2026-08-05")["fiches"]
+            )
+
+        self.assertIn('\\"guillemets\\"', fiches)
+        self.assertIn("\\\\ antislash", fiches)
+        for ligne in fiches.splitlines():
+            if ": \"" in ligne:
+                valeur = ligne.split(': "', 1)[1]
+                self.assertTrue(valeur.endswith('"'), ligne)
+
+    def test_indexation_refuse_un_volume_ingerable(self):
+        module = load_module(INDEXER, "indexer_dossier_ressources_volume")
+        with tempfile.TemporaryDirectory() as temporary:
+            dossier = Path(temporary) / "archives"
+            dossier.mkdir()
+            for numero in range(module.VOLUME_MAXIMUM + 1):
+                (dossier / f"ressource-{numero:04d}.odt").write_text("x", encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "dossier plus resserré"):
+                module.indexer(dossier)
+
+    def test_indexation_est_documentee_et_routee(self):
+        reference = (
+            ROOT / "plugins" / "classe-fr" / "references" / "indexation-dossiers-locaux.md"
+        ).read_text(encoding="utf-8")
+        skill = (
+            ROOT / "plugins" / "classe-fr" / "skills" / "bibliotheque-pedagogique" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+
+        for element in (
+            "Métadonnées seulement",
+            "Indexation par référence",
+            "Crible avant indexation",
+            "Un dossier, pas le disque",
+            "Ne rien deviner",
+            "son nom n'est jamais affiché",
+            "signale, il ne certifie pas",
+            "Rien n'entre sans validation",
+        ):
+            self.assertIn(element, reference, element)
+        self.assertIn("references/indexation-dossiers-locaux.md", skill)
+        self.assertIn("indexer_dossier_ressources.py", skill)
+        self.assertIn("Ne jamais nommer un fichier écarté", skill)
 
     def test_validation_du_depot(self):
         module = load_module(VALIDATOR, "validate_classe_fr")
