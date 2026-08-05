@@ -32,6 +32,8 @@ Des exemples fictifs existent aujourd’hui pour :
 - lycée général ou technologique : justifier une démarche de résolution ;
 - lycée professionnel ou CFA : ordonner une procédure professionnelle fictive.
 
+Lues par famille disciplinaire, ces mêmes preuves donnent un exemple fictif en français, en mathématiques, en sciences, SVT et physique-chimie, en voie professionnelle et CFA, et en maternelle. Les cinq autres familles — histoire, géographie et EMC, langues vivantes, technologie et numérique, arts plastiques et éducation musicale, éducation physique et sportive — n’ont pour l’instant qu’un appui transversal, sans exemple contextualisé.
+
 Ces exemples ne sont pas des séquences validées à prescrire. Ils montrent une manière de travailler, à adapter et à relire.
 
 ## Niveau 3 : couverture validée par revue humaine

@@ -10,13 +10,16 @@ from pathlib import Path
 
 
 EXPECTED_FAMILIES = {
-    "francais-et-langage",
+    "francais",
     "mathematiques",
-    "sciences-et-technologie",
-    "langues-vivantes",
     "histoire-geographie-emc",
-    "arts-education-physique",
-    "enseignement-professionnel",
+    "sciences-svt-physique-chimie",
+    "langues-vivantes",
+    "technologie-numerique",
+    "arts-plastiques-education-musicale",
+    "eps",
+    "voie-professionnelle-cfa",
+    "maternelle",
 }
 CUA_ENTRIES = ("engagement", "representations", "action_expression")
 COVERAGE_LEVELS = ("appui transversal", "exemple contextualisé", "couverture validée")
@@ -77,6 +80,12 @@ def validate_profile(profile: dict[str, object]) -> list[str]:
         errors.append("Les obstacles fréquents doivent former une liste non vide.")
     if not is_non_empty_string_list(profile.get("modalites_souvent_evaluees")):
         errors.append("Les modalités souvent évaluées doivent former une liste non vide.")
+    if not is_non_empty_string_list(profile.get("formes_de_trace")):
+        errors.append("Les formes de trace possibles doivent former une liste non vide.")
+    if not is_non_empty_string_list(profile.get("points_de_vigilance")):
+        errors.append("Les points de vigilance doivent former une liste non vide.")
+    if not is_non_empty_string_list(profile.get("sources_a_verifier")):
+        errors.append("Les sources institutionnelles à vérifier doivent former une liste non vide.")
 
     appuis_cua = profile.get("appuis_cua")
     if not isinstance(appuis_cua, dict):

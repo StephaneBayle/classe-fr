@@ -5,7 +5,7 @@ description: Auditer ou transformer une situation d'apprentissage selon la conce
 
 # CUA et accessibilité pédagogique
 
-Lire intégralement `references/cua-et-accessibilite.md` et `references/confidentialite.md`.
+Lire intégralement `references/cua-et-accessibilite.md` et `references/confidentialite.md`. Quand la discipline est connue, consulter `references/profils-disciplinaires.md` pour les obstacles fréquents et les vigilances propres à la famille concernée.
 
 ## Méthode
 

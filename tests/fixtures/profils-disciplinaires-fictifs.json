@@ -1,7 +1,7 @@
 [
   {
-    "id": "francais-et-langage",
-    "famille": "Français et langage",
+    "id": "francais",
+    "famille": "Français",
     "objectif_invariant_type": "Comprendre puis produire un propos structuré, à l'oral ou à l'écrit.",
     "obstacles_frequents": [
       "Consigne longue ou implicite",
@@ -23,10 +23,24 @@
       ]
     },
     "modalites_souvent_evaluees": [
-      "Rédiger un écrit structuré quand la rédaction est l'objectif annoncé"
+      "Rédiger un écrit structuré quand la rédaction est l'objectif annoncé",
+      "Comprendre un texte lu"
+    ],
+    "formes_de_trace": [
+      "Écrit abouti",
+      "Trame complétée",
+      "Enregistrement oral"
+    ],
+    "points_de_vigilance": [
+      "Ne pas remplacer une rédaction évaluée par un oral ; alléger plutôt la copie ou la longueur attendue."
+    ],
+    "sources_a_verifier": [
+      "Programme du cycle concerné",
+      "Attendus de fin de cycle",
+      "Cadrage de l'épreuve en cas d'examen"
     ],
     "reserve_source": "Repères indicatifs : source à vérifier dans le programme en vigueur avant tout usage en classe.",
-    "statut_couverture": "appui transversal",
+    "statut_couverture": "exemple contextualisé",
     "revue_humaine": null,
     "validation_humaine_requise": true,
     "donnees_personnelles": false,
@@ -74,7 +88,21 @@
       ]
     },
     "modalites_souvent_evaluees": [
-      "Rédiger une justification quand la démonstration est l'objectif annoncé"
+      "Rédiger une justification quand la démonstration est l'objectif annoncé",
+      "Calculer avec les techniques attendues"
+    ],
+    "formes_de_trace": [
+      "Étapes de calcul",
+      "Schéma légendé",
+      "Justification rédigée"
+    ],
+    "points_de_vigilance": [
+      "Distinguer l'aide au calcul de l'aide au raisonnement.",
+      "Ne pas échanger une justification écrite évaluée contre une réponse orale."
+    ],
+    "sources_a_verifier": [
+      "Programme et attendus de fin de cycle",
+      "Repères annuels de progression"
     ],
     "reserve_source": "Repères indicatifs : source à vérifier auprès du programme et des attendus de fin de cycle.",
     "statut_couverture": "exemple contextualisé",
@@ -102,8 +130,65 @@
     ]
   },
   {
-    "id": "sciences-et-technologie",
-    "famille": "Sciences et technologie",
+    "id": "histoire-geographie-emc",
+    "famille": "Histoire, géographie et EMC",
+    "objectif_invariant_type": "Mettre en relation des documents et construire une réponse argumentée.",
+    "obstacles_frequents": [
+      "Densité documentaire",
+      "Repères temporels et spatiaux fragiles",
+      "Confusion entre opinion et argument"
+    ],
+    "appuis_cua": {
+      "engagement": [
+        "Entrer par une question vive",
+        "Débat réglé avec temps de préparation"
+      ],
+      "representations": [
+        "Frise et carte accompagnant le texte",
+        "Corpus réduit à deux documents"
+      ],
+      "action_expression": [
+        "Argumenter à l'oral",
+        "Construire une réponse à partir d'un plan donné"
+      ]
+    },
+    "modalites_souvent_evaluees": [
+      "Rédiger une réponse argumentée quand la rédaction est l'objectif annoncé",
+      "Mettre en relation deux documents"
+    ],
+    "formes_de_trace": [
+      "Réponse rédigée",
+      "Tableau de comparaison",
+      "Croquis légendé"
+    ],
+    "points_de_vigilance": [
+      "Ne pas transformer un travail sur documents en restitution de cours.",
+      "En EMC, ne pas confondre expression d'une opinion et construction d'un argument."
+    ],
+    "sources_a_verifier": [
+      "Programme et repères annuels",
+      "Thèmes au programme de l'année"
+    ],
+    "reserve_source": "Repères indicatifs : source à vérifier, les repères annuels évoluent selon les textes.",
+    "statut_couverture": "appui transversal",
+    "revue_humaine": null,
+    "validation_humaine_requise": true,
+    "donnees_personnelles": false,
+    "adaptations_types": [
+      {
+        "situation": "Mettre en relation deux documents",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": null,
+        "modalites_expression": [
+          "Expliquer la mise en relation à l'oral",
+          "Compléter un tableau de comparaison"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sciences-svt-physique-chimie",
+    "famille": "Sciences, SVT et physique-chimie",
     "objectif_invariant_type": "Interpréter des données ou une expérience et en tirer une conclusion argumentée.",
     "obstacles_frequents": [
       "Lecture de graphique",
@@ -125,7 +210,21 @@
       ]
     },
     "modalites_souvent_evaluees": [
-      "Rédiger une conclusion argumentée quand c'est l'objectif annoncé"
+      "Rédiger une conclusion argumentée quand c'est l'objectif annoncé",
+      "Réaliser un protocole quand le geste expérimental est l'objectif"
+    ],
+    "formes_de_trace": [
+      "Compte rendu",
+      "Graphique annoté",
+      "Tableau de mesures"
+    ],
+    "points_de_vigilance": [
+      "Ne jamais faire dépendre une information du seul codage par la couleur.",
+      "Ne pas remplacer la manipulation quand le geste expérimental est l'objectif."
+    ],
+    "sources_a_verifier": [
+      "Programme du cycle",
+      "Consignes de sécurité en vigueur pour les manipulations"
     ],
     "reserve_source": "Repères indicatifs : source à vérifier avant d'annoncer une attente de programme.",
     "statut_couverture": "exemple contextualisé",
@@ -168,7 +267,21 @@
       ]
     },
     "modalites_souvent_evaluees": [
-      "Produire à l'oral quand l'activité langagière évaluée est l'expression orale"
+      "Produire à l'oral quand l'activité langagière évaluée est l'expression orale",
+      "Comprendre un document audio"
+    ],
+    "formes_de_trace": [
+      "Production enregistrée",
+      "Écrit en langue cible",
+      "Grille d'auto-positionnement"
+    ],
+    "points_de_vigilance": [
+      "Ne pas substituer une activité langagière à une autre.",
+      "Les niveaux visés dépendent du cadre en vigueur et ne sont pas affirmés ici."
+    ],
+    "sources_a_verifier": [
+      "Programme de la langue et du cycle",
+      "Cadre de référence utilisé pour les niveaux"
     ],
     "reserve_source": "Repères indicatifs : source à vérifier, les niveaux visés dépendent du cadre en vigueur.",
     "statut_couverture": "appui transversal",
@@ -196,75 +309,104 @@
     ]
   },
   {
-    "id": "histoire-geographie-emc",
-    "famille": "Histoire, géographie et enseignement moral et civique",
-    "objectif_invariant_type": "Situer, mettre en relation des documents et construire une réponse argumentée.",
+    "id": "technologie-numerique",
+    "famille": "Technologie et numérique",
+    "objectif_invariant_type": "Analyser un besoin, concevoir ou modifier une solution et expliciter sa démarche.",
     "obstacles_frequents": [
-      "Densité documentaire",
-      "Repères temporels et spatiaux fragiles",
-      "Confusion entre opinion et argument"
+      "Enchaînement de manipulations à mémoriser",
+      "Hétérogénéité d'équipement",
+      "Dépendance à la connexion"
     ],
     "appuis_cua": {
       "engagement": [
-        "Entrer par une question vive",
-        "Débat réglé avec temps de préparation"
+        "Relier la tâche à un usage concret",
+        "Binôme opérateur et observateur"
       ],
       "representations": [
-        "Frise et carte accompagnant le texte",
-        "Corpus réduit à deux documents"
+        "Procédure illustrée étape par étape",
+        "Version hors ligne ou papier de l'activité"
       ],
       "action_expression": [
-        "Argumenter à l'oral",
-        "Construire une réponse à partir d'un plan donné"
+        "Produire avec l'outil numérique",
+        "Expliquer la démarche à l'oral"
       ]
     },
     "modalites_souvent_evaluees": [
-      "Rédiger une réponse argumentée quand la rédaction est l'objectif annoncé"
+      "Expliciter la démarche de conception",
+      "Produire une solution fonctionnelle quand c'est l'objectif annoncé"
     ],
-    "reserve_source": "Repères indicatifs : source à vérifier, les repères annuels évoluent selon les textes.",
+    "formes_de_trace": [
+      "Capture du travail produit",
+      "Fiche de procédure complétée",
+      "Prototype"
+    ],
+    "points_de_vigilance": [
+      "Ne pas confondre la maîtrise de l'outil et l'objectif d'apprentissage.",
+      "Prévoir un repli sans équipement et ne publier aucune production comportant une donnée personnelle."
+    ],
+    "sources_a_verifier": [
+      "Programme du cycle",
+      "Cadre de référence des compétences numériques",
+      "Conditions de licence des ressources et logiciels"
+    ],
+    "reserve_source": "Repères indicatifs : source à vérifier, y compris les licences des outils mobilisés.",
     "statut_couverture": "appui transversal",
     "revue_humaine": null,
     "validation_humaine_requise": true,
     "donnees_personnelles": false,
     "adaptations_types": [
       {
-        "situation": "Mettre en relation deux documents",
+        "situation": "Expliciter une démarche de conception",
         "objectif_invariant_preserve": true,
         "modalite_evaluee": null,
         "modalites_expression": [
-          "Expliquer la mise en relation à l'oral",
-          "Compléter un tableau de comparaison"
+          "Expliquer la démarche à l'oral",
+          "Compléter une fiche de procédure"
         ]
       }
     ]
   },
   {
-    "id": "arts-education-physique",
-    "famille": "Arts et éducation physique et sportive",
-    "objectif_invariant_type": "Réaliser une production ou une performance et expliciter ses choix.",
+    "id": "arts-plastiques-education-musicale",
+    "famille": "Arts plastiques et éducation musicale",
+    "objectif_invariant_type": "Réaliser une production personnelle et expliciter ses choix plastiques ou sonores.",
     "obstacles_frequents": [
-      "Exposition au regard du groupe",
-      "Consigne procédurale longue",
-      "Contraintes matérielles ou motrices"
+      "Exposition au regard ou à l'écoute du groupe",
+      "Consigne ouverte déstabilisante",
+      "Verbalisation des choix"
     ],
     "appuis_cua": {
       "engagement": [
-        "Choisir le rôle tenu dans l'activité",
-        "Objectif de progrès personnel visible"
+        "Choisir la contrainte de départ",
+        "Critères de réussite affichés"
       ],
       "representations": [
-        "Démonstration accompagnée d'une fiche illustrée",
-        "Critères de réussite affichés"
+        "Références visuelles ou sonores commentées",
+        "Démonstration accompagnée d'une fiche"
       ],
       "action_expression": [
         "Expliciter ses choix à l'oral",
-        "Renseigner une fiche de suivi courte"
+        "Légender la production"
       ]
     },
     "modalites_souvent_evaluees": [
-      "Réaliser la performance elle-même quand elle est l'objectif annoncé"
+      "Réaliser une production personnelle",
+      "Expliciter la démarche quand elle est l'objectif annoncé"
     ],
-    "reserve_source": "Repères indicatifs : source à vérifier, notamment pour les attendus de fin de cycle.",
+    "formes_de_trace": [
+      "Production",
+      "Carnet de recherche",
+      "Enregistrement"
+    ],
+    "points_de_vigilance": [
+      "Ne pas évaluer la seule habileté technique quand l'objectif porte sur la démarche.",
+      "Vérifier les droits avant toute diffusion d'œuvre ou de production."
+    ],
+    "sources_a_verifier": [
+      "Programme du cycle et attendus de fin de cycle",
+      "Droits d'usage des œuvres mobilisées"
+    ],
+    "reserve_source": "Repères indicatifs : source à vérifier, notamment les droits d'usage des œuvres.",
     "statut_couverture": "appui transversal",
     "revue_humaine": null,
     "validation_humaine_requise": true,
@@ -282,13 +424,78 @@
     ]
   },
   {
-    "id": "enseignement-professionnel",
-    "famille": "Enseignement professionnel et technologique",
+    "id": "eps",
+    "famille": "Éducation physique et sportive",
+    "objectif_invariant_type": "Réaliser une performance motrice, tenir un rôle et analyser sa pratique.",
+    "obstacles_frequents": [
+      "Exposition au regard du groupe",
+      "Consigne procédurale longue",
+      "Contraintes motrices ou matérielles"
+    ],
+    "appuis_cua": {
+      "engagement": [
+        "Choisir le rôle tenu dans l'activité",
+        "Objectif de progrès personnel visible"
+      ],
+      "representations": [
+        "Démonstration accompagnée d'une fiche illustrée",
+        "Critères de réussite affichés"
+      ],
+      "action_expression": [
+        "Renseigner une fiche de suivi",
+        "Analyser sa pratique à l'oral"
+      ]
+    },
+    "modalites_souvent_evaluees": [
+      "Réaliser la performance elle-même quand elle est l'objectif annoncé",
+      "Tenir un rôle d'arbitre ou d'observateur"
+    ],
+    "formes_de_trace": [
+      "Fiche de suivi",
+      "Relevé d'observation par un pair",
+      "Courte analyse orale"
+    ],
+    "points_de_vigilance": [
+      "Quand la réalisation motrice est l'objectif, elle ne se remplace pas par un écrit.",
+      "Toute adaptation liée à la santé relève de l'équipe compétente et d'un cadre médical."
+    ],
+    "sources_a_verifier": [
+      "Programme et attendus de fin de cycle",
+      "Référentiel d'évaluation certificative le cas échéant"
+    ],
+    "reserve_source": "Repères indicatifs : source à vérifier, notamment pour les attendus de fin de cycle.",
+    "statut_couverture": "appui transversal",
+    "revue_humaine": null,
+    "validation_humaine_requise": true,
+    "donnees_personnelles": false,
+    "adaptations_types": [
+      {
+        "situation": "Analyser sa pratique après une situation de référence",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": null,
+        "modalites_expression": [
+          "Analyser à l'oral",
+          "Renseigner une fiche de suivi"
+        ]
+      },
+      {
+        "situation": "Évaluation de la réalisation motrice",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": "Réaliser la performance motrice",
+        "modalites_expression": [
+          "Réaliser la performance motrice"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "voie-professionnelle-cfa",
+    "famille": "Voie professionnelle et CFA",
     "objectif_invariant_type": "Conduire une procédure professionnelle fictive en respectant ses étapes et ses règles de sécurité.",
     "obstacles_frequents": [
       "Séquence d'étapes à mémoriser",
       "Vocabulaire technique",
-      "Écart entre atelier et salle de cours"
+      "Alternance et discontinuité des présences"
     ],
     "appuis_cua": {
       "engagement": [
@@ -305,7 +512,21 @@
       ]
     },
     "modalites_souvent_evaluees": [
-      "Réaliser le geste professionnel quand il constitue la compétence évaluée"
+      "Réaliser le geste professionnel quand il constitue la compétence évaluée",
+      "Rendre compte d'une intervention"
+    ],
+    "formes_de_trace": [
+      "Fiche de procédure ordonnée",
+      "Compte rendu d'intervention",
+      "Explication à un pair"
+    ],
+    "points_de_vigilance": [
+      "Ne jamais reformuler une exigence de sécurité ni un attendu de référentiel sans la source du diplôme concerné."
+    ],
+    "sources_a_verifier": [
+      "Référentiel du diplôme",
+      "Règlement d'examen et définition des épreuves",
+      "Cadre de la période de formation en milieu professionnel"
     ],
     "reserve_source": "Repères indicatifs : source à vérifier dans le référentiel du diplôme concerné.",
     "statut_couverture": "exemple contextualisé",
@@ -328,6 +549,63 @@
         "modalite_evaluee": "Réaliser le geste professionnel",
         "modalites_expression": [
           "Réaliser le geste professionnel"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "maternelle",
+    "famille": "Maternelle, par domaines d'apprentissage",
+    "objectif_invariant_type": "Progresser dans un domaine d'apprentissage observé dans la durée, notamment le langage.",
+    "obstacles_frequents": [
+      "Consigne longue",
+      "Repérage temporel abstrait",
+      "Durée d'attention et fatigue"
+    ],
+    "appuis_cua": {
+      "engagement": [
+        "Choisir une entrée dans l'activité",
+        "Travailler en petit groupe"
+      ],
+      "representations": [
+        "Consigne orale doublée d'un appui visuel",
+        "Images séquentielles manipulables"
+      ],
+      "action_expression": [
+        "Montrer avant de dire",
+        "Raconter avec les images"
+      ]
+    },
+    "modalites_souvent_evaluees": [
+      "Progrès observés dans la durée plutôt que performance ponctuelle"
+    ],
+    "formes_de_trace": [
+      "Photo d'une manipulation",
+      "Dictée à l'adulte",
+      "Images séquentielles ordonnées"
+    ],
+    "points_de_vigilance": [
+      "Ne jamais transformer une observation de progrès en diagnostic.",
+      "Les observations restent professionnelles et non nominatives dans tout échange avec Classe FR."
+    ],
+    "sources_a_verifier": [
+      "Programme de l'école maternelle en vigueur",
+      "Intitulés exacts des domaines d'apprentissage",
+      "Attendus de fin de cycle 1"
+    ],
+    "reserve_source": "Repères indicatifs : source à vérifier, les intitulés des domaines dépendent du programme en vigueur.",
+    "statut_couverture": "exemple contextualisé",
+    "revue_humaine": null,
+    "validation_humaine_requise": true,
+    "donnees_personnelles": false,
+    "adaptations_types": [
+      {
+        "situation": "Remettre trois étapes d'un récit entendu dans l'ordre",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": null,
+        "modalites_expression": [
+          "Montrer les images dans l'ordre",
+          "Raconter oralement avec les images"
         ]
       }
     ]
