@@ -21,6 +21,9 @@ SOURCES_REGISTRY = ROOT / "plugins" / "classe-fr" / "references" / "registre-sou
 SOURCES_FIXTURE = ROOT / "tests" / "fixtures" / "registre-revue-sources-fictif.json"
 FEEDBACK_VALIDATOR = ROOT / "plugins" / "classe-fr" / "scripts" / "validate_triage_feedback.py"
 FEEDBACK_FIXTURE = ROOT / "tests" / "fixtures" / "triage-feedbacks-fictifs.json"
+PROFILES_VALIDATOR = ROOT / "plugins" / "classe-fr" / "scripts" / "validate_profils_disciplinaires.py"
+PROFILES_FIXTURE = ROOT / "tests" / "fixtures" / "profils-disciplinaires-fictifs.json"
+PROFILES_REFERENCE = ROOT / "plugins" / "classe-fr" / "references" / "profils-disciplinaires.md"
 
 
 def load_module(path: Path, name: str):
@@ -492,6 +495,132 @@ class ClasseFrTests(unittest.TestCase):
             "Aucune cellule n'atteint encore ce niveau",
         ):
             self.assertIn(element, matrice)
+
+    def test_reference_profils_disciplinaires_reste_prudente(self):
+        reference = PROFILES_REFERENCE.read_text(encoding="utf-8")
+
+        for element in (
+            "Français et langage",
+            "Mathématiques",
+            "Sciences et technologie",
+            "Langues vivantes",
+            "Histoire, géographie et EMC",
+            "Arts et éducation physique et sportive",
+            "Enseignement professionnel et technologique",
+            "à vérifier",
+            "revue humaine disciplinaire",
+            "objectif invariant",
+            "modalité évaluée",
+            "Aucune famille n'atteint ce niveau",
+            "engagement",
+            "représentation",
+            "action et expression",
+            "fictives ou anonymisées",
+        ):
+            self.assertIn(element, reference)
+        self.assertNotIn("[TODO:", reference)
+
+    def test_profils_disciplinaires_couvrent_les_grandes_familles(self):
+        module = load_module(PROFILES_VALIDATOR, "validate_profils_disciplinaires")
+        self.assertEqual(module.validate_dataset(PROFILES_FIXTURE), [])
+
+    def test_profil_disciplinaire_incomplet_echoue_avec_un_message_comprehensible(self):
+        module = load_module(PROFILES_VALIDATOR, "validate_profils_disciplinaires_erreur")
+        profils = json.loads(PROFILES_FIXTURE.read_text(encoding="utf-8"))
+        profil_non_conforme = copy.deepcopy(profils[0])
+        profil_non_conforme["appuis_cua"]["action_expression"] = []
+
+        errors = module.validate_profile(profil_non_conforme)
+
+        self.assertIn("Les appuis CUA `action_expression` doivent être une liste non vide.", errors)
+
+    def test_profil_sans_reserve_de_source_est_refuse(self):
+        module = load_module(PROFILES_VALIDATOR, "validate_profils_disciplinaires_source")
+        profils = json.loads(PROFILES_FIXTURE.read_text(encoding="utf-8"))
+        profil_non_conforme = copy.deepcopy(profils[0])
+        profil_non_conforme["reserve_source"] = "Conforme au programme officiel en vigueur."
+
+        errors = module.validate_profile(profil_non_conforme)
+
+        self.assertIn(
+            "La réserve doit indiquer que la source reste à vérifier ou à confirmer.",
+            errors,
+        )
+
+    def test_couverture_validee_exige_une_revue_humaine_consignee(self):
+        module = load_module(PROFILES_VALIDATOR, "validate_profils_disciplinaires_revue")
+        profils = json.loads(PROFILES_FIXTURE.read_text(encoding="utf-8"))
+        profil_non_conforme = copy.deepcopy(profils[0])
+        profil_non_conforme["statut_couverture"] = "couverture validée"
+
+        errors = module.validate_profile(profil_non_conforme)
+
+        self.assertIn(
+            "Une couverture validée exige une revue humaine disciplinaire consignée.",
+            errors,
+        )
+
+        profil_conforme = copy.deepcopy(profil_non_conforme)
+        profil_conforme["revue_humaine"] = {
+            "role_relecteur": "Enseignante de lettres, second degré",
+            "revue_le": "2026-08-05",
+            "decision": "Repères jugés cohérents avec la source citée.",
+        }
+        self.assertEqual(module.validate_profile(profil_conforme), [])
+
+    def test_profil_preserve_l_objectif_invariant_et_la_modalite_evaluee(self):
+        module = load_module(PROFILES_VALIDATOR, "validate_profils_disciplinaires_objectif")
+        profils = json.loads(PROFILES_FIXTURE.read_text(encoding="utf-8"))
+        profil = copy.deepcopy(profils[0])
+
+        objectif_perdu = copy.deepcopy(profil)
+        objectif_perdu["adaptations_types"][0]["objectif_invariant_preserve"] = False
+        modalite_remplacee = copy.deepcopy(profil)
+        modalite_remplacee["adaptations_types"][1]["modalites_expression"].append(
+            "Expliquer oralement"
+        )
+
+        self.assertIn(
+            "Une adaptation type doit déclarer que l'objectif invariant est préservé.",
+            module.validate_profile(objectif_perdu),
+        )
+        self.assertIn(
+            "Quand la modalité est évaluée, ne pas la remplacer par une expression non équivalente.",
+            module.validate_profile(modalite_remplacee),
+        )
+
+    def test_profils_disciplinaires_ne_contiennent_aucune_donnee_personnelle(self):
+        module = load_module(PROFILES_VALIDATOR, "validate_profils_disciplinaires_confidentialite")
+        profils = json.loads(PROFILES_FIXTURE.read_text(encoding="utf-8"))
+        profil_non_conforme = copy.deepcopy(profils[0])
+        profil_non_conforme["obstacles_frequents"].append("Contact : famille@example.test")
+
+        with tempfile.TemporaryDirectory() as temporary:
+            fichier = Path(temporary) / "profils.json"
+            fichier.write_text(
+                json.dumps(profils[1:] + [profil_non_conforme], ensure_ascii=False),
+                encoding="utf-8",
+            )
+            errors = module.validate_dataset(fichier)
+
+        self.assertIn(
+            "francais-et-langage : le profil contient un signal de donnée personnelle.",
+            errors,
+        )
+
+    def test_validateur_profils_signale_une_famille_manquante(self):
+        module = load_module(PROFILES_VALIDATOR, "validate_profils_disciplinaires_famille")
+        profils = json.loads(PROFILES_FIXTURE.read_text(encoding="utf-8"))
+
+        with tempfile.TemporaryDirectory() as temporary:
+            fichier = Path(temporary) / "profils.json"
+            fichier.write_text(json.dumps(profils[1:], ensure_ascii=False), encoding="utf-8")
+            errors = module.validate_dataset(fichier)
+
+        self.assertEqual(
+            errors,
+            ["Les grandes familles disciplinaires manquantes sont : francais-et-langage."],
+        )
 
 
 if __name__ == "__main__":

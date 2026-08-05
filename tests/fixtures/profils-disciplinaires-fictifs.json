@@ -1,0 +1,335 @@
+[
+  {
+    "id": "francais-et-langage",
+    "famille": "Français et langage",
+    "objectif_invariant_type": "Comprendre puis produire un propos structuré, à l'oral ou à l'écrit.",
+    "obstacles_frequents": [
+      "Consigne longue ou implicite",
+      "Coût de l'écriture manuscrite",
+      "Vocabulaire non explicité"
+    ],
+    "appuis_cua": {
+      "engagement": [
+        "Choisir le support de départ",
+        "Annoncer le critère de réussite avant la tâche"
+      ],
+      "representations": [
+        "Texte lu et texte entendu",
+        "Exemple réussi et exemple incomplet"
+      ],
+      "action_expression": [
+        "Dicter à l'adulte ou à un outil",
+        "Écrire à partir d'une trame"
+      ]
+    },
+    "modalites_souvent_evaluees": [
+      "Rédiger un écrit structuré quand la rédaction est l'objectif annoncé"
+    ],
+    "reserve_source": "Repères indicatifs : source à vérifier dans le programme en vigueur avant tout usage en classe.",
+    "statut_couverture": "appui transversal",
+    "revue_humaine": null,
+    "validation_humaine_requise": true,
+    "donnees_personnelles": false,
+    "adaptations_types": [
+      {
+        "situation": "Compte rendu court d'un texte lu",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": null,
+        "modalites_expression": [
+          "Restituer oralement avec appui visuel",
+          "Écrire à partir d'une trame"
+        ]
+      },
+      {
+        "situation": "Épreuve où la rédaction est l'objectif annoncé",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": "Rédiger un écrit structuré",
+        "modalites_expression": [
+          "Rédiger un écrit structuré"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mathematiques",
+    "famille": "Mathématiques",
+    "objectif_invariant_type": "Raisonner sur une situation numérique ou géométrique et justifier le résultat.",
+    "obstacles_frequents": [
+      "Lecture de l'énoncé",
+      "Mémoire de travail saturée par le calcul",
+      "Passage entre représentations"
+    ],
+    "appuis_cua": {
+      "engagement": [
+        "Commencer par une situation manipulable",
+        "Rendre visible le critère de réussite"
+      ],
+      "representations": [
+        "Schéma, tableau et écriture symbolique",
+        "Énoncé découpé en étapes"
+      ],
+      "action_expression": [
+        "Montrer le raisonnement avec du matériel",
+        "Écrire les étapes de calcul"
+      ]
+    },
+    "modalites_souvent_evaluees": [
+      "Rédiger une justification quand la démonstration est l'objectif annoncé"
+    ],
+    "reserve_source": "Repères indicatifs : source à vérifier auprès du programme et des attendus de fin de cycle.",
+    "statut_couverture": "exemple contextualisé",
+    "revue_humaine": null,
+    "validation_humaine_requise": true,
+    "donnees_personnelles": false,
+    "adaptations_types": [
+      {
+        "situation": "Comparer deux fractions simples",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": null,
+        "modalites_expression": [
+          "Comparer avec un dessin partagé",
+          "Comparer avec l'écriture fractionnaire"
+        ]
+      },
+      {
+        "situation": "Démonstration écrite évaluée",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": "Rédiger une justification structurée",
+        "modalites_expression": [
+          "Rédiger une justification structurée"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sciences-et-technologie",
+    "famille": "Sciences et technologie",
+    "objectif_invariant_type": "Interpréter des données ou une expérience et en tirer une conclusion argumentée.",
+    "obstacles_frequents": [
+      "Lecture de graphique",
+      "Distinction entre observation et interprétation",
+      "Vocabulaire spécialisé"
+    ],
+    "appuis_cua": {
+      "engagement": [
+        "Partir d'une question ouverte",
+        "Travailler la conclusion en binôme"
+      ],
+      "representations": [
+        "Graphique lisible sans dépendre de la couleur",
+        "Tableau de données équivalent au graphique"
+      ],
+      "action_expression": [
+        "Expliquer oralement la tendance",
+        "Compléter une conclusion à trous"
+      ]
+    },
+    "modalites_souvent_evaluees": [
+      "Rédiger une conclusion argumentée quand c'est l'objectif annoncé"
+    ],
+    "reserve_source": "Repères indicatifs : source à vérifier avant d'annoncer une attente de programme.",
+    "statut_couverture": "exemple contextualisé",
+    "revue_humaine": null,
+    "validation_humaine_requise": true,
+    "donnees_personnelles": false,
+    "adaptations_types": [
+      {
+        "situation": "Interpréter une variation dans un graphique",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": null,
+        "modalites_expression": [
+          "Expliquer oralement la tendance",
+          "Écrire la tendance en une phrase"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "langues-vivantes",
+    "famille": "Langues vivantes",
+    "objectif_invariant_type": "Comprendre et produire un message dans la langue cible sur une activité langagière donnée.",
+    "obstacles_frequents": [
+      "Prise de parole en grand groupe",
+      "Débit de la ressource audio",
+      "Écart entre compréhension et production"
+    ],
+    "appuis_cua": {
+      "engagement": [
+        "Choisir le sujet parmi deux",
+        "S'entraîner avant de produire devant le groupe"
+      ],
+      "representations": [
+        "Audio avec transcription",
+        "Banque d'expressions affichée"
+      ],
+      "action_expression": [
+        "Enregistrer sa production",
+        "Produire à partir d'une amorce"
+      ]
+    },
+    "modalites_souvent_evaluees": [
+      "Produire à l'oral quand l'activité langagière évaluée est l'expression orale"
+    ],
+    "reserve_source": "Repères indicatifs : source à vérifier, les niveaux visés dépendent du cadre en vigueur.",
+    "statut_couverture": "appui transversal",
+    "revue_humaine": null,
+    "validation_humaine_requise": true,
+    "donnees_personnelles": false,
+    "adaptations_types": [
+      {
+        "situation": "Restituer le contenu d'un document audio",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": null,
+        "modalites_expression": [
+          "Restituer oralement",
+          "Restituer par écrit en langue cible"
+        ]
+      },
+      {
+        "situation": "Évaluation de l'expression orale en continu",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": "Produire un message oral en continu",
+        "modalites_expression": [
+          "Produire un message oral en continu"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "histoire-geographie-emc",
+    "famille": "Histoire, géographie et enseignement moral et civique",
+    "objectif_invariant_type": "Situer, mettre en relation des documents et construire une réponse argumentée.",
+    "obstacles_frequents": [
+      "Densité documentaire",
+      "Repères temporels et spatiaux fragiles",
+      "Confusion entre opinion et argument"
+    ],
+    "appuis_cua": {
+      "engagement": [
+        "Entrer par une question vive",
+        "Débat réglé avec temps de préparation"
+      ],
+      "representations": [
+        "Frise et carte accompagnant le texte",
+        "Corpus réduit à deux documents"
+      ],
+      "action_expression": [
+        "Argumenter à l'oral",
+        "Construire une réponse à partir d'un plan donné"
+      ]
+    },
+    "modalites_souvent_evaluees": [
+      "Rédiger une réponse argumentée quand la rédaction est l'objectif annoncé"
+    ],
+    "reserve_source": "Repères indicatifs : source à vérifier, les repères annuels évoluent selon les textes.",
+    "statut_couverture": "appui transversal",
+    "revue_humaine": null,
+    "validation_humaine_requise": true,
+    "donnees_personnelles": false,
+    "adaptations_types": [
+      {
+        "situation": "Mettre en relation deux documents",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": null,
+        "modalites_expression": [
+          "Expliquer la mise en relation à l'oral",
+          "Compléter un tableau de comparaison"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "arts-education-physique",
+    "famille": "Arts et éducation physique et sportive",
+    "objectif_invariant_type": "Réaliser une production ou une performance et expliciter ses choix.",
+    "obstacles_frequents": [
+      "Exposition au regard du groupe",
+      "Consigne procédurale longue",
+      "Contraintes matérielles ou motrices"
+    ],
+    "appuis_cua": {
+      "engagement": [
+        "Choisir le rôle tenu dans l'activité",
+        "Objectif de progrès personnel visible"
+      ],
+      "representations": [
+        "Démonstration accompagnée d'une fiche illustrée",
+        "Critères de réussite affichés"
+      ],
+      "action_expression": [
+        "Expliciter ses choix à l'oral",
+        "Renseigner une fiche de suivi courte"
+      ]
+    },
+    "modalites_souvent_evaluees": [
+      "Réaliser la performance elle-même quand elle est l'objectif annoncé"
+    ],
+    "reserve_source": "Repères indicatifs : source à vérifier, notamment pour les attendus de fin de cycle.",
+    "statut_couverture": "appui transversal",
+    "revue_humaine": null,
+    "validation_humaine_requise": true,
+    "donnees_personnelles": false,
+    "adaptations_types": [
+      {
+        "situation": "Expliciter les choix d'une production plastique",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": null,
+        "modalites_expression": [
+          "Expliquer oralement ses choix",
+          "Légender la production"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "enseignement-professionnel",
+    "famille": "Enseignement professionnel et technologique",
+    "objectif_invariant_type": "Conduire une procédure professionnelle fictive en respectant ses étapes et ses règles de sécurité.",
+    "obstacles_frequents": [
+      "Séquence d'étapes à mémoriser",
+      "Vocabulaire technique",
+      "Écart entre atelier et salle de cours"
+    ],
+    "appuis_cua": {
+      "engagement": [
+        "Relier la tâche à une situation de métier",
+        "Travailler en binôme opérateur et observateur"
+      ],
+      "representations": [
+        "Procédure illustrée étape par étape",
+        "Démonstration commentée"
+      ],
+      "action_expression": [
+        "Ordonner les étapes sur une fiche",
+        "Expliquer la procédure à un pair"
+      ]
+    },
+    "modalites_souvent_evaluees": [
+      "Réaliser le geste professionnel quand il constitue la compétence évaluée"
+    ],
+    "reserve_source": "Repères indicatifs : source à vérifier dans le référentiel du diplôme concerné.",
+    "statut_couverture": "exemple contextualisé",
+    "revue_humaine": null,
+    "validation_humaine_requise": true,
+    "donnees_personnelles": false,
+    "adaptations_types": [
+      {
+        "situation": "Ordonner une procédure professionnelle fictive",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": null,
+        "modalites_expression": [
+          "Ordonner des étiquettes d'étapes",
+          "Expliquer la procédure à l'oral"
+        ]
+      },
+      {
+        "situation": "Évaluation certificative du geste professionnel",
+        "objectif_invariant_preserve": true,
+        "modalite_evaluee": "Réaliser le geste professionnel",
+        "modalites_expression": [
+          "Réaliser le geste professionnel"
+        ]
+      }
+    ]
+  }
+]

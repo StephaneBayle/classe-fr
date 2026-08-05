@@ -29,4 +29,4 @@ Ajoutez un test `test_<comportement>` pour chaque règle nouvelle. Utilisez uniq
 
 ## Commits et pull requests
 
-L’historique est encore court ; employez des messages brefs à l’impératif, par exemple `Ajoute la grille d’audit CUA`. Une pull request doit expliquer l’usage enseignant visé, lier l’issue associée, lister les validations exécutées et signaler tout impact sur la CUA, les sources ou la confidentialité. Ajoutez une capture uniquement si elle éclaire un changement d’interface ou de support.
+L’historique est encore court ; employez des messages brefs à l’impératif, par exemple `Ajoute la grille d’audit CUA`. Toute issue créée dans ce dépôt doit être assignée à `@StephaneBayle`. Une pull request doit expliquer l’usage enseignant visé, lier l’issue associée, lister les validations exécutées et signaler tout impact sur la CUA, les sources ou la confidentialité. Ajoutez une capture uniquement si elle éclaire un changement d’interface ou de support.

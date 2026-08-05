@@ -31,6 +31,7 @@ REQUIRED_REFERENCES = {
     "connecteurs-publics-institutionnels.md",
     "triage-feedbacks-enseignants.md",
     "matrice-couverture-discipline-niveau.md",
+    "profils-disciplinaires.md",
 }
 REQUIRED_CONTENT = {
     "references/cua-et-accessibilite.md": (
@@ -99,6 +100,20 @@ REQUIRED_CONTENT = {
         "Lycée général ou technologique",
         "Lycée professionnel ou CFA",
         "Aucune cellule n'atteint encore ce niveau",
+    ),
+    "references/profils-disciplinaires.md": (
+        "Français et langage",
+        "Mathématiques",
+        "Sciences et technologie",
+        "Langues vivantes",
+        "Histoire, géographie et EMC",
+        "Arts et éducation physique et sportive",
+        "Enseignement professionnel et technologique",
+        "à vérifier",
+        "revue humaine disciplinaire",
+        "objectif invariant",
+        "modalité évaluée",
+        "Aucune famille n'atteint ce niveau",
     ),
 }
 CLAUDE_REQUIRED_TERMS = (
@@ -209,6 +224,10 @@ def validate(root: Path) -> list[str]:
     fixture = root / "tests" / "fixtures" / "parcours-pedagogiques-fictifs.json"
     if not parcours_validator.is_file() or not fixture.is_file():
         fail(errors, "Les parcours pédagogiques fictifs et leur validateur sont requis.")
+    profiles_validator = plugin / "scripts" / "validate_profils_disciplinaires.py"
+    profiles_fixture = root / "tests" / "fixtures" / "profils-disciplinaires-fictifs.json"
+    if not profiles_validator.is_file() or not profiles_fixture.is_file():
+        fail(errors, "Les profils disciplinaires fictifs et leur validateur sont requis.")
     registry_validator = plugin / "scripts" / "validate_registre_sources.py"
     registry = plugin / "references" / "registre-sources-institutionnelles.json"
     report = plugin / "assets" / "modeles" / "rapport-revue-sources.md"
