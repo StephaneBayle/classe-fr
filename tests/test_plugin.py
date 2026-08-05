@@ -25,6 +25,9 @@ FEEDBACK_FIXTURE = ROOT / "tests" / "fixtures" / "triage-feedbacks-fictifs.json"
 PROFILES_VALIDATOR = ROOT / "plugins" / "classe-fr" / "scripts" / "validate_profils_disciplinaires.py"
 PROFILES_FIXTURE = ROOT / "tests" / "fixtures" / "profils-disciplinaires-fictifs.json"
 PROFILES_REFERENCE = ROOT / "plugins" / "classe-fr" / "references" / "profils-disciplinaires.md"
+REVIEW_VALIDATOR = ROOT / "plugins" / "classe-fr" / "scripts" / "validate_revue_disciplinaire.py"
+REVIEW_FIXTURE = ROOT / "tests" / "fixtures" / "revues-disciplinaires-fictives.json"
+REVIEW_REFERENCE = ROOT / "plugins" / "classe-fr" / "references" / "revue-disciplinaire.md"
 
 
 def load_module(path: Path, name: str):
@@ -645,6 +648,143 @@ class ClasseFrTests(unittest.TestCase):
             ["Les familles disciplinaires sans parcours fictif sont : eps."],
         )
 
+    def test_procedure_de_revue_disciplinaire_est_documentee(self):
+        reference = REVIEW_REFERENCE.read_text(encoding="utf-8")
+        matrice = (
+            ROOT
+            / "plugins"
+            / "classe-fr"
+            / "references"
+            / "matrice-couverture-discipline-niveau.md"
+        ).read_text(encoding="utf-8")
+
+        for element in (
+            "## Qui peut relire",
+            "## Ce qui doit être vérifié",
+            "## Ce qu'il faut consigner",
+            "## Lier la décision",
+            "## Quand rétrograder",
+            "enseignant",
+            "formateur",
+            "pair compétent",
+            "mainteneur",
+            "jamais son nom",
+            "**Objectif**",
+            "**Niveau**",
+            "**Vocabulaire**",
+            "**Source**",
+            "**CUA**",
+            "**Modalité évaluée**",
+            "**Confidentialité**",
+            "journal de version",
+            "Classe FR n'est pas une autorité pédagogique",
+        ):
+            self.assertIn(element, reference, element)
+        self.assertIn("Comment une cellule passe à « Couverture validée »", matrice)
+        self.assertIn("references/revue-disciplinaire.md", matrice)
+
+    def test_revues_disciplinaires_fictives_couvrent_les_trois_decisions(self):
+        module = load_module(REVIEW_VALIDATOR, "validate_revue_disciplinaire")
+        revues = json.loads(REVIEW_FIXTURE.read_text(encoding="utf-8"))
+
+        self.assertEqual(module.validate_dataset(REVIEW_FIXTURE), [])
+        self.assertEqual({revue["decision"] for revue in revues}, set(module.DECISIONS))
+
+    def test_couverture_validee_exige_les_sept_points_verifies(self):
+        module = load_module(REVIEW_VALIDATOR, "validate_revue_disciplinaire_points")
+        revues = json.loads(REVIEW_FIXTURE.read_text(encoding="utf-8"))
+        revue = copy.deepcopy(revues[0])
+        revue["points_verifies"]["source"] = False
+
+        errors = module.validate_review(revue)
+
+        self.assertIn(
+            "Une couverture validée exige les sept points vérifiés ; il manque : source.",
+            errors,
+        )
+
+    def test_couverture_validee_exige_une_source_datee_et_des_limites(self):
+        module = load_module(REVIEW_VALIDATOR, "validate_revue_disciplinaire_source")
+        revues = json.loads(REVIEW_FIXTURE.read_text(encoding="utf-8"))
+        sans_source = copy.deepcopy(revues[0])
+        del sans_source["source"]
+        sans_limites = copy.deepcopy(revues[0])
+        sans_limites["limites"] = ""
+        sans_reference = copy.deepcopy(revues[0])
+        sans_reference["reference_decision"] = ""
+
+        self.assertIn("La source retenue est obligatoire.", module.validate_review(sans_source))
+        self.assertIn("Le champ `limites` doit être renseigné.", module.validate_review(sans_limites))
+        self.assertIn(
+            "Le champ `reference_decision` doit être renseigné.",
+            module.validate_review(sans_reference),
+        )
+
+    def test_retrogradation_exige_un_motif(self):
+        module = load_module(REVIEW_VALIDATOR, "validate_revue_disciplinaire_retrogradation")
+        revues = json.loads(REVIEW_FIXTURE.read_text(encoding="utf-8"))
+        revue = copy.deepcopy(revues[2])
+        del revue["motif_retrogradation"]
+
+        errors = module.validate_review(revue)
+
+        self.assertIn("Une rétrogradation doit consigner son motif.", errors)
+
+    def test_revue_consigne_un_role_et_jamais_un_nom(self):
+        module = load_module(REVIEW_VALIDATOR, "validate_revue_disciplinaire_role")
+        revues = json.loads(REVIEW_FIXTURE.read_text(encoding="utf-8"))
+        avec_nom = copy.deepcopy(revues[0])
+        avec_nom["nom_relecteur"] = "Camille Martin"
+        sans_role = copy.deepcopy(revues[0])
+        sans_role["role_relecteur"] = "Personne ayant relu le document"
+
+        self.assertIn(
+            "Le registre est public : retirer le champ `nom_relecteur`.",
+            module.validate_review(avec_nom),
+        )
+        self.assertTrue(
+            any("décrit par son rôle" in error for error in module.validate_review(sans_role)),
+            module.validate_review(sans_role),
+        )
+
+    def test_profil_en_couverture_validee_exige_limites_et_reference_de_decision(self):
+        module = load_module(PROFILES_VALIDATOR, "validate_profils_disciplinaires_decision")
+        profils = json.loads(PROFILES_FIXTURE.read_text(encoding="utf-8"))
+        profil = copy.deepcopy(profils[0])
+        profil["statut_couverture"] = "couverture validée"
+        profil["revue_humaine"] = {
+            "role_relecteur": "Enseignante de cycle 2, relecture disciplinaire",
+            "revue_le": "2026-08-05",
+            "decision": "couverture validée",
+        }
+
+        errors = module.validate_profile(profil)
+
+        self.assertIn("La revue humaine doit renseigner `limites`.", errors)
+        self.assertIn("La revue humaine doit renseigner `reference_decision`.", errors)
+
+        profil["revue_humaine"]["limites"] = "Porte sur le seul repérage d'une information écrite."
+        profil["revue_humaine"]["reference_decision"] = "issue fictive #000"
+        self.assertEqual(module.validate_profile(profil), [])
+
+        profil["revue_humaine"]["nom_relecteur"] = "Camille Martin"
+        self.assertIn(
+            "Le registre est public : consigner un rôle, jamais un nom.",
+            module.validate_profile(profil),
+        )
+
+    def test_competences_signalent_la_limite_de_couverture(self):
+        for nom in (
+            "preparation-differenciation",
+            "programmation-annuelle",
+            "evaluation-retours",
+            "cua-accessibilite-pedagogique",
+        ):
+            contenu = (
+                ROOT / "plugins" / "classe-fr" / "skills" / nom / "SKILL.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Aucune famille n'étant en couverture validée", contenu, nom)
+
     def test_reference_profils_disciplinaires_reste_prudente(self):
         reference = PROFILES_REFERENCE.read_text(encoding="utf-8")
 
@@ -762,6 +902,8 @@ class ClasseFrTests(unittest.TestCase):
             "role_relecteur": "Enseignante de lettres, second degré",
             "revue_le": "2026-08-05",
             "decision": "Repères jugés cohérents avec la source citée.",
+            "limites": "Porte sur ce seul niveau ; ne couvre pas le reste du cycle.",
+            "reference_decision": "issue fictive #000",
         }
         self.assertEqual(module.validate_profile(profil_conforme), [])
 

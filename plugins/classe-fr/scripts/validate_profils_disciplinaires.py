@@ -115,9 +115,11 @@ def validate_profile(profile: dict[str, object]) -> list[str]:
                 "Une couverture validée exige une revue humaine disciplinaire consignée."
             )
         else:
-            for field in ("role_relecteur", "revue_le", "decision"):
+            for field in ("role_relecteur", "revue_le", "decision", "limites", "reference_decision"):
                 if not is_non_empty_string(revue.get(field)):
                     errors.append(f"La revue humaine doit renseigner `{field}`.")
+            if "nom_relecteur" in revue:
+                errors.append("Le registre est public : consigner un rôle, jamais un nom.")
             if is_non_empty_string(revue.get("revue_le")) and not re.fullmatch(
                 r"\d{4}-\d{2}-\d{2}", str(revue["revue_le"])
             ):

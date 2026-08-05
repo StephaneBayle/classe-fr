@@ -39,6 +39,17 @@ Les statuts de ce tableau sont tenus identiques à ceux de `tests/fixtures/profi
 
 Les douze parcours fictifs sont conservés dans `tests/fixtures/parcours-pedagogiques-fictifs.json` et résumés dans `references/parcours-pedagogiques-fictifs.md`. Ils permettent de vérifier l'objectif invariant, les obstacles, les trois entrées CUA, la source documentée, l'absence de donnée personnelle et le support imprimable ; ce ne sont pas des séquences prêtes à prescrire.
 
+## Comment une cellule passe à « Couverture validée »
+
+Une cellule ne change pas de statut parce qu'un exemple fictif existe, ni parce qu'une réponse du plugin a semblé juste. Le passage suit la procédure de `references/revue-disciplinaire.md` :
+
+1. Une personne compétente relit la cellule : enseignant du niveau et de la discipline, formateur, pair compétent sur la voie ou le diplôme, ou mainteneur s'appuyant sur une source datée.
+2. Les sept points sont vérifiés : objectif, niveau, vocabulaire, source, CUA, modalité évaluée, confidentialité. Un seul point non vérifié maintient la cellule en « Exemple contextualisé ».
+3. La décision est consignée avec le rôle du relecteur — jamais son nom —, la date de revue, la source datée, les limites du périmètre couvert et une référence de décision.
+4. La référence de décision, issue ou entrée du journal de version, est reportée dans la colonne de preuve de la cellule.
+
+Le statut se perd aussi : une cellule est rétrogradée vers « Exemple contextualisé » dès que la source change ou disparaît, qu'un texte institutionnel modifie l'attendu, que la revue trimestrielle signale un changement constaté, ou qu'un retour enseignant instruit montre que le repère induit en erreur. La rétrogradation est consignée avec son motif.
+
 ## Prioriser les prochaines contributions
 
 1. Partir des retours anonymes triés selon `references/triage-feedbacks-enseignants.md` : confidentialité et CUA passent avant toute autre demande.
