@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import re
 import copy
 import subprocess
 import sys
@@ -495,6 +496,116 @@ class ClasseFrTests(unittest.TestCase):
             "Aucune cellule n'atteint encore ce niveau",
         ):
             self.assertIn(element, matrice)
+
+    @staticmethod
+    def _lignes_matrice_disciplinaire() -> dict[str, dict[str, str]]:
+        """Relire le tableau par famille de la matrice, indexé par identifiant de profil."""
+        matrice = (
+            ROOT
+            / "plugins"
+            / "classe-fr"
+            / "references"
+            / "matrice-couverture-discipline-niveau.md"
+        ).read_text(encoding="utf-8")
+        section = matrice.split("## Couverture par famille disciplinaire", 1)[1]
+        section = section.split("## Lire les niveaux de couverture", 1)[0]
+
+        colonnes = (
+            "niveau",
+            "famille",
+            "appui_transversal",
+            "exemple_contextualise",
+            "statut_couverture",
+            "couverture_validee",
+            "preuve",
+        )
+        lignes: dict[str, dict[str, str]] = {}
+        for ligne in section.splitlines():
+            if not ligne.startswith("|") or set(ligne) <= set("| -"):
+                continue
+            cellules = [cellule.strip() for cellule in ligne.strip("|").split("|")]
+            if len(cellules) != len(colonnes) or cellules[0] == "Niveau ou voie":
+                continue
+            entree = dict(zip(colonnes, cellules))
+            identifiants = re.findall(r"Profil `([\w-]+)`", entree["preuve"])
+            assert len(identifiants) == 1, entree["preuve"]
+            lignes[identifiants[0]] = entree
+        return lignes
+
+    def test_matrice_et_profils_disciplinaires_annoncent_le_meme_statut(self):
+        profils = json.loads(PROFILES_FIXTURE.read_text(encoding="utf-8"))
+        lignes = self._lignes_matrice_disciplinaire()
+
+        self.assertEqual(
+            sorted(lignes),
+            sorted(profil["id"] for profil in profils),
+            "La matrice et les profils disciplinaires ne listent pas les mêmes familles.",
+        )
+        for profil in profils:
+            ligne = lignes[profil["id"]]
+            self.assertEqual(
+                ligne["statut_couverture"].lower(),
+                profil["statut_couverture"],
+                f"Statut divergent pour {profil['id']}.",
+            )
+            self.assertEqual(ligne["famille"], profil["famille"], profil["id"])
+
+    def test_matrice_ne_promet_aucune_couverture_validee_sans_revue_humaine(self):
+        profils = json.loads(PROFILES_FIXTURE.read_text(encoding="utf-8"))
+        lignes = self._lignes_matrice_disciplinaire()
+
+        for profil in profils:
+            self.assertIsNone(
+                profil["revue_humaine"],
+                f"{profil['id']} annonce une revue humaine non consignée dans la matrice.",
+            )
+            self.assertNotEqual(profil["statut_couverture"], "couverture validée", profil["id"])
+            self.assertEqual(
+                lignes[profil["id"]]["couverture_validee"],
+                "À construire",
+                f"{profil['id']} promet une couverture validée sans revue humaine.",
+            )
+
+    def test_matrice_reserve_l_exemple_contextualise_a_un_parcours_fictif(self):
+        profils = json.loads(PROFILES_FIXTURE.read_text(encoding="utf-8"))
+        parcours = {
+            cas["id"] for cas in json.loads(PARCOURS_FIXTURE.read_text(encoding="utf-8"))
+        }
+        lignes = self._lignes_matrice_disciplinaire()
+
+        for profil in profils:
+            ligne = lignes[profil["id"]]
+            cites = set(re.findall(r"parcours fictifs? ((?:`[\w-]+`(?: et )?)+)", ligne["preuve"]))
+            identifiants = {
+                identifiant
+                for groupe in cites
+                for identifiant in re.findall(r"`([\w-]+)`", groupe)
+            }
+            if profil["statut_couverture"] == "exemple contextualisé":
+                self.assertTrue(identifiants, f"{profil['id']} sans parcours fictif cité.")
+                self.assertTrue(
+                    identifiants <= parcours,
+                    f"{profil['id']} cite un parcours fictif inexistant : {identifiants - parcours}",
+                )
+            else:
+                self.assertEqual(identifiants, set(), profil["id"])
+                self.assertIn("Aucun parcours fictif", ligne["exemple_contextualise"])
+
+    def test_page_confiance_reste_coherente_avec_la_matrice_disciplinaire(self):
+        page = (ROOT / "CONFIANCE.md").read_text(encoding="utf-8")
+        profils = json.loads(PROFILES_FIXTURE.read_text(encoding="utf-8"))
+
+        avec_exemple = [
+            profil for profil in profils if profil["statut_couverture"] == "exemple contextualisé"
+        ]
+        self.assertEqual(len(avec_exemple), 5)
+        for fragment in (
+            "en français, en mathématiques, en sciences, SVT et physique-chimie, "
+            "en voie professionnelle et CFA, et en maternelle",
+            "Les cinq autres familles",
+            "n’ont pour l’instant qu’un appui transversal",
+        ):
+            self.assertIn(fragment, page)
 
     def test_reference_profils_disciplinaires_reste_prudente(self):
         reference = PROFILES_REFERENCE.read_text(encoding="utf-8")
