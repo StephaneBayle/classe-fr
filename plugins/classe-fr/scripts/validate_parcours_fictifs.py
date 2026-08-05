@@ -16,6 +16,24 @@ EXPECTED_IDS = {
     "college",
     "lycee-general-technologique",
     "lycee-professionnel-cfa",
+    "college-histoire-geographie-emc",
+    "cm2-langues-vivantes",
+    "college-technologie-numerique",
+    "cm2-arts-plastiques",
+    "college-education-musicale",
+    "lycee-eps",
+}
+FAMILY_IDS = {
+    "francais",
+    "mathematiques",
+    "histoire-geographie-emc",
+    "sciences-svt-physique-chimie",
+    "langues-vivantes",
+    "technologie-numerique",
+    "arts-plastiques-education-musicale",
+    "eps",
+    "voie-professionnelle-cfa",
+    "maternelle",
 }
 CUA_ENTRIES = ("engagement", "representations", "action_expression")
 SENSITIVE_PATTERNS = (
@@ -34,6 +52,13 @@ def validate_case(case: dict[str, object]) -> list[str]:
     for field in ("id", "niveau", "discipline", "objectif_invariant", "support_imprimable", "sortie_attendue"):
         if not is_non_empty_string(case.get(field)):
             errors.append(f"Le champ `{field}` doit être renseigné.")
+
+    if case.get("famille") not in FAMILY_IDS:
+        errors.append(
+            "Le parcours doit se rattacher à une famille de `references/profils-disciplinaires.md` : "
+            + ", ".join(sorted(FAMILY_IDS))
+            + "."
+        )
 
     obstacles = case.get("obstacles")
     if not isinstance(obstacles, list) or not obstacles or not all(
@@ -102,6 +127,15 @@ def validate_dataset(path: Path) -> list[str]:
         return [
             "Les contextes fictifs attendus sont : "
             + ", ".join(sorted(EXPECTED_IDS))
+            + "."
+        ]
+
+    familles = {case.get("famille") for case in cases if isinstance(case, dict)}
+    familles_absentes = FAMILY_IDS - familles
+    if familles_absentes:
+        return [
+            "Les familles disciplinaires sans parcours fictif sont : "
+            + ", ".join(sorted(familles_absentes))
             + "."
         ]
 

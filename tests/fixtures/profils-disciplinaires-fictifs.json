@@ -170,7 +170,7 @@
       "Thèmes au programme de l'année"
     ],
     "reserve_source": "Repères indicatifs : source à vérifier, les repères annuels évoluent selon les textes.",
-    "statut_couverture": "appui transversal",
+    "statut_couverture": "exemple contextualisé",
     "revue_humaine": null,
     "validation_humaine_requise": true,
     "donnees_personnelles": false,
@@ -284,7 +284,7 @@
       "Cadre de référence utilisé pour les niveaux"
     ],
     "reserve_source": "Repères indicatifs : source à vérifier, les niveaux visés dépendent du cadre en vigueur.",
-    "statut_couverture": "appui transversal",
+    "statut_couverture": "exemple contextualisé",
     "revue_humaine": null,
     "validation_humaine_requise": true,
     "donnees_personnelles": false,
@@ -350,7 +350,7 @@
       "Conditions de licence des ressources et logiciels"
     ],
     "reserve_source": "Repères indicatifs : source à vérifier, y compris les licences des outils mobilisés.",
-    "statut_couverture": "appui transversal",
+    "statut_couverture": "exemple contextualisé",
     "revue_humaine": null,
     "validation_humaine_requise": true,
     "donnees_personnelles": false,
@@ -407,7 +407,7 @@
       "Droits d'usage des œuvres mobilisées"
     ],
     "reserve_source": "Repères indicatifs : source à vérifier, notamment les droits d'usage des œuvres.",
-    "statut_couverture": "appui transversal",
+    "statut_couverture": "exemple contextualisé",
     "revue_humaine": null,
     "validation_humaine_requise": true,
     "donnees_personnelles": false,
@@ -464,7 +464,7 @@
       "Référentiel d'évaluation certificative le cas échéant"
     ],
     "reserve_source": "Repères indicatifs : source à vérifier, notamment pour les attendus de fin de cycle.",
-    "statut_couverture": "appui transversal",
+    "statut_couverture": "exemple contextualisé",
     "revue_humaine": null,
     "validation_humaine_requise": true,
     "donnees_personnelles": false,
