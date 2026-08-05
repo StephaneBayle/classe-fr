@@ -50,6 +50,97 @@ class ClasseFrTests(unittest.TestCase):
             self.assertTrue((destination / "feedbacks" / "feedback-modele.md").exists())
             self.assertIn("contenus professionnels anonymisés", (destination / "README.md").read_text(encoding="utf-8"))
 
+    def test_accueil_produit_avant_de_proposer_un_espace(self):
+        accueil = (
+            ROOT / "plugins" / "classe-fr" / "skills" / "demarrer-avec-classe-fr" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+
+        for element in (
+            "name: demarrer-avec-classe-fr",
+            "Accueillir en produisant",
+            "trois questions",
+            "confidentialité",
+            "premier livrable réel",
+            "Ne jamais créer de fichier sans accord explicite",
+            "Ne jamais demander de document",
+            "validation humaine",
+            "Aucune discipline n'est couverte comme validée",
+            "DEMARRER.md",
+            "CONFIANCE.md",
+        ):
+            self.assertIn(element, accueil, element)
+
+        livrable = accueil.index("Produire un premier livrable réel")
+        espace = accueil.index("Proposer l'espace professeur, puis le créer")
+        self.assertLess(livrable, espace, "L'espace doit être proposé après le premier livrable.")
+
+    def test_accueil_amorce_le_profil_sans_le_deviner(self):
+        accueil = (
+            ROOT / "plugins" / "classe-fr" / "skills" / "demarrer-avec-classe-fr" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+        modele = (
+            ROOT / "plugins" / "classe-fr" / "assets" / "modeles" / "profil-enseignant.yml"
+        ).read_text(encoding="utf-8")
+
+        for champ in (
+            "niveaux",
+            "disciplines",
+            "priorites_annuelles",
+            "contraintes",
+            "contenus_anonymises_confirmes",
+            "stockage_hors_depot_confirme",
+        ):
+            self.assertIn(champ, modele, champ)
+            self.assertIn(champ, accueil, champ)
+        self.assertIn("laisser « à compléter » ; ne pas les deviner", accueil)
+        self.assertIn("seulement après que l'enseignant a confirmé", accueil)
+
+    def test_accueil_annonce_l_indexation_sans_balayer(self):
+        accueil = (
+            ROOT / "plugins" / "classe-fr" / "skills" / "demarrer-avec-classe-fr" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("sans jamais les copier", accueil)
+        self.assertIn("ne balayer aucun dossier pendant l'accueil", accueil)
+
+    def test_agent_renvoie_le_premier_contact_vers_la_session_principale(self):
+        agent = (
+            ROOT / "plugins" / "classe-fr" / "agents" / "classe-fr-pedagogie.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("demarrer-avec-classe-fr", agent)
+        self.assertIn("Tu es en lecture seule", agent)
+        self.assertIn("session principale", agent)
+        self.assertIn("ne tente pas la création toi-même", agent)
+
+    def test_espace_professeur_est_repris_sans_ecraser_le_travail(self):
+        module = load_module(SCRIPT, "init_teacher_space_reprise")
+        with tempfile.TemporaryDirectory() as temporary:
+            destination = Path(temporary) / "espace-professeur"
+            premier = module.initialise(destination)
+
+            profil = destination / "profil" / "enseignant.yml"
+            profil.write_text("profil:\n  niveaux: [CAP]\n", encoding="utf-8")
+            (destination / "bibliotheque" / "index.yml").unlink()
+
+            second = module.initialise(destination)
+
+            self.assertIn("profil/enseignant.yml", premier)
+            self.assertEqual(second, ["bibliotheque/index.yml"])
+            self.assertIn("CAP", profil.read_text(encoding="utf-8"))
+            self.assertEqual(module.initialise(destination), [])
+
+    def test_readme_met_l_accueil_en_avant_et_range_la_commande(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+
+        depart = readme.index("## Démarrer vite")
+        aller_plus_loin = readme.index("## Aller plus loin")
+        commande = readme.index("init_teacher_space.py")
+
+        self.assertIn("Je débute avec Classe FR", readme[depart:aller_plus_loin])
+        self.assertGreater(commande, aller_plus_loin, "La commande doit rester hors du démarrage.")
+        self.assertIn("jamais écrasé", readme)
+
     def test_validation_du_depot(self):
         module = load_module(VALIDATOR, "validate_classe_fr")
         self.assertEqual(module.validate(ROOT), [])
@@ -90,6 +181,7 @@ class ClasseFrTests(unittest.TestCase):
 
         for content in (claude_memory, claude_agent):
             for element in (
+                "demarrer-avec-classe-fr",
                 "cadrage-annee-scolaire",
                 "bibliotheque-pedagogique",
                 "style-et-design-prof",
@@ -144,6 +236,8 @@ class ClasseFrTests(unittest.TestCase):
 
         self.assertEqual(len(prompts), 3)
         for element in (
+            "Je débute avec Classe FR",
+            "mon niveau et de ma discipline",
             "45 minutes",
             "CM1",
             "fractions",
@@ -156,12 +250,9 @@ class ClasseFrTests(unittest.TestCase):
             "obstacles possibles",
             "corrections concrètes",
             "version imprimable",
-            "message collectif aux familles",
-            "sortie scolaire",
-            "sans donnée d'élève",
-            "ton clair et professionnel",
         ):
             self.assertIn(element, texte)
+        self.assertIn("Je débute avec Classe FR", prompts[0])
         for prompt in prompts:
             self.assertNotIn("ma classe", prompt)
             self.assertNotIn("profil de style", prompt)

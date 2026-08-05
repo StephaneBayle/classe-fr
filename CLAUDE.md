@@ -27,6 +27,7 @@ Lis toujours la compétence pertinente avant de produire un livrable. Si plusieu
 
 ## Compétences disponibles
 
+- `demarrer-avec-classe-fr` : accueillir un premier contact, produire un premier livrable et amorcer l'espace professeur.
 - `cadrage-annee-scolaire` : cadrer une année, une prise de poste ou une nouvelle classe.
 - `bibliotheque-pedagogique` : indexer et réemployer des ressources locales avec provenance et droits.
 - `style-et-design-prof` : harmoniser le style éditorial et les supports anonymisés.
