@@ -32,6 +32,7 @@ REQUIRED_REFERENCES = {
     "triage-feedbacks-enseignants.md",
     "matrice-couverture-discipline-niveau.md",
     "profils-disciplinaires.md",
+    "revue-disciplinaire.md",
 }
 REQUIRED_CONTENT = {
     "references/cua-et-accessibilite.md": (
@@ -123,6 +124,24 @@ REQUIRED_CONTENT = {
         "objectif invariant",
         "Modalité évaluée",
         "Aucune famille n'atteint le niveau",
+    ),
+    "references/revue-disciplinaire.md": (
+        "Qui peut relire",
+        "Ce qui doit être vérifié",
+        "Ce qu'il faut consigner",
+        "Lier la décision",
+        "Quand rétrograder",
+        "enseignant",
+        "formateur",
+        "pair compétent",
+        "mainteneur",
+        "jamais son nom",
+        "Modalité évaluée",
+        "couverture validée",
+        "maintien en exemple contextualisé",
+        "rétrogradation",
+        "journal de version",
+        "Classe FR n'est pas une autorité pédagogique",
     ),
 }
 CLAUDE_REQUIRED_TERMS = (
@@ -233,6 +252,10 @@ def validate(root: Path) -> list[str]:
     fixture = root / "tests" / "fixtures" / "parcours-pedagogiques-fictifs.json"
     if not parcours_validator.is_file() or not fixture.is_file():
         fail(errors, "Les parcours pédagogiques fictifs et leur validateur sont requis.")
+    review_validator = plugin / "scripts" / "validate_revue_disciplinaire.py"
+    review_fixture = root / "tests" / "fixtures" / "revues-disciplinaires-fictives.json"
+    if not review_validator.is_file() or not review_fixture.is_file():
+        fail(errors, "La revue humaine disciplinaire et son validateur sont requis.")
     profiles_validator = plugin / "scripts" / "validate_profils_disciplinaires.py"
     profiles_fixture = root / "tests" / "fixtures" / "profils-disciplinaires-fictifs.json"
     if not profiles_validator.is_file() or not profiles_fixture.is_file():

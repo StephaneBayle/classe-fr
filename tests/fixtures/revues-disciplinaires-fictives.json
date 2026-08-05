@@ -1,0 +1,68 @@
+[
+  {
+    "id": "revue-francais-cp-fictive",
+    "famille": "francais",
+    "niveau": "CP",
+    "role_relecteur": "Enseignante de cycle 2, relecture disciplinaire",
+    "revue_le": "2026-08-05",
+    "points_verifies": {
+      "objectif": true,
+      "niveau": true,
+      "vocabulaire": true,
+      "source": true,
+      "cua": true,
+      "modalite_evaluee": true,
+      "confidentialite": true
+    },
+    "source": {
+      "organisme": "Éduscol",
+      "url": "https://eduscol.education.fr/",
+      "consultee_le": "2026-08-05"
+    },
+    "decision": "couverture validée",
+    "limites": "Porte uniquement sur le repérage d'une information explicitement écrite en CP ; ne couvre ni la production d'écrit ni le reste du cycle.",
+    "reference_decision": "issue fictive #000 et journal de version",
+    "donnees_personnelles": false
+  },
+  {
+    "id": "revue-eps-2de-fictive",
+    "famille": "eps",
+    "niveau": "2de",
+    "role_relecteur": "Formateur académique, relecture disciplinaire",
+    "revue_le": "2026-08-05",
+    "points_verifies": {
+      "objectif": true,
+      "niveau": true,
+      "vocabulaire": true,
+      "source": false,
+      "cua": true,
+      "modalite_evaluee": true,
+      "confidentialite": true
+    },
+    "decision": "maintien en exemple contextualisé",
+    "limites": "Le référentiel d'évaluation certificative n'a pas pu être daté ; le repère reste un exemple de conception.",
+    "reference_decision": "issue fictive #001",
+    "donnees_personnelles": false
+  },
+  {
+    "id": "revue-voie-professionnelle-fictive",
+    "famille": "voie-professionnelle-cfa",
+    "niveau": "CAP / CFA",
+    "role_relecteur": "Pair compétent sur le diplôme, relecture disciplinaire",
+    "revue_le": "2026-08-05",
+    "points_verifies": {
+      "objectif": true,
+      "niveau": true,
+      "vocabulaire": true,
+      "source": false,
+      "cua": true,
+      "modalite_evaluee": true,
+      "confidentialite": true
+    },
+    "decision": "rétrogradation",
+    "motif_retrogradation": "Le référentiel de diplôme cité a été remplacé ; la revue trimestrielle des sources a signalé un changement constaté.",
+    "limites": "La rétrogradation porte sur ce seul niveau ; les repères transversaux de la famille restent utilisables.",
+    "reference_decision": "issue fictive #002 et journal de version",
+    "donnees_personnelles": false
+  }
+]

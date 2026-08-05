@@ -5,7 +5,7 @@ description: Préparer une séquence, une séance ou un support de la PS au CFA 
 
 # Préparer et différencier
 
-Lire `references/cua-et-accessibilite.md`, `references/sources-et-droits.md` et `references/connecteurs-publics-institutionnels.md`, puis récupérer le profil, le style validé et les ressources locales pertinentes. Quand la discipline est connue, consulter `references/profils-disciplinaires.md` pour choisir des obstacles plausibles et des formes de trace cohérentes ; ce sont des repères de conception, jamais une prescription de programme.
+Lire `references/cua-et-accessibilite.md`, `references/sources-et-droits.md` et `references/connecteurs-publics-institutionnels.md`, puis récupérer le profil, le style validé et les ressources locales pertinentes. Quand la discipline est connue, consulter `references/profils-disciplinaires.md` pour choisir des obstacles plausibles et des formes de trace cohérentes ; ce sont des repères de conception, jamais une prescription de programme. Aucune famille n'étant en couverture validée, signaler la limite quand la demande dépend d'un programme ou d'un référentiel.
 
 1. Demander l'objectif, le niveau, la durée, les prérequis, la discipline, le contexte matériel et la source de programme.
 2. Définir le critère de réussite avant de choisir les activités.

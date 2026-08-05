@@ -5,7 +5,7 @@ description: Construire une programmation annuelle par périodes, alignée sur u
 
 # Programmation annuelle
 
-Lire `references/niveaux-et-cycles.md`, `references/sources-et-droits.md`, `references/connecteurs-publics-institutionnels.md`, `references/revue-sources-institutionnelles.md`, `references/matrice-couverture-discipline-niveau.md` et `references/cua-et-accessibilite.md`. Consulter `references/profils-disciplinaires.md` pour les repères propres à la famille disciplinaire, sans y chercher un programme : les éléments qui en dépendent restent à vérifier auprès de la source datée.
+Lire `references/niveaux-et-cycles.md`, `references/sources-et-droits.md`, `references/connecteurs-publics-institutionnels.md`, `references/revue-sources-institutionnelles.md`, `references/matrice-couverture-discipline-niveau.md` et `references/cua-et-accessibilite.md`. Consulter `references/profils-disciplinaires.md` pour les repères propres à la famille disciplinaire, sans y chercher un programme : les éléments qui en dépendent restent à vérifier auprès de la source datée. Aucune famille n'étant en couverture validée, signaler la limite quand la demande dépend d'un programme ou d'un référentiel.
 
 1. Demander le niveau, la discipline, le calendrier local, le lien ou la référence du programme applicable et les contraintes réelles.
 2. Citer la source et sa date de consultation ; vérifier son statut dans le registre de revue et ne pas prétendre à une mise à jour automatique des programmes.
