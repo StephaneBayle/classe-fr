@@ -34,6 +34,7 @@ REQUIRED_REFERENCES = {
     "matrice-couverture-discipline-niveau.md",
     "profils-disciplinaires.md",
     "revue-disciplinaire.md",
+    "indexation-dossiers-locaux.md",
 }
 REQUIRED_CONTENT = {
     "references/cua-et-accessibilite.md": (
@@ -144,6 +145,16 @@ REQUIRED_CONTENT = {
         "journal de version",
         "Classe FR n'est pas une autorité pédagogique",
     ),
+    "references/indexation-dossiers-locaux.md": (
+        "Métadonnées seulement",
+        "Indexation par référence",
+        "Crible avant indexation",
+        "Un dossier, pas le disque",
+        "Ne rien deviner",
+        "son nom n'est jamais affiché",
+        "signale, il ne certifie pas",
+        "Rien n'entre sans validation",
+    ),
 }
 CLAUDE_REQUIRED_TERMS = (
     "classe-fr-pedagogie",
@@ -253,6 +264,16 @@ def validate(root: Path) -> list[str]:
     fixture = root / "tests" / "fixtures" / "parcours-pedagogiques-fictifs.json"
     if not parcours_validator.is_file() or not fixture.is_file():
         fail(errors, "Les parcours pédagogiques fictifs et leur validateur sont requis.")
+    indexer = plugin / "scripts" / "indexer_dossier_ressources.py"
+    if not indexer.is_file():
+        fail(errors, "Le script d'indexation d'un dossier local est requis.")
+    else:
+        contenu_indexer = indexer.read_text(encoding="utf-8")
+        for terme in ("VOLUME_MAXIMUM", "signaux_du_nom", "normaliser"):
+            if terme not in contenu_indexer:
+                fail(errors, f"Le script d'indexation est incomplet : {terme}")
+        if "read_text" in contenu_indexer or "open(" in contenu_indexer:
+            fail(errors, "Le script d'indexation ne doit jamais lire le contenu des fichiers.")
     review_validator = plugin / "scripts" / "validate_revue_disciplinaire.py"
     review_fixture = root / "tests" / "fixtures" / "revues-disciplinaires-fictives.json"
     if not review_validator.is_file() or not review_fixture.is_file():
