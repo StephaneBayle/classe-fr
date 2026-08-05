@@ -14,18 +14,18 @@ Cette matrice décrit le périmètre réellement documenté du pilote ; elle ne 
 
 ## Couverture par famille disciplinaire
 
-Cette seconde entrée relit le même périmètre par famille disciplinaire, à partir de `references/profils-disciplinaires.md`. Une famille passe d'« Appui transversal » à « Exemple contextualisé » uniquement lorsqu'un parcours fictif documente un contexte de cette famille. Un exemple fictif ne vaut jamais prescription et la colonne « Couverture validée » reste « À construire » partout, faute de revue humaine disciplinaire.
+Cette seconde entrée relit le même périmètre par famille disciplinaire, à partir de `references/profils-disciplinaires.md`. Une famille passe d'« Appui transversal » à « Exemple contextualisé » uniquement lorsqu'un parcours fictif documente un contexte de cette famille. Les dix familles ont désormais au moins un parcours ; c'est un progrès de couverture d'exemples, pas de validation. Un exemple fictif ne vaut jamais prescription et la colonne « Couverture validée » reste « À construire » partout, faute de revue humaine disciplinaire.
 
 | Niveau ou voie | Famille disciplinaire | Appui transversal | Exemple contextualisé | Statut de couverture | Couverture validée | Preuve actuelle |
 | --- | --- | --- | --- | --- | --- | --- |
 | CP | Français | CUA, préparation, évaluation | Repérer une information explicitement écrite | Exemple contextualisé | À construire | Profil `francais` et parcours fictif `cp` |
 | CM1 / 6e | Mathématiques | CUA, préparation, programmation | Comparer deux fractions simples | Exemple contextualisé | À construire | Profil `mathematiques` et parcours fictif `cm1-6e` |
-| PS au CFA | Histoire, géographie et EMC | CUA, préparation, évaluation | Aucun parcours fictif à ce stade | Appui transversal | À construire | Profil `histoire-geographie-emc` |
+| 4e | Histoire, géographie et EMC | CUA, préparation, évaluation | Mettre en relation deux documents fictifs | Exemple contextualisé | À construire | Profil `histoire-geographie-emc` et parcours fictif `college-histoire-geographie-emc` |
 | Collège et lycée général ou technologique | Sciences, SVT et physique-chimie | CUA, préparation, évaluation | Interpréter un graphique ; justifier une démarche | Exemple contextualisé | À construire | Profil `sciences-svt-physique-chimie` et parcours fictifs `college` et `lycee-general-technologique` |
-| PS au CFA | Langues vivantes | CUA, préparation, évaluation | Aucun parcours fictif à ce stade | Appui transversal | À construire | Profil `langues-vivantes` |
-| PS au CFA | Technologie et numérique | CUA, style de support, bibliothèque | Aucun parcours fictif à ce stade | Appui transversal | À construire | Profil `technologie-numerique` |
-| PS au CFA | Arts plastiques et éducation musicale | CUA, style de support | Aucun parcours fictif à ce stade | Appui transversal | À construire | Profil `arts-plastiques-education-musicale` |
-| PS au CFA | Éducation physique et sportive | CUA, préparation | Aucun parcours fictif à ce stade | Appui transversal | À construire | Profil `eps` |
+| CM2 | Langues vivantes | CUA, préparation, évaluation | Comprendre un document audio court | Exemple contextualisé | À construire | Profil `langues-vivantes` et parcours fictif `cm2-langues-vivantes` |
+| 4e | Technologie et numérique | CUA, style de support, bibliothèque | Expliciter une démarche de modification technique | Exemple contextualisé | À construire | Profil `technologie-numerique` et parcours fictif `college-technologie-numerique` |
+| CM2 et 6e | Arts plastiques et éducation musicale | CUA, style de support | Expliciter deux choix plastiques ; repérer un contraste sonore | Exemple contextualisé | À construire | Profil `arts-plastiques-education-musicale` et parcours fictifs `cm2-arts-plastiques` et `college-education-musicale` |
+| 2de | Éducation physique et sportive | CUA, préparation | Réaliser une performance motrice et l'analyser | Exemple contextualisé | À construire | Profil `eps` et parcours fictif `lycee-eps` |
 | Lycée professionnel ou CFA | Voie professionnelle et CFA | CUA, préparation, programmation | Ordonner une procédure professionnelle fictive | Exemple contextualisé | À construire | Profil `voie-professionnelle-cfa` et parcours fictif `lycee-professionnel-cfa` |
 | PS | Maternelle, par domaines d'apprentissage | CUA, préparation, support imprimable | Ordonner les étapes d'un récit entendu | Exemple contextualisé | À construire | Profil `maternelle` et parcours fictif `ps` |
 
@@ -37,7 +37,7 @@ Les statuts de ce tableau sont tenus identiques à ceux de `tests/fixtures/profi
 - **Exemple contextualisé** : un parcours fictif documente un objectif invariant, des obstacles, des options CUA, une source et une sortie courte pour un contexte donné.
 - **Couverture validée** : un parcours contextualisé a été revu par une personne compétente sur le niveau et la discipline, avec une source datée et une décision consignée. **Aucune cellule n'atteint encore ce niveau dans le pilote.**
 
-Les six parcours du premier lot sont conservés dans `tests/fixtures/parcours-pedagogiques-fictifs.json` et résumés dans `references/parcours-pedagogiques-fictifs.md`. Ils permettent de vérifier l'objectif invariant, les obstacles, les trois entrées CUA, la source documentée, l'absence de donnée personnelle et le support imprimable ; ce ne sont pas des séquences prêtes à prescrire.
+Les douze parcours fictifs sont conservés dans `tests/fixtures/parcours-pedagogiques-fictifs.json` et résumés dans `references/parcours-pedagogiques-fictifs.md`. Ils permettent de vérifier l'objectif invariant, les obstacles, les trois entrées CUA, la source documentée, l'absence de donnée personnelle et le support imprimable ; ce ne sont pas des séquences prêtes à prescrire.
 
 ## Prioriser les prochaines contributions
 

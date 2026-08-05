@@ -598,14 +598,52 @@ class ClasseFrTests(unittest.TestCase):
         avec_exemple = [
             profil for profil in profils if profil["statut_couverture"] == "exemple contextualisé"
         ]
-        self.assertEqual(len(avec_exemple), 5)
+        self.assertEqual(len(avec_exemple), len(profils))
         for fragment in (
-            "en français, en mathématiques, en sciences, SVT et physique-chimie, "
-            "en voie professionnelle et CFA, et en maternelle",
-            "Les cinq autres familles",
-            "n’ont pour l’instant qu’un appui transversal",
+            "Les dix familles disciplinaires disposent donc d’au moins un exemple fictif.",
+            "pas qu’une matière est validée",
+            "Aucune discipline n’est aujourd’hui couverte comme validée",
         ):
             self.assertIn(fragment, page)
+
+    def test_parcours_fictifs_couvrent_les_grandes_familles_disciplinaires(self):
+        module = load_module(PARCOURS_VALIDATOR, "validate_parcours_fictifs_familles")
+        cas = json.loads(PARCOURS_FIXTURE.read_text(encoding="utf-8"))
+        profils = json.loads(PROFILES_FIXTURE.read_text(encoding="utf-8"))
+
+        self.assertEqual(module.FAMILY_IDS, {profil["id"] for profil in profils})
+        self.assertEqual({case["famille"] for case in cas}, module.FAMILY_IDS)
+        self.assertGreaterEqual(len(cas), 12)
+
+    def test_parcours_sans_famille_connue_est_refuse(self):
+        module = load_module(PARCOURS_VALIDATOR, "validate_parcours_fictifs_famille_inconnue")
+        cas = json.loads(PARCOURS_FIXTURE.read_text(encoding="utf-8"))
+        case_non_conforme = copy.deepcopy(cas[0])
+        case_non_conforme["famille"] = "philosophie"
+
+        errors = module.validate_case(case_non_conforme)
+
+        self.assertTrue(
+            any("doit se rattacher à une famille" in error for error in errors),
+            errors,
+        )
+
+    def test_validateur_parcours_signale_une_famille_sans_parcours(self):
+        module = load_module(PARCOURS_VALIDATOR, "validate_parcours_fictifs_famille_absente")
+        cas = copy.deepcopy(json.loads(PARCOURS_FIXTURE.read_text(encoding="utf-8")))
+        for case in cas:
+            if case["famille"] == "eps":
+                case["famille"] = "francais"
+
+        with tempfile.TemporaryDirectory() as temporary:
+            fichier = Path(temporary) / "parcours.json"
+            fichier.write_text(json.dumps(cas, ensure_ascii=False), encoding="utf-8")
+            errors = module.validate_dataset(fichier)
+
+        self.assertEqual(
+            errors,
+            ["Les familles disciplinaires sans parcours fictif sont : eps."],
+        )
 
     def test_reference_profils_disciplinaires_reste_prudente(self):
         reference = PROFILES_REFERENCE.read_text(encoding="utf-8")

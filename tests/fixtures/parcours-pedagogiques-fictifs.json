@@ -3,15 +3,31 @@
     "id": "ps",
     "niveau": "Petite section",
     "discipline": "Langage oral",
+    "famille": "maternelle",
     "objectif_invariant": "Remettre trois étapes d'un récit entendu dans l'ordre.",
-    "obstacles": ["Consigne longue", "Repérage temporel abstrait"],
+    "obstacles": [
+      "Consigne longue",
+      "Repérage temporel abstrait"
+    ],
     "options_cua": {
-      "engagement": ["Choisir une carte de départ", "Raconter en petit groupe"],
-      "representations": ["Écoute du récit", "Images séquentielles manipulables"],
-      "action_expression": ["Montrer les images dans l'ordre", "Raconter oralement avec les images"]
+      "engagement": [
+        "Choisir une carte de départ",
+        "Raconter en petit groupe"
+      ],
+      "representations": [
+        "Écoute du récit",
+        "Images séquentielles manipulables"
+      ],
+      "action_expression": [
+        "Montrer les images dans l'ordre",
+        "Raconter oralement avec les images"
+      ]
     },
     "modalite_evaluee": null,
-    "modalites_expression": ["Montrer les images dans l'ordre", "Raconter oralement avec les images"],
+    "modalites_expression": [
+      "Montrer les images dans l'ordre",
+      "Raconter oralement avec les images"
+    ],
     "source": {
       "organisme": "Éduscol",
       "url": "https://eduscol.education.gouv.fr/4341/enseigner-au-cycle-1",
@@ -25,15 +41,31 @@
     "id": "cp",
     "niveau": "CP",
     "discipline": "Français",
+    "famille": "francais",
     "objectif_invariant": "Repérer une information explicitement écrite dans une phrase courte.",
-    "obstacles": ["Vocabulaire de la consigne", "Repérage visuel dans la phrase"],
+    "obstacles": [
+      "Vocabulaire de la consigne",
+      "Repérage visuel dans la phrase"
+    ],
     "options_cua": {
-      "engagement": ["Exemple proche d'une situation connue", "Temps de recherche en binôme"],
-      "representations": ["Consigne lue et écrite", "Mot-clé mis en évidence par un encadré"],
-      "action_expression": ["Pointer la réponse", "Entourer la réponse"]
+      "engagement": [
+        "Exemple proche d'une situation connue",
+        "Temps de recherche en binôme"
+      ],
+      "representations": [
+        "Consigne lue et écrite",
+        "Mot-clé mis en évidence par un encadré"
+      ],
+      "action_expression": [
+        "Pointer la réponse",
+        "Entourer la réponse"
+      ]
     },
     "modalite_evaluee": null,
-    "modalites_expression": ["Pointer la réponse", "Entourer la réponse"],
+    "modalites_expression": [
+      "Pointer la réponse",
+      "Entourer la réponse"
+    ],
     "source": {
       "organisme": "Éduscol",
       "url": "https://eduscol.education.fr/",
@@ -47,15 +79,31 @@
     "id": "cm1-6e",
     "niveau": "CM1 / 6e",
     "discipline": "Mathématiques",
+    "famille": "mathematiques",
     "objectif_invariant": "Comparer deux fractions simples représentées.",
-    "obstacles": ["Passage entre dessin et écriture fractionnaire", "Lexique de comparaison"],
+    "obstacles": [
+      "Passage entre dessin et écriture fractionnaire",
+      "Lexique de comparaison"
+    ],
     "options_cua": {
-      "engagement": ["Défi de comparaison à deux", "Justification choisie parmi deux amorces"],
-      "representations": ["Bandes fractionnées", "Écriture fractionnaire structurée"],
-      "action_expression": ["Classer les cartes", "Expliquer la comparaison oralement"]
+      "engagement": [
+        "Défi de comparaison à deux",
+        "Justification choisie parmi deux amorces"
+      ],
+      "representations": [
+        "Bandes fractionnées",
+        "Écriture fractionnaire structurée"
+      ],
+      "action_expression": [
+        "Classer les cartes",
+        "Expliquer la comparaison oralement"
+      ]
     },
     "modalite_evaluee": null,
-    "modalites_expression": ["Classer les cartes", "Expliquer la comparaison oralement"],
+    "modalites_expression": [
+      "Classer les cartes",
+      "Expliquer la comparaison oralement"
+    ],
     "source": {
       "organisme": "Éduscol",
       "url": "https://eduscol.education.gouv.fr/4356/enseigner-au-cycle-3",
@@ -69,15 +117,31 @@
     "id": "college",
     "niveau": "5e",
     "discipline": "Sciences de la vie et de la Terre",
+    "famille": "sciences-svt-physique-chimie",
     "objectif_invariant": "Interpréter une variation simple dans un graphique de données.",
-    "obstacles": ["Lecture des axes", "Vocabulaire d'interprétation"],
+    "obstacles": [
+      "Lecture des axes",
+      "Vocabulaire d'interprétation"
+    ],
     "options_cua": {
-      "engagement": ["Question scientifique contextualisée", "Prédiction avant lecture"],
-      "representations": ["Graphique contrasté et légendé", "Tableau de données associé"],
-      "action_expression": ["Annoter une tendance", "Expliquer la tendance oralement"]
+      "engagement": [
+        "Question scientifique contextualisée",
+        "Prédiction avant lecture"
+      ],
+      "representations": [
+        "Graphique contrasté et légendé",
+        "Tableau de données associé"
+      ],
+      "action_expression": [
+        "Annoter une tendance",
+        "Expliquer la tendance oralement"
+      ]
     },
     "modalite_evaluee": null,
-    "modalites_expression": ["Annoter une tendance", "Expliquer la tendance oralement"],
+    "modalites_expression": [
+      "Annoter une tendance",
+      "Expliquer la tendance oralement"
+    ],
     "source": {
       "organisme": "Éduscol",
       "url": "https://eduscol.education.fr/",
@@ -91,15 +155,29 @@
     "id": "lycee-general-technologique",
     "niveau": "Première générale",
     "discipline": "Physique-chimie",
+    "famille": "sciences-svt-physique-chimie",
     "objectif_invariant": "Justifier une démarche de résolution à partir de données fournies.",
-    "obstacles": ["Sélection des données utiles", "Planification de la démarche"],
+    "obstacles": [
+      "Sélection des données utiles",
+      "Planification de la démarche"
+    ],
     "options_cua": {
-      "engagement": ["Temps d'anticipation individuel", "Mise en commun des stratégies"],
-      "representations": ["Énoncé découpé en étapes", "Exemple de raisonnement non résolu"],
-      "action_expression": ["Rédiger une justification structurée"]
+      "engagement": [
+        "Temps d'anticipation individuel",
+        "Mise en commun des stratégies"
+      ],
+      "representations": [
+        "Énoncé découpé en étapes",
+        "Exemple de raisonnement non résolu"
+      ],
+      "action_expression": [
+        "Rédiger une justification structurée"
+      ]
     },
     "modalite_evaluee": "Rédiger une justification structurée",
-    "modalites_expression": ["Rédiger une justification structurée"],
+    "modalites_expression": [
+      "Rédiger une justification structurée"
+    ],
     "source": {
       "organisme": "Éduscol",
       "url": "https://eduscol.education.fr/",
@@ -113,15 +191,31 @@
     "id": "lycee-professionnel-cfa",
     "niveau": "CAP / CFA",
     "discipline": "Enseignement professionnel",
+    "famille": "voie-professionnelle-cfa",
     "objectif_invariant": "Identifier et ordonner les étapes d'une procédure professionnelle fictive.",
-    "obstacles": ["Vocabulaire métier", "Mémorisation des étapes"],
+    "obstacles": [
+      "Vocabulaire métier",
+      "Mémorisation des étapes"
+    ],
     "options_cua": {
-      "engagement": ["Situation professionnelle fictive", "Vérification entre pairs"],
-      "representations": ["Démonstration commentée", "Fiche illustrée avec libellés"],
-      "action_expression": ["Mettre les étapes dans l'ordre", "Expliquer l'enchaînement à l'oral"]
+      "engagement": [
+        "Situation professionnelle fictive",
+        "Vérification entre pairs"
+      ],
+      "representations": [
+        "Démonstration commentée",
+        "Fiche illustrée avec libellés"
+      ],
+      "action_expression": [
+        "Mettre les étapes dans l'ordre",
+        "Expliquer l'enchaînement à l'oral"
+      ]
     },
     "modalite_evaluee": null,
-    "modalites_expression": ["Mettre les étapes dans l'ordre", "Expliquer l'enchaînement à l'oral"],
+    "modalites_expression": [
+      "Mettre les étapes dans l'ordre",
+      "Expliquer l'enchaînement à l'oral"
+    ],
     "source": {
       "organisme": "Éduscol",
       "url": "https://eduscol.education.fr/",
@@ -130,5 +224,237 @@
     "donnees_personnelles": false,
     "support_imprimable": "Fiche procédure A4 avec pictogrammes et consignes textuelles.",
     "sortie_attendue": "La procédure reste le même savoir visé ; démonstration et fiche soutiennent l'accès sans réduire l'exigence."
+  },
+  {
+    "id": "college-histoire-geographie-emc",
+    "niveau": "4e",
+    "discipline": "Histoire",
+    "famille": "histoire-geographie-emc",
+    "objectif_invariant": "Mettre en relation deux documents fictifs pour répondre à une question posée.",
+    "obstacles": [
+      "Densité des deux documents",
+      "Repères chronologiques fragiles",
+      "Lexique spécialisé"
+    ],
+    "options_cua": {
+      "engagement": [
+        "Question de départ contextualisée",
+        "Confrontation des réponses en binôme"
+      ],
+      "representations": [
+        "Corpus limité à deux documents courts",
+        "Frise repère accompagnant les documents"
+      ],
+      "action_expression": [
+        "Compléter un tableau de comparaison",
+        "Expliquer la mise en relation à l'oral"
+      ]
+    },
+    "modalite_evaluee": null,
+    "modalites_expression": [
+      "Compléter un tableau de comparaison",
+      "Expliquer la mise en relation à l'oral"
+    ],
+    "source": {
+      "organisme": "Éduscol",
+      "url": "https://eduscol.education.fr/",
+      "consultee_le": "2026-08-05"
+    },
+    "donnees_personnelles": false,
+    "support_imprimable": "Deux documents fictifs sur une page A4, texte aéré et frise en niveaux de gris.",
+    "sortie_attendue": "La mise en relation reste l'objectif ; tableau et oral y donnent accès sans réduire l'exigence."
+  },
+  {
+    "id": "cm2-langues-vivantes",
+    "niveau": "CM2",
+    "discipline": "Langue vivante étrangère",
+    "famille": "langues-vivantes",
+    "objectif_invariant": "Comprendre l'information principale d'un document audio court en langue cible.",
+    "obstacles": [
+      "Débit de la ressource audio",
+      "Lexique inconnu",
+      "Mémorisation pendant l'écoute"
+    ],
+    "options_cua": {
+      "engagement": [
+        "Thème choisi parmi deux",
+        "Écoute d'entraînement avant l'écoute de travail"
+      ],
+      "representations": [
+        "Audio accompagné de sa transcription",
+        "Banque d'expressions affichée"
+      ],
+      "action_expression": [
+        "Cocher les informations entendues",
+        "Restituer l'information principale à l'oral"
+      ]
+    },
+    "modalite_evaluee": null,
+    "modalites_expression": [
+      "Cocher les informations entendues",
+      "Restituer l'information principale à l'oral"
+    ],
+    "source": {
+      "organisme": "Éduscol",
+      "url": "https://eduscol.education.fr/",
+      "consultee_le": "2026-08-05"
+    },
+    "donnees_personnelles": false,
+    "support_imprimable": "Grille d'écoute A4 avec transcription au verso et consigne par bloc.",
+    "sortie_attendue": "L'activité langagière évaluée reste la compréhension orale ; seul l'accès à l'écoute varie."
+  },
+  {
+    "id": "college-technologie-numerique",
+    "niveau": "4e",
+    "discipline": "Technologie",
+    "famille": "technologie-numerique",
+    "objectif_invariant": "Expliciter la démarche suivie pour modifier une solution technique fictive.",
+    "obstacles": [
+      "Enchaînement de manipulations à mémoriser",
+      "Hétérogénéité des postes disponibles",
+      "Vocabulaire technique"
+    ],
+    "options_cua": {
+      "engagement": [
+        "Besoin fictif relié à un usage concret",
+        "Binôme opérateur et observateur"
+      ],
+      "representations": [
+        "Procédure illustrée étape par étape",
+        "Version papier de l'activité en cas de panne"
+      ],
+      "action_expression": [
+        "Compléter une fiche de démarche",
+        "Expliquer la démarche à l'oral"
+      ]
+    },
+    "modalite_evaluee": null,
+    "modalites_expression": [
+      "Compléter une fiche de démarche",
+      "Expliquer la démarche à l'oral"
+    ],
+    "source": {
+      "organisme": "Éduscol",
+      "url": "https://eduscol.education.fr/",
+      "consultee_le": "2026-08-05"
+    },
+    "donnees_personnelles": false,
+    "support_imprimable": "Fiche de démarche A4 utilisable sans équipement, pictogrammes et libellés textuels.",
+    "sortie_attendue": "L'explicitation de la démarche reste évaluée ; la maîtrise de l'outil n'est pas l'objectif."
+  },
+  {
+    "id": "cm2-arts-plastiques",
+    "niveau": "CM2",
+    "discipline": "Arts plastiques",
+    "famille": "arts-plastiques-education-musicale",
+    "objectif_invariant": "Expliciter deux choix plastiques faits dans une production personnelle.",
+    "obstacles": [
+      "Exposition au regard du groupe",
+      "Consigne ouverte déstabilisante",
+      "Verbalisation des choix"
+    ],
+    "options_cua": {
+      "engagement": [
+        "Contrainte de départ choisie parmi deux",
+        "Critères de réussite affichés"
+      ],
+      "representations": [
+        "Références visuelles commentées",
+        "Exemple de verbalisation courte"
+      ],
+      "action_expression": [
+        "Légender la production",
+        "Expliquer ses choix à l'oral"
+      ]
+    },
+    "modalite_evaluee": null,
+    "modalites_expression": [
+      "Légender la production",
+      "Expliquer ses choix à l'oral"
+    ],
+    "source": {
+      "organisme": "Éduscol",
+      "url": "https://eduscol.education.fr/",
+      "consultee_le": "2026-08-05"
+    },
+    "donnees_personnelles": false,
+    "support_imprimable": "Fiche de légende A4 en noir et blanc avec amorces de phrases.",
+    "sortie_attendue": "La démarche reste l'objectif ; l'habileté technique n'est pas ce qui est évalué ici."
+  },
+  {
+    "id": "college-education-musicale",
+    "niveau": "6e",
+    "discipline": "Éducation musicale",
+    "famille": "arts-plastiques-education-musicale",
+    "objectif_invariant": "Repérer et nommer un contraste sonore dans un extrait fictif.",
+    "obstacles": [
+      "Lexique de description sonore",
+      "Mémorisation de l'extrait",
+      "Prise de parole devant le groupe"
+    ],
+    "options_cua": {
+      "engagement": [
+        "Écoute guidée par une question simple",
+        "Réponse préparée en petit groupe"
+      ],
+      "representations": [
+        "Extrait réécoutable à la demande",
+        "Lexique de description affiché"
+      ],
+      "action_expression": [
+        "Montrer le contraste sur une frise d'écoute",
+        "Nommer le contraste à l'oral"
+      ]
+    },
+    "modalite_evaluee": null,
+    "modalites_expression": [
+      "Montrer le contraste sur une frise d'écoute",
+      "Nommer le contraste à l'oral"
+    ],
+    "source": {
+      "organisme": "Éduscol",
+      "url": "https://eduscol.education.fr/",
+      "consultee_le": "2026-08-05"
+    },
+    "donnees_personnelles": false,
+    "support_imprimable": "Frise d'écoute A4 avec lexique encadré et repères non colorés.",
+    "sortie_attendue": "Le repérage du contraste reste l'objectif ; deux façons équivalentes de le montrer sont acceptées."
+  },
+  {
+    "id": "lycee-eps",
+    "niveau": "2de",
+    "discipline": "Éducation physique et sportive",
+    "famille": "eps",
+    "objectif_invariant": "Réaliser une performance motrice fictive et analyser son résultat.",
+    "obstacles": [
+      "Exposition au regard du groupe",
+      "Consigne procédurale longue",
+      "Gestion de l'effort"
+    ],
+    "options_cua": {
+      "engagement": [
+        "Niveau de contrainte choisi",
+        "Objectif de progrès personnel visible"
+      ],
+      "representations": [
+        "Démonstration accompagnée d'une fiche illustrée",
+        "Critères de réussite affichés"
+      ],
+      "action_expression": [
+        "Réaliser la performance motrice"
+      ]
+    },
+    "modalite_evaluee": "Réaliser la performance motrice",
+    "modalites_expression": [
+      "Réaliser la performance motrice"
+    ],
+    "source": {
+      "organisme": "Éduscol",
+      "url": "https://eduscol.education.fr/",
+      "consultee_le": "2026-08-05"
+    },
+    "donnees_personnelles": false,
+    "support_imprimable": "Fiche de suivi A4 avec critères observables et repères sans code couleur.",
+    "sortie_attendue": "La réalisation motrice reste évaluée ; seules les conditions d'accès et d'analyse varient."
   }
 ]
