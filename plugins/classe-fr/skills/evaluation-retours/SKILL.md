@@ -5,7 +5,7 @@ description: Concevoir des évaluations, grilles et retours pédagogiques anonym
 
 # Évaluation et retours
 
-Lire `references/confidentialite.md` et `references/cua-et-accessibilite.md`.
+Lire `references/confidentialite.md` et `references/cua-et-accessibilite.md`. Quand la discipline est connue, consulter `references/profils-disciplinaires.md` pour repérer ce qui y est souvent évalué et ne pas remplacer une modalité qui constitue l'objectif.
 
 1. Demander l'objectif, les critères observables, le niveau, la durée et la modalité strictement nécessaire à l'évaluation.
 2. Concevoir une grille courte avec critères, indicateurs et prochaines étapes pédagogiques ; bannir les jugements sur la personne.

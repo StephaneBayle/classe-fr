@@ -500,25 +500,73 @@ class ClasseFrTests(unittest.TestCase):
         reference = PROFILES_REFERENCE.read_text(encoding="utf-8")
 
         for element in (
-            "Français et langage",
-            "Mathématiques",
-            "Sciences et technologie",
-            "Langues vivantes",
-            "Histoire, géographie et EMC",
-            "Arts et éducation physique et sportive",
-            "Enseignement professionnel et technologique",
-            "à vérifier",
+            "## Français",
+            "## Mathématiques",
+            "## Histoire, géographie et EMC",
+            "## Sciences, SVT et physique-chimie",
+            "## Langues vivantes",
+            "## Technologie et numérique",
+            "## Arts plastiques et éducation musicale",
+            "## Éducation physique et sportive",
+            "## Voie professionnelle et CFA",
+            "## Maternelle, par domaines d'apprentissage",
+            "Repère transversal",
+            "Vigilance disciplinaire",
+            "Source à vérifier",
             "revue humaine disciplinaire",
             "objectif invariant",
-            "modalité évaluée",
-            "Aucune famille n'atteint ce niveau",
-            "engagement",
-            "représentation",
-            "action et expression",
+            "Modalité évaluée",
+            "Aucune famille n'atteint le niveau",
+            "Engagement, représentation, action et expression",
             "fictives ou anonymisées",
         ):
             self.assertIn(element, reference)
         self.assertNotIn("[TODO:", reference)
+
+    def test_chaque_profil_disciplinaire_documente_les_six_reperes_attendus(self):
+        reference = PROFILES_REFERENCE.read_text(encoding="utf-8")
+        familles = [
+            "## Français",
+            "## Mathématiques",
+            "## Histoire, géographie et EMC",
+            "## Sciences, SVT et physique-chimie",
+            "## Langues vivantes",
+            "## Technologie et numérique",
+            "## Arts plastiques et éducation musicale",
+            "## Éducation physique et sportive",
+            "## Voie professionnelle et CFA",
+            "## Maternelle, par domaines d'apprentissage",
+        ]
+
+        for famille in familles:
+            debut = reference.index(famille)
+            suivants = [
+                reference.index(autre)
+                for autre in familles + ["## Contrôle automatique"]
+                if reference.index(autre) > debut
+            ]
+            entree = reference[debut : min(suivants)]
+            for repere in (
+                "**Souvent évalué**",
+                "**Obstacles fréquents**",
+                "**Options CUA utiles**",
+                "**Formes de trace**",
+                "**Vigilance**",
+                "**Sources à vérifier**",
+            ):
+                self.assertIn(repere, entree, f"{famille} sans {repere}")
+
+    def test_competences_peuvent_lire_les_profils_disciplinaires(self):
+        for nom in (
+            "preparation-differenciation",
+            "programmation-annuelle",
+            "evaluation-retours",
+            "cua-accessibilite-pedagogique",
+        ):
+            contenu = (
+                ROOT / "plugins" / "classe-fr" / "skills" / nom / "SKILL.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("references/profils-disciplinaires.md", contenu, nom)
 
     def test_profils_disciplinaires_couvrent_les_grandes_familles(self):
         module = load_module(PROFILES_VALIDATOR, "validate_profils_disciplinaires")
@@ -604,7 +652,7 @@ class ClasseFrTests(unittest.TestCase):
             errors = module.validate_dataset(fichier)
 
         self.assertIn(
-            "francais-et-langage : le profil contient un signal de donnée personnelle.",
+            "francais : le profil contient un signal de donnée personnelle.",
             errors,
         )
 
@@ -619,7 +667,7 @@ class ClasseFrTests(unittest.TestCase):
 
         self.assertEqual(
             errors,
-            ["Les grandes familles disciplinaires manquantes sont : francais-et-langage."],
+            ["Les grandes familles disciplinaires manquantes sont : francais."],
         )
 
 
